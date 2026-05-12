@@ -1,0 +1,117 @@
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  width: clamp(32px, 8vw, 90px);
+  height: clamp(32px, 8vw, 90px);
+}
+
+.top-section {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: flex-start;
+  gap: 0px;
+}
+
+/* ---- Hero ---- */
+.hero-title-block {
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.hero-title {
+  font-size: clamp(24px, 4vw, 48px);
+  letter-spacing: -0.1px;
+}
+
+.hero-name {
+  font-family: "Madimi One", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: clamp(0.5rem, 2vw, 1.5rem);
+  font-size: clamp(16px, 4vw, 32px);
+  font-weight: 400;
+}
+
+.name-nickname {
+  background: var(--color-green);
+  color: var(--color-lime);
+  font-size: clamp(24px, 4vw, 48px);
+  padding: 0px 16px;
+  border-radius: 99px;
+  letter-spacing: -0.1px;
+}
+
+/* ---- Hero Section with Image and Folders ---- */
+.heroName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroTop {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.hero {
+  gap: 60px;
+}
+/* 
+.hero-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  min-width: 280px;
+   margin: 0 auto;
+} */
+
+.hero-image {
+  grid-column: 2; /* center column */
+}
+
+.hero-img {
+  max-width: 100%;
+  height: auto;
+  width: clamp(280px, 60vw, 600px);
+  object-fit: contain;
+}
+
+@media (max-width: 767px) {
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+  .site-header {
+    padding-top: 0px;
+  }
+  
+  .hero {
+    flex-direction: column;
+    gap: 24px;
+  }
+  
+  .hero-img {
+    width: clamp(200px, 80vw, 400px);
+  }
+
+    .heroTop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-image {
+    grid-column: unset; /* reset the grid column */
+    min-width: auto;
+  }
+}

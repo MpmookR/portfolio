@@ -1,0 +1,72 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-bg: #FFFEEE;
+
+  --color-pink: #FBA49A;
+  --color-green: #187C26;
+  --color-red: #C4381D;
+  --color-lime: #D5DF7E;
+
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+}
+
+:root {
+  --fw-light: 300;
+  --fw-regular: 400;
+  --fw-semibold: 600;
+  --fw-bold: 800;
+}
+
+/* Base */
+h1, h2, h3 {
+  font-family: "Madimi One", sans-serif;
+  margin: 0;
+}
+
+h1 {
+  font-size: 20px;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+p, footer {
+  margin: 0;
+  padding: 0;
+  font-family: "Rethink Sans", sans-serif;
+}
+
+p {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+footer {
+    font-size: 11px;
+    font-weight: var(--fw-light);
+}
+
+.containerMain {
+ padding: 32px 60px 0px 60px;
+}
+
+.containerBG { 
+   background-color: var(--color-bg);
+}
+
+.container {
+  padding: 32px 16px;
+}
+

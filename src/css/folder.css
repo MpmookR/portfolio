@@ -1,0 +1,55 @@
+/* ---- Clickable Folders ---- */
+.folder-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.folder-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transition: transform 0.3s ease;
+  width: 100%;
+}
+
+.folder-link:hover .folder-container {
+  transform: scale(1.05);
+}
+
+.folder-image {
+  width: clamp(32px, 8vw, 100px);
+  height: auto;
+  max-height: 100px;
+  object-fit: contain;
+  transition: filter 0.3s ease;
+}
+
+.folder-label {
+  font-size: clamp(10px, 2vw, 16px);
+  font-family: "Madimi One", sans-serif;
+  font-weight: 400;
+  text-align: center;
+  margin: 0;
+  color: var(--color-black);
+}
+
+.folders-grid {
+  grid-column: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+@media (max-width: 767px) {
+  .folders-grid {
+    display: flex;
+    flex-direction:row;
+    gap: 32px;
+  }
+
+  .folder-container{
+    margin-bottom: 24px;
+  }
+}
