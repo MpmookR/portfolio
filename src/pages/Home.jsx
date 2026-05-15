@@ -5,7 +5,7 @@ function Home() {
   return (
     <main className="containerBG">
       <div className="top-section containerMain">
-        <header className="site-header">
+        <header className="home-header">
           <a href="/" className="logo" aria-label="Mook's Portfolio logo">
             <img
               src="/src/assets/images/logo/logo_orange.svg"

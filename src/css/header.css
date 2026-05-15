@@ -1,0 +1,102 @@
+/* ---- Header ---- */
+.site-header {
+  background-color: var(--color-bg);
+  padding: 20px 60px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo img {
+  width: clamp(40px, 8vw, 70px);
+  height: clamp(40px, 8vw, 70px);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover img {
+  transform: scale(1.05);
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: var(--color-green);
+  padding: 12px 36px;
+  border-radius: 99px;
+  box-shadow: 0 4px 12px rgba(24, 124, 38, 0.2);
+}
+
+.nav-link {
+  font-family: "Madimi One", sans-serif;
+  font-size: clamp(13px, 2vw, 16px);
+  font-weight: var(--fw-semibold);
+  color: var(--color-lime);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  padding: 4px 0;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-lime);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-white);
+}
+
+/* ---- Responsive Header ---- */
+@media (max-width: 767px) {
+  .site-header {
+    padding: 16px 16px;
+  }
+
+  .header-container {
+    justify-content: space-between;
+  }
+
+  .nav-menu {
+    gap: 16px;
+    padding: 8px 20px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+  }
+
+  .logo img {
+    width: clamp(32px, 6vw, 50px);
+    height: clamp(32px, 6vw, 50px);
+  }
+}
