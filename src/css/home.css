@@ -20,6 +20,10 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+
+   background-image: url('/src/assets/images/home/homeBG.png');
+   background-size: cover;
+   background-position: fixed;
 }
 
 .home-main-content {
@@ -123,7 +127,7 @@
   font-size: clamp(14px, 4vw, 18px);
   font-weight: var(--fw-light);
   font-family: "Madimi One", sans-serif;
-  color: var(--color-green);
+  color: var(--color-black);
   letter-spacing: -0.1px;
   flex-shrink: 0;
 }
