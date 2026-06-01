@@ -1,4 +1,3 @@
-
 import Header from "../components/header";
 import Footer from "../components/footer";
 import "../css/header.css";
@@ -8,28 +7,54 @@ import "../css/resume.css";
 function Resume() {
   const skillsData = [
     {
-      title: "🚀 iOS & Mobile",
-      skills: ["Swift", "SwiftUI", "Combine", "async/await", "UIKit", "MapKit", "Core Location", "HealthKit"],
+      title: "💻 Frontend & Web",
+      skills: [
+        "TypeScript",
+        "JavaScript",
+        "React",
+        "SolidJS",
+        "HTML",
+        "CSS",
+        "Vite",
+      ],
     },
     {
-      title: "💻 Frontend & Web",
-      skills: ["TypeScript", "JavaScript", "React", "SolidJS", "HTML", "CSS", "Vite"],
+      title: "🚀 iOS & Mobile",
+      skills: [
+        "Swift",
+        "SwiftUI",
+        "Combine",
+        "async/await",
+        "UIKit",
+        "MapKit",
+        "Core Location",
+        "HealthKit",
+      ],
     },
     {
       title: "🏗️ Architecture",
-      skills: ["MVVM", "Clean Architecture", "Modular Structure", "State Management"],
+      skills: [
+        "MVVM",
+        "Clean Architecture",
+        "Modular Structure",
+        "State Management",
+      ],
     },
     {
       title: "☁️ Backend & Cloud",
-      skills: ["Firebase Auth", "Firestore", "Cloud Functions", "REST APIs", "FCM"],
+      skills: [
+        "Firebase Auth",
+        "Firestore",
+        "Cloud Functions",
+        "REST APIs",
+        "FCM",
+      ],
     },
     {
       title: "🎨 Design & Tools",
       skills: ["Figma", "Xcode", "VSCode", "Git", "GitHub", "Postman"],
     },
   ];
-
-
 
   return (
     <main className="containerBG">
@@ -38,7 +63,9 @@ function Resume() {
         {/* Header */}
         <div className="resume-header containerMain">
           <h1 className="resume-title">Puangpaka (Mook) Rattana</h1>
-          <p className="resume-subtitle">Frontend Developer • iOS Engineer • MSc Software Engineering</p>
+          <p className="resume-subtitle">
+            Frontend Developer • iOS Engineer • MSc Software Engineering
+          </p>
         </div>
 
         {/* Quick Contact Links */}
@@ -47,14 +74,45 @@ function Resume() {
             <a href="mailto:mpmookr@gmail.com" className="resume-contact-link">
               💌 mpmookr@gmail.com
             </a>
-            <a href="https://github.com/MpmookR" target="_blank" rel="noopener noreferrer" className="resume-contact-link">
+            <a
+              href="https://github.com/MpmookR"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="resume-contact-link"
+            >
               🔗 GitHub
             </a>
-            <a href="https://www.linkedin.com/in/puangpaka-rattana-4608981b2/" target="_blank" rel="noopener noreferrer" className="resume-contact-link">
+            <a
+              href="https://www.linkedin.com/in/puangpaka-rattana-4608981b2/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="resume-contact-link"
+            >
               🔗 LinkedIn
             </a>
           </div>
         </div>
+
+        {/* About Me - Professional Summary */}
+        <section className="resume-section">
+          <h2 className="resume-section-title">About Me</h2>
+          <div className="resume-items">
+            <div className="resume-item">
+              <p className="resume-summary">
+                I'm a full-stack software engineer with hands-on experience
+                building iOS apps (SwiftUI, MVVM) and web applications (React,
+                TypeScript). Strong product thinking with UX design foundation.
+                Experienced in full lifecycle: discovery, prototyping,
+                implementation, testing, and deployment. Currently targeting
+                roles as{" "}
+                <strong>
+                  iOS Engineer, Frontend Engineer, or Product Designer
+                </strong>
+                .
+              </p>
+            </div>
+          </div>
+        </section>
 
         {/* Tech Stack */}
         <section className="resume-section">
@@ -75,101 +133,195 @@ function Resume() {
           </div>
         </section>
 
-        {/* About Me - Professional Summary */}
-        <section className="resume-section">
-          <h2 className="resume-section-title">About Me</h2>
-          <div className="resume-items">
-            <div className="resume-item">
-              <p style={{fontSize: "clamp(14px, 2vw, 16px)", color: "#555", lineHeight: "1.8"}}>
-                I'm a full-stack software engineer with hands-on experience building iOS apps (SwiftUI, MVVM) and web applications (React, TypeScript). Strong product thinking with UX design foundation. Experienced in full lifecycle: discovery, prototyping, implementation, testing, and deployment. Currently targeting roles as <strong>iOS Engineer, Frontend Engineer, or Product Designer</strong>.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* Experience */}
         <section className="resume-section">
           <h2 className="resume-section-title">Experience</h2>
           <div className="resume-items">
             <div className="resume-item">
-              <h3 className="resume-role">🐶 SoPup: Dog Socialisation iOS App</h3>
-              <p className="resume-company">MSc Final Project | June – October 2025</p>
+              <h3 className="resume-role">
+                🐶 SoPup: Dog Socialisation iOS App
+              </h3>
+              <p className="resume-company">
+                MSc Final Project | June – October 2025
+              </p>
               <ul className="resume-list">
-                <li>Designed and developed a dual-mode iOS app (Puppy Mode & Social Mode) focused on responsible dog socialisation</li>
-                <li>Built modular serverless backend using Firebase Cloud Functions (TypeScript), supporting matchmaking, real-time chat, meetups and reviews</li>
-                <li>Integrated push notifications with FCM and optimised Firestore queries for real-time performance</li>
-                <li>Delivered full UX lifecycle: interviews, surveys, personas, wireframes, prototypes, and usability testing</li>
+                <li>
+                  Designed and developed a dual-mode iOS app (Puppy Mode &
+                  Social Mode) focused on responsible dog socialisation
+                </li>
+                <li>
+                  Built modular serverless backend using Firebase Cloud
+                  Functions (TypeScript), supporting matchmaking, real-time
+                  chat, meetups and reviews
+                </li>
+                <li>
+                  Integrated push notifications with FCM and optimised Firestore
+                  queries for real-time performance
+                </li>
+                <li>
+                  Delivered full UX lifecycle: interviews, surveys, personas,
+                  wireframes, prototypes, and usability testing
+                </li>
               </ul>
             </div>
 
             <div className="resume-item">
               <h3 className="resume-role">🌿 SoWell: Mood Tracker iOS App</h3>
-              <p className="resume-company">Personal Project | March – April 2025</p>
+              <p className="resume-company">
+                Personal Project | March – April 2025
+              </p>
               <ul className="resume-list">
-                <li>Built HealthKit-integrated mood and wellbeing tracker with diary entries, calendar view, and weekly summaries</li>
-                <li>Implemented SwiftData local persistence with cloud sync via Firebase</li>
-                <li>Developed clean MVVM structure with secure user data handling</li>
+                <li>
+                  Built HealthKit-integrated mood and wellbeing tracker with
+                  diary entries, calendar view, and weekly summaries
+                </li>
+                <li>
+                  Implemented SwiftData local persistence with cloud sync via
+                  Firebase
+                </li>
+                <li>
+                  Developed clean MVVM structure with secure user data handling
+                </li>
               </ul>
             </div>
 
             <div className="resume-item">
               <h3 className="resume-role">🎨 Freelance UX Designer</h3>
-              <p className="resume-company">MoodBoard iOS Widget App | April 2023 – October 2024</p>
+              <p className="resume-company">
+                MoodBoard iOS Widget App | April 2023 – October 2024
+              </p>
               <ul className="resume-list">
-                <li>Improved onboarding and redesigned photo editing flow by translating 28 user survey responses into targeted UX updates</li>
-                <li>Simplified widget editing workflows by redesigning UI from scroll-heavy layout into tap-based grouped panel</li>
-                <li>Collaborated closely with iOS developer to ensure smooth translation from Figma to production, aligned with iOS standards</li>
+                <li>
+                  Improved onboarding and redesigned photo editing flow by
+                  translating 28 user survey responses into targeted UX updates
+                </li>
+                <li>
+                  Simplified widget editing workflows by redesigning UI from
+                  scroll-heavy layout into tap-based grouped panel
+                </li>
+                <li>
+                  Collaborated closely with iOS developer to ensure smooth
+                  translation from Figma to production, aligned with iOS
+                  standards
+                </li>
               </ul>
             </div>
-         </div>
 
+            <div className="resume-item">
+              <h3 className="resume-role">
+                👩🏽‍💻 Team Leader & Subject Matter Expert
+              </h3>
+              <p className="resume-company">
+                Teleperformance, Malaysia | July 2019 – July 2021
+              </p>
+              <ul className="resume-list">
+                <li>
+                  Led and coached a distributed customer service team using
+                  structured performance frameworks, moving multiple
+                  underperforming agents into top 5–10 rankings
+                </li>
+                <li>
+                  Managed schedules, KPIs, performance reviews, and acted as the
+                  main liaison between agents, quality, training, and management
+                  teams, while supporting onboarding through guidance and
+                  documentation
+                </li>
+                <li>
+                  Investigated recurring system/interface issues and prepared
+                  reports, reducing escalations and repeat issues
+                </li>
+              </ul>
+            </div>
+
+            <div className="resume-item">
+              <h3 className="resume-role">🎪 Co-Producer & Administrator</h3>
+              <p className="resume-company">
+                Talk Of The Town , Thailand | October 2017 – June 2019
+              </p>
+              <ul className="resume-list">
+                <li>
+                  Coordinated large-scale events (music festivals, New Year
+                  events, product launches) with 1,000–10,000+ attendees,
+                  managing schedules, timelines, and task allocation across
+                  internal teams and external vendors
+                </li>
+                <li>
+                  Coordinated travel and logistics for artists and key guests,
+                  including flights, hotels, transport, and restaurant bookings,
+                  while acting as the central liaison across creative, finance,
+                  production, security, and external partners
+                </li>
+                <li>
+                  Prepared run sheets, budgets, and post-event documentation,
+                  contributing to smooth delivery, high client satisfaction, and
+                  repeat engagements.
+                </li>
+              </ul>
+            </div>
+          </div>
         </section>
         {/* Education */}
         <section className="resume-section">
           <h2 className="resume-section-title">Education</h2>
-          <div className="resume-items">
+          <div className="resume-items resume-items-ed">
             <div className="resume-item">
-              <h3 className="resume-role">MSc Software Engineering (Distinction)</h3>
-              <p className="resume-company">University of Westminster, London</p>
-              <ul className="resume-list">
-                <li>Final Project: SoPup iOS App — Built production-ready mobile app with MVVM architecture and Firebase integration</li>
-                <li>Specialized in mobile development, cloud services, and full-stack architecture</li>
-              </ul>
+              <h3 className="resume-role">
+                MSc Software Engineering (Distinction)
+              </h3>
+              <p className="resume-company">
+                University of Westminster, London
+              </p>
             </div>
 
             <div className="resume-item">
               <h3 className="resume-role">Google UX Design Certificate</h3>
-              <p className="resume-company">Coursera</p>
-              <ul className="resume-list">
-                <li>Mastered user research, wireframing, prototyping, and design systems in Figma</li>
-              </ul>
+              <p className="resume-company">Coursera</p>  
             </div>
 
             <div className="resume-item">
               <h3 className="resume-role">BBA Marketing</h3>
-              <p className="resume-company">Prince of Songkla University, Thailand</p>
+              <p className="resume-company">
+                Prince of Songkla University, Thailand
+              </p>
             </div>
           </div>
         </section>
 
         {/* Key Strengths */}
-        <section className="resume-section">
+        {/* <section className="resume-section">
           <h2 className="resume-section-title">What I Bring</h2>
           <div className="resume-items">
             <div className="resume-item">
               <ul className="resume-list">
-                <li>Production iOS apps with SwiftUI, MVVM, and Clean Architecture patterns</li>
-                <li>Frontend features with TypeScript, React, and modern JavaScript tooling</li>
-                <li>Full-stack capabilities: Firebase, Cloud Functions, REST APIs integration</li>
-                <li>Bridge between UX design and engineering across mobile and web platforms</li>
-                <li>Strong foundation in async/await, Combine, and state management</li>
-                <li>Experience as Freelance UX Designer — delivered Figma to production handoffs</li>
+                <li>
+                  Production iOS apps with SwiftUI, MVVM, and Clean Architecture
+                  patterns
+                </li>
+                <li>
+                  Frontend features with TypeScript, React, and modern
+                  JavaScript tooling
+                </li>
+                <li>
+                  Full-stack capabilities: Firebase, Cloud Functions, REST APIs
+                  integration
+                </li>
+                <li>
+                  Bridge between UX design and engineering across mobile and web
+                  platforms
+                </li>
+                <li>
+                  Strong foundation in async/await, Combine, and state
+                  management
+                </li>
+                <li>
+                  Experience as Freelance UX Designer — delivered Figma to
+                  production handoffs
+                </li>
               </ul>
             </div>
           </div>
-        </section>
+        </section> */}
       </div>
-
 
       <Footer />
     </main>

@@ -5,14 +5,14 @@
 
 .resume-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 32px;
   padding: 0 20px;
 }
 
 .resume-title {
   font-size: clamp(28px, 5vw, 56px);
   color: var(--color-black);
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   letter-spacing: -0.5px;
 }
 
@@ -25,13 +25,13 @@
 /* ---- Resume Section ---- */
 .resume-section {
   padding: 0 60px;
-  margin-bottom: 80px;
+  margin-bottom: 32px;
 }
 
 .resume-section-title {
   font-size: clamp(24px, 4vw, 44px);
   color: var(--color-black);
-  margin-bottom: 48px;
+  margin-bottom: 24px;
   padding-bottom: 16px;
   border-bottom: 3px solid var(--color-lime);
   display: inline-block;
@@ -96,6 +96,10 @@
   gap: 40px;
 }
 
+.resume-items-ed{
+  gap: 16px;
+}
+
 .resume-item {
   padding-left: 0;
   border-left: none;
@@ -111,6 +115,7 @@
   font-size: clamp(14px, 2vw, 16px);
   color: var(--color-green);
   font-weight: var(--fw-semibold);
+  font-family: "Madimi One", sans-serif;
   margin-bottom: 4px;
 }
 
@@ -127,11 +132,12 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 4px;
 }
 
 .resume-list li {
   font-size: clamp(13px, 2vw, 15px);
+  font-family: "Rethink Sans", sans-serif;
   color: #555;
   line-height: 1.6;
   padding-left: 24px;
@@ -139,7 +145,7 @@
 }
 
 .resume-list li::before {
-  content: "→";
+  content:"▹";
   position: absolute;
   left: 0;
   color: var(--color-green);
@@ -225,7 +231,7 @@
 .resume-cta {
   text-align: center;
   padding: 0 60px;
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .resume-contact-links {
