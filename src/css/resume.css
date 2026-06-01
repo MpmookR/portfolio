@@ -37,6 +37,36 @@
   display: inline-block;
 }
 
+.resume-item .resume-summary p {
+  margin-bottom: 16px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.resume-item .resume-summary:last-child {
+  margin-bottom: 0;
+}
+
+.resume-summary {
+  margin-bottom: 16px;
+  font-size: clamp(14px, 2vw, 15px);
+  line-height: 1.7;
+  color: #555;
+}
+
+.resume-summary:last-child {
+  margin-bottom: 0;
+}
+
+/* ---- Highlight Keywords ---- */
+.keyword-highlight {
+  background: linear-gradient(120deg, var(--color-pink) 0%, rgba(213, 223, 126, 0.3) 100%);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-black);
+}
+
 /* ---- Tech Stack / Skills Grid ---- */
 .skills-grid {
   display: grid;
@@ -119,11 +149,12 @@
   margin-bottom: 4px;
 }
 
-.resume-date {
+.resume-tools {
   font-size: clamp(12px, 1.5vw, 14px);
-  color: #999;
-  margin-bottom: 12px;
-  font-weight: var(--fw-semibold);
+  color: var(--color-black);
+  font-family: "Madimi One", sans-serif;
+  font-style: italic;
+  margin-top: 12px;
 }
 
 .resume-list {
@@ -270,7 +301,7 @@
 
   .resume-section {
     padding: 0 16px;
-    margin-bottom: 60px;
+    margin-bottom: 32px;
   }
 
   .resume-cta {
@@ -279,11 +310,12 @@
 
   .skills-grid {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 16px;
+    margin-bottom: 24px;
   }
 
   .skill-category {
-    padding: 20px;
+    padding: 16px;
   }
 
   .resume-projects-grid {

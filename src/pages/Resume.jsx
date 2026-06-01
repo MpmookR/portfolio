@@ -12,10 +12,12 @@ function Resume() {
         "TypeScript",
         "JavaScript",
         "React",
-        "SolidJS",
+        "React Router",
         "HTML",
         "CSS",
         "Vite",
+        "Responsive Design",
+        "Accessibility (WCAG)",
       ],
     },
     {
@@ -38,21 +40,41 @@ function Resume() {
         "Clean Architecture",
         "Modular Structure",
         "State Management",
+        "SPA Development",
+        "API Integration",
       ],
     },
     {
       title: "☁️ Backend & Cloud",
       skills: [
+        "Node.js",
         "Firebase Auth",
         "Firestore",
+        "Firebase Storage",
         "Cloud Functions",
         "REST APIs",
         "FCM",
       ],
     },
     {
-      title: "🎨 Design & Tools",
-      skills: ["Figma", "Xcode", "VSCode", "Git", "GitHub", "Postman"],
+      title: "🎨 UX & Product Design",
+      skills: [
+        "UX Research",
+        "Wireframing",
+        "Prototyping",
+        "User Flows",
+        "Usability Testing",
+        "Design Systems",
+        "Figma",
+      ],
+    },
+    {
+      title: "🛠️ Tools",
+      skills: ["Git", "GitHub", "Postman", "VSCode", "VSCode"],
+    },
+    {
+      title: "🤖 AI-Assisted Development",
+      skills: ["Claude Code", "ChatGPT"],
     },
   ];
 
@@ -99,16 +121,45 @@ function Resume() {
           <div className="resume-items">
             <div className="resume-item">
               <p className="resume-summary">
-                I'm a full-stack software engineer with hands-on experience
-                building iOS apps (SwiftUI, MVVM) and web applications (React,
-                TypeScript). Strong product thinking with UX design foundation.
-                Experienced in full lifecycle: discovery, prototyping,
-                implementation, testing, and deployment. Currently targeting
-                roles as{" "}
                 <strong>
-                  iOS Engineer, Frontend Engineer, or Product Designer
+                  <span className="keyword-highlight">
+                    Frontend & UX-Focused Software Developer
+                  </span>
+                </strong>{" "}
+                with experience building responsive web and iOS applications
+                using React, SwiftUI, TypeScript, and API-driven backends.
+                Combining a background in UX design with an MSc in Software
+                Engineering, I enjoy creating digital products that are both
+                intuitive for users and well-engineered behind the scenes.
+              </p>
+
+              <p className="resume-summary">
+                I am particularly interested in{" "}
+                <strong>
+                  <span className="keyword-highlight">
+                    Frontend Developer roles where design and development work
+                    closely together.
+                  </span>
+                </strong>{" "}
+                I enjoy translating ideas, wireframes, and user requirements
+                into polished, accessible, and responsive experiences, while
+                collaborating with designers, developers, and stakeholders to
+                solve real user problems.
+              </p>
+
+              <p className="resume-summary">
+                What excites me most is working in product-focused or agency
+                environments where I can contribute to both the user experience
+                and the technical implementation, helping turn concepts into
+                engaging and impactful digital products.
+              </p>
+
+              <p className="resume-summary">
+                <strong>
+                  <span className="keyword-highlight">
+                    Eligible to work in the UK • No sponsorship required
+                  </span>
                 </strong>
-                .
               </p>
             </div>
           </div>
@@ -144,51 +195,117 @@ function Resume() {
               <p className="resume-company">
                 MSc Final Project | June – October 2025
               </p>
+
               <ul className="resume-list">
                 <li>
-                  Designed and developed a dual-mode iOS app (Puppy Mode &
-                  Social Mode) focused on responsible dog socialisation
+                  Led product design and frontend development of a dual-mode
+                  mobile platform, designing user flows, wireframes, prototypes,
+                  and production-ready interfaces.
                 </li>
                 <li>
-                  Built modular serverless backend using Firebase Cloud
-                  Functions (TypeScript), supporting matchmaking, real-time
-                  chat, meetups and reviews
+                  Translated UX research, usability testing, and user feedback
+                  into iterative improvements across onboarding, matchmaking,
+                  messaging, and meetup experiences.
                 </li>
                 <li>
-                  Integrated push notifications with FCM and optimised Firestore
-                  queries for real-time performance
+                  Developed responsive SwiftUI interfaces integrated with
+                  Firebase Auth, Firestore, Storage, and Cloud Functions.
                 </li>
                 <li>
-                  Delivered full UX lifecycle: interviews, surveys, personas,
-                  wireframes, prototypes, and usability testing
+                  Built modular backend services in TypeScript supporting
+                  matchmaking, messaging, reviews, and real-time social
+                  interactions.
+                </li>
+                <li>
+                  Implemented real-time data updates, push notifications, and
+                  scalable architecture while maintaining a user-centred
+                  experience.
                 </li>
               </ul>
+
+              <p className="resume-tools">
+                Tools: SwiftUI, TypeScript, Firebase, Node.js, Figma, MVVM
+              </p>
             </div>
 
             <div className="resume-item">
               <h3 className="resume-role">🌿 SoWell: Mood Tracker iOS App</h3>
               <p className="resume-company">
-                Personal Project | March – April 2025
+                MSc Group Project | March – April 2025
               </p>
               <ul className="resume-list">
                 <li>
-                  Built HealthKit-integrated mood and wellbeing tracker with
-                  diary entries, calendar view, and weekly summaries
+                  Designed and developed a mood and wellness tracking app,
+                  combining UX research, user flows, wireframes, and SwiftUI
+                  implementation
                 </li>
                 <li>
-                  Implemented SwiftData local persistence with cloud sync via
-                  Firebase
+                  Created accessible mood tracking, diary, calendar, and weekly
+                  summary experiences with clear visual hierarchy and
+                  mobile-first interaction patterns
                 </li>
                 <li>
-                  Developed clean MVVM structure with secure user data handling
+                  Integrated HealthKit to connect wellbeing insights with user
+                  activity and sleep data.
+                </li>
+                <li>
+                  Implemented SwiftData for local persistence and Firebase for
+                  authentication and cloud data handling.
+                </li>
+                <li>
+                  Applied MVVM architecture to keep the app scalable, testable,
+                  and easy to maintain.
                 </li>
               </ul>
+              <p className="resume-tools">
+                Tools: SwiftUI, SwiftData, HealthKit, Firebase Auth, Firestore,
+                MVVM, Figma
+              </p>
+            </div>
+
+            <div className="resume-item">
+              <h3 className="resume-role">
+                🍱 iShare: Recipe Sharing Web Platform
+              </h3>
+              <p className="resume-company">
+                MSc Solo Project | March – April 2025
+              </p>
+              <ul className="resume-list">
+                <li>
+                  Designed and developed a responsive recipe-sharing platform,
+                  translating user requirements and interface concepts into
+                  reusable React components.
+                </li>
+                <li>
+                  Created accessible and mobile-friendly user experiences using
+                  modern UI patterns, consistent component design, and
+                  responsive layouts.
+                </li>
+                <li>
+                  Integrated frontend interfaces with REST APIs supporting
+                  authentication, recipe management, comments, likes, and saved
+                  recipes.
+                </li>
+
+                <li>
+                  Developed backend services using ASP.NET Core, Entity
+                  Framework Core, SQLite, and JWT authentication.
+                </li>
+
+                <li>
+                  Implemented Redux state management and React Router navigation
+                  to deliver a seamless single-page application experience.
+                </li>
+              </ul>
+              <p className="resume-tools">
+                Tools: React, TypeScript, ASP.NET Core, SQLite, Redux, Figma
+              </p>
             </div>
 
             <div className="resume-item">
               <h3 className="resume-role">🎨 Freelance UX Designer</h3>
               <p className="resume-company">
-                MoodBoard iOS Widget App | April 2023 – October 2024
+                MoodBoard iOS Widget App | July 2023 – April 2024
               </p>
               <ul className="resume-list">
                 <li>
@@ -275,11 +392,11 @@ function Resume() {
 
             <div className="resume-item">
               <h3 className="resume-role">Google UX Design Certificate</h3>
-              <p className="resume-company">Coursera</p>  
+              <p className="resume-company">Coursera</p>
             </div>
 
             <div className="resume-item">
-              <h3 className="resume-role">BBA Marketing</h3>
+              <h3 className="resume-role">Bachelor’s in marketing</h3>
               <p className="resume-company">
                 Prince of Songkla University, Thailand
               </p>
