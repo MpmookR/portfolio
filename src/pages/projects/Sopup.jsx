@@ -20,7 +20,7 @@ const SOPUP_HERO = {
   ],
   links: [
     {
-      href: "https://github.com/MpmookR/So_Pup/tree/main/So_Pup",
+      href: "https://github.com/MpmookR/So_Pup/tree/main",
       label: "Frontend Repo",
       variant: "outline",
       icon: "github",
