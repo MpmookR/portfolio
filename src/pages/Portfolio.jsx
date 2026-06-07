@@ -19,7 +19,7 @@ function Portfolio() {
       description: "A HealthKit-integrated mood and wellbeing tracker with diary entries, calendar view, and weekly summaries to help users monitor their mental health and identify patterns",
       image: "/src/assets/images/projects/soWell/soWell_logo.png",
       link: "/projects/sowell",
-      tags: ["Swift", "SwiftUI", "SwiftData", "Firebase", "HealthKit", "API Integration"],
+      tags: ["Swift", "SwiftUI", "SwiftData", "Firebase", "HealthKit", "API Integration", "UX/UI Design"],
     },
     {
       title: "iShare",
