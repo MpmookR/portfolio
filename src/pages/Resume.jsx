@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import "../css/header.css";
@@ -191,7 +192,7 @@ function Resume() {
           <div className="resume-items">
             <div className="resume-item">
               <h3 className="resume-role">
-                🐶 SoPup: Dog Socialisation iOS App
+                <Link to="/projects/sopup">🐶 SoPup: Dog Socialisation iOS App</Link>
               </h3>
               <p className="resume-company">
                 MSc Final Project | June – October 2025
@@ -230,7 +231,7 @@ function Resume() {
             </div>
 
             <div className="resume-item">
-              <h3 className="resume-role">🌿 SoWell: Mood Tracker iOS App</h3>
+              <h3 className="resume-role"><Link to="/projects/sowell">🌿 SoWell: Mood Tracker iOS App</Link></h3>
               <p className="resume-company">
                 MSc Group Project | March – April 2025
               </p>
@@ -266,7 +267,7 @@ function Resume() {
 
             <div className="resume-item">
               <h3 className="resume-role">
-                🍱 iShare: Recipe Sharing Web Platform
+                <Link to="/projects/ishare">🍱 iShare: Recipe Sharing Web Platform</Link>
               </h3>
               <p className="resume-company">
                 MSc Solo Project | March – April 2025
@@ -306,7 +307,7 @@ function Resume() {
             <div className="resume-item">
               <h3 className="resume-role">🎨 Freelance UX Designer</h3>
               <p className="resume-company">
-                MoodBoard iOS Widget App | July 2023 – April 2024
+                <Link to="/projects/moodboard">MoodBoard iOS Widget App</Link> | July 2023 – April 2024
               </p>
               <ul className="resume-list">
                 <li>

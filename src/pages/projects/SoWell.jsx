@@ -5,6 +5,12 @@ import CaseStudyHero from "../../components/caseStudy/CaseStudyHero";
 import CaseStudyCTA from "../../components/caseStudy/CaseStudyCTA";
 import Lightbox from "../../components/caseStudy/Lightbox";
 import "../../css/sowell.css";
+import sowellLogin from "../../assets/images/projects/soWell/flow/login.png";
+import sowellRegister from "../../assets/images/projects/soWell/flow/register.png";
+import sowellMoodTracker from "../../assets/images/projects/soWell/flow/moodTracker.png";
+import sowellDiary from "../../assets/images/projects/soWell/flow/diary.png";
+import sowellCalendar from "../../assets/images/projects/soWell/flow/calendar.png";
+import sowellChart from "../../assets/images/projects/soWell/flow/chart.png";
 
 const SOWELL_HERO = {
   badge: "iOS Case Study",
@@ -111,13 +117,13 @@ function SoWell() {
                 className="sw-screen-img-wrap cs-zoomable"
                 onClick={() =>
                   setLightbox({
-                    src: "/src/assets/images/projects/soWell/flow/login.png",
+                    src: sowellLogin,
                     alt: "SoWell Login screen",
                   })
                 }
               >
                 <img
-                  src="/src/assets/images/projects/soWell/flow/login.png"
+                  src={sowellLogin}
                   alt="SoWell Login screen"
                 />
               </div>
@@ -136,13 +142,13 @@ function SoWell() {
                 className="sw-screen-img-wrap cs-zoomable"
                 onClick={() =>
                   setLightbox({
-                    src: "/src/assets/images/projects/soWell/flow/register.png",
+                    src: sowellRegister,
                     alt: "SoWell Register screen",
                   })
                 }
               >
                 <img
-                  src="/src/assets/images/projects/soWell/flow/register.png"
+                  src={sowellRegister}
                   alt="SoWell Register screen"
                 />
               </div>
@@ -161,13 +167,13 @@ function SoWell() {
                 className="sw-screen-img-wrap cs-zoomable"
                 onClick={() =>
                   setLightbox({
-                    src: "/src/assets/images/projects/soWell/flow/moodTracker.png",
+                    src: sowellMoodTracker,
                     alt: "SoWell Mood Tracker screen",
                   })
                 }
               >
                 <img
-                  src="/src/assets/images/projects/soWell/flow/moodTracker.png"
+                  src={sowellMoodTracker}
                   alt="SoWell Mood Tracker screen"
                 />
               </div>
@@ -186,13 +192,13 @@ function SoWell() {
                 className="sw-screen-img-wrap cs-zoomable"
                 onClick={() =>
                   setLightbox({
-                    src: "/src/assets/images/projects/soWell/flow/diary.png",
+                    src: sowellDiary,
                     alt: "SoWell Diary screen",
                   })
                 }
               >
                 <img
-                  src="/src/assets/images/projects/soWell/flow/diary.png"
+                  src={sowellDiary}
                   alt="SoWell Diary screen"
                 />
               </div>
@@ -211,13 +217,13 @@ function SoWell() {
                 className="sw-screen-img-wrap cs-zoomable"
                 onClick={() =>
                   setLightbox({
-                    src: "/src/assets/images/projects/soWell/flow/calendar.png",
+                    src: sowellCalendar,
                     alt: "SoWell Calendar screen",
                   })
                 }
               >
                 <img
-                  src="/src/assets/images/projects/soWell/flow/calendar.png"
+                  src={sowellCalendar}
                   alt="SoWell Calendar screen"
                 />
               </div>
@@ -236,13 +242,13 @@ function SoWell() {
                 className="sw-screen-img-wrap cs-zoomable"
                 onClick={() =>
                   setLightbox({
-                    src: "/src/assets/images/projects/soWell/flow/chart.png",
+                    src: sowellChart,
                     alt: "SoWell Health Charts screen",
                   })
                 }
               >
                 <img
-                  src="/src/assets/images/projects/soWell/flow/chart.png"
+                  src={sowellChart}
                   alt="SoWell Health Charts screen"
                 />
               </div>

@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
+import logoOrange from "../assets/images/logo/logo_orange.svg";
 
 function Header() {
   const location = useLocation();
@@ -20,7 +21,7 @@ function Header() {
       <div className="header-container">
         <Link to="/" className="logo" aria-label="Mook's Portfolio logo" onClick={closeMenu}>
           <img
-            src="/src/assets/images/logo/logo_orange.svg"
+            src={logoOrange}
             alt="Mook's Portfolio"
           />
         </Link>

@@ -1,5 +1,7 @@
 import Footer from "../components/footer";
 import ClickableFolder from "../components/clickableFolder";
+import logoOrange from "../assets/images/logo/logo_orange.svg";
+import heroImage from "../assets/images/home/hero.svg";
 
 function Home() {
   return (
@@ -10,7 +12,7 @@ function Home() {
           <header className="home-header">
             <a href="/" className="logo" aria-label="Mook's Portfolio logo">
               <img
-                src="/src/assets/images/logo/logo_orange.svg"
+                src={logoOrange}
                 alt="Mook's Portfolio logo"
               />
             </a>
@@ -36,7 +38,7 @@ function Home() {
         <section className="hero heroTop containerMain">
           <div className="hero-image">
             <img
-              src="/src/assets/images/home/hero.svg"
+              src={heroImage}
               alt="Puangpaka short description"
               className="hero-img"
             />

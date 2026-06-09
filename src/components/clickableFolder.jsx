@@ -1,29 +1,39 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import folderCloseBlue from "../assets/images/home/folder/close_blue.png";
+import folderOpenBlue from "../assets/images/home/folder/hover/open_blue.png";
+import folderCloseGreen from "../assets/images/home/folder/close_green.png";
+import folderOpenGreen from "../assets/images/home/folder/hover/open_green.png";
+import folderCloseLightBlue from "../assets/images/home/folder/close_LightBlue.png";
+import folderOpenLightBlue from "../assets/images/home/folder/hover/open_LightBlue.png";
+import folderCloseYellow from "../assets/images/home/folder/close_yellow.png";
+import folderOpenYellow from "../assets/images/home/folder/hover/open_yellow.png";
+import folderClosePink from "../assets/images/home/folder/close_pink.png";
+import folderOpenPink from "../assets/images/home/folder/hover/open_pink.png";
 
 function ClickableFolder({ folderType, label, path }) {
   const [isHovered, setIsHovered] = useState(false);
 
   const folderImages = {
     blue: {
-      closed: "/src/assets/images/home/folder/close_blue.png",
-      open: "/src/assets/images/home/folder/hover/open_blue.png",
+      closed: folderCloseBlue,
+      open: folderOpenBlue,
     },
     green: {
-      closed: "/src/assets/images/home/folder/close_green.png",
-      open: "/src/assets/images/home/folder/hover/open_green.png",
+      closed: folderCloseGreen,
+      open: folderOpenGreen,
     },
     lightBlue: {
-      closed: "/src/assets/images/home/folder/close_LightBlue.png",
-      open: "/src/assets/images/home/folder/hover/open_LightBlue.png",
+      closed: folderCloseLightBlue,
+      open: folderOpenLightBlue,
     },
     yellow: {
-      closed: "/src/assets/images/home/folder/close_yellow.png",
-      open: "/src/assets/images/home/folder/hover/open_yellow.png",
+      closed: folderCloseYellow,
+      open: folderOpenYellow,
     },
     pink: {
-      closed: "/src/assets/images/home/folder/close_pink.png",
-      open: "/src/assets/images/home/folder/hover/open_pink.png",
+      closed: folderClosePink,
+      open: folderOpenPink,
     },
   };
 

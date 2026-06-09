@@ -3,13 +3,19 @@ import ProjectCard from "../components/projectCard";
 import Footer from "../components/footer";
 import "../css/portfolio.css";
 import "../css/header.css";
+import soPupLogo from "../assets/images/projects/soPup/soPup_logo.png";
+import soWellLogo from "../assets/images/projects/soWell/soWell_logo.png";
+import iShareLogo from "../assets/images/projects/iShare/iShareLogo.png";
+import moodboardLogo from "../assets/images/projects/MoodBoard/moodboard_logo.png";
+import passionHubLogo from "../assets/images/projects/passionHub/passionHub_logo.png";
+import millenniumLogo from "../assets/images/projects/MillenniumResidence/millennium_logo.png";
 
 function Portfolio() {
   const frontendProjects = [
     {
       title: "Sopup",
       description: "A serverless iOS app designed to promote safe dog socialisation. It introduces a dual-mode system to enforce welfare rules and guide responsible interactions.",
-      image: "/src/assets/images/projects/soPup/soPup_logo.png",
+      image: soPupLogo,
       link: "/projects/sopup",
       tags: ["Swift", "SwiftUI", "SwiftData", "Node.js/TypeScript", "Firebase Cloud Functions", "Serverless", "API Integration", "UX/UI Design"],
       featured: true,
@@ -17,14 +23,14 @@ function Portfolio() {
     {
       title: "SoWell",
       description: "A HealthKit-integrated mood and wellbeing tracker with diary entries, calendar view, and weekly summaries to help users monitor their mental health and identify patterns",
-      image: "/src/assets/images/projects/soWell/soWell_logo.png",
+      image: soWellLogo,
       link: "/projects/sowell",
       tags: ["Swift", "SwiftUI", "SwiftData", "Firebase", "HealthKit", "API Integration", "UX/UI Design"],
     },
     {
       title: "iShare",
       description: "A social recipe-sharing platform where users can post, search, like, save, and comment on recipes, fostering a vibrant community of food enthusiasts",
-      image: "/src/assets/images/projects/iShare/logo w bg.png",
+      image: iShareLogo,
       link: "/projects/ishare",
       tags: ["React", "C#", "ASP.NET Core", "SQLite", "Redux", "Swagger", "Netlify", "Render"],
     },
@@ -34,7 +40,7 @@ function Portfolio() {
     {
       title: "MoodBoard: iOS Widget App",
       description: "Led UX improvements for onboarding and photo editing workflows, translating user research into developer-ready solutions and collaborating closely with the iOS engineer during implementation",
-      image: "/src/assets/images/projects/MoodBoard/moodboard_logo.png",
+      image: moodboardLogo,
       link: "/projects/moodboard",
       tags: ["Figma", "UX Design", "UX Research","Wireframing","Prototyping","User Flows","Usability Testing", "Stakeholder Engagement", "Developer Collaboration", "Real-world Product Experience"],
       featured: true,
@@ -42,14 +48,14 @@ function Portfolio() {
     {
       title: "The Passion Hub: Web Platform",
       description: "Designed a child development centre website, collaborating with stakeholders to translate business goals into an accessible and user-centred web experience",
-      image: "/src/assets/images/projects/passionHub/passionHub_logo.png",
+      image: passionHubLogo,
       link: "/projects/passionhub",
       tags: ["UI/UX", "Figma", "UX Research","Wireframing","Prototyping", "Stakeholder Engagement", "Developer Collaboration", "Real-world Product Experience"],
     },
     {
       title: "The Millennium Residence: Website Redesign",
       description: "Complete redesign of a condominium's website to enhance user experience, improve navigation, and modernize the visual design.",
-      image: "/src/assets/images/projects/MillenniumResidence/millennium_logo.png",
+      image: millenniumLogo,
       link: "/projects/Millennium",
       tags: ["UI/UX", "Figma", "Web Redesign"],
     },

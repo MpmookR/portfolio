@@ -5,13 +5,18 @@ import CaseStudyHero from "../../components/caseStudy/CaseStudyHero";
 import CaseStudyCTA from "../../components/caseStudy/CaseStudyCTA";
 import Lightbox from "../../components/caseStudy/Lightbox";
 import "../../css/moodboard.css";
+import moodboardIntro from "../../assets/images/projects/MoodBoard/intro.png";
+import moodboardOnboardingBefore from "../../assets/images/projects/MoodBoard/onboarding_before.png";
+import moodboardOnboardingAfter from "../../assets/images/projects/MoodBoard/onboarding_after.png";
+import moodboardWorkflow from "../../assets/images/projects/MoodBoard/WorkflowEdition.png";
+import moodboardPhotoEditing from "../../assets/images/projects/MoodBoard/PhotoEditingRedesign.png";
 
 const MOODBOARD_HERO = {
   badge: "iOS App · Freelance UX Design",
   title: "MoodBoard",
   subtitle: "Redesigning a widget customisation app to feel precise, intuitive, and iOS-native",
   heroImage: {
-    src: "/src/assets/images/projects/MoodBoard/intro.png",
+    src: moodboardIntro,
     alt: "MoodBoard app showing its interface",
   },
   meta: [
@@ -187,13 +192,13 @@ function MoodBoard() {
                   <div className="cs-zoomable"
                   onClick={() =>
                   setLightbox({
-                  src: "/src/assets/images/projects/MoodBoard/onboarding_before.png",
+                  src: moodboardOnboardingBefore,
                     alt: "Onboarding screens before redesign",
                   })
                 }
                 >
                   <img
-                  src="/src/assets/images/projects/MoodBoard/onboarding_before.png"
+                  src={moodboardOnboardingBefore}
                     alt="Onboarding screens before redesign"
                     className="mb-comparison-img"
                 />
@@ -206,13 +211,13 @@ function MoodBoard() {
                     className="cs-zoomable"
                     onClick={() =>
                       setLightbox({
-                        src: "/src/assets/images/projects/MoodBoard/onboarding_after.png",
+                        src: moodboardOnboardingAfter,
                         alt: "Onboarding screens after redesign",
                       })
                     }
                   >
                     <img
-                      src="/src/assets/images/projects/MoodBoard/onboarding_after.png"
+                      src={moodboardOnboardingAfter}
                       alt="Onboarding screens after redesign"
                       className="mb-comparison-img"
                     />
@@ -260,13 +265,13 @@ function MoodBoard() {
                   className="cs-zoomable"
                   onClick={() =>
                     setLightbox({
-                      src: "/src/assets/images/projects/MoodBoard/WorkflowEdition.png",
+                      src: moodboardWorkflow,
                       alt: "Editing workflow before and after redesign",
                     })
                   }
                 >
                   <img
-                    src="/src/assets/images/projects/MoodBoard/WorkflowEdition.png"
+                    src={moodboardWorkflow}
                     alt="Editing workflow before and after redesign"
                     className="mb-composite-img"
                   />
@@ -313,13 +318,13 @@ function MoodBoard() {
                   className="cs-zoomable"
                   onClick={() =>
                     setLightbox({
-                      src: "/src/assets/images/projects/MoodBoard/PhotoEditingRedesign.png",
+                      src: moodboardPhotoEditing,
                       alt: "Photo editing transform mode before and after redesign",
                     })
                   }
                 >
                   <img
-                    src="/src/assets/images/projects/MoodBoard/PhotoEditingRedesign.png"
+                    src={moodboardPhotoEditing}
                     alt="Photo editing transform mode before and after redesign"
                     className="mb-composite-img"
                   />

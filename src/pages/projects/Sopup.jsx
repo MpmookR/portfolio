@@ -5,13 +5,18 @@ import CaseStudyHero from "../../components/caseStudy/CaseStudyHero";
 import CaseStudyCTA from "../../components/caseStudy/CaseStudyCTA";
 import Lightbox from "../../components/caseStudy/Lightbox";
 import "../../css/sopup.css";
+import sopupCover from "../../assets/images/projects/soPup/cover.png";
+import sopupModePuppy from "../../assets/images/projects/soPup/mode_puppy.png";
+import sopupModeSocial from "../../assets/images/projects/soPup/mode_social.png";
+import sopupKeyFeatures from "../../assets/images/projects/soPup/keyFeatures.png";
+import sopupSystemDiagram from "../../assets/images/projects/soPup/SimpleSystemDiagram.jpg";
 
 const SOPUP_HERO = {
   badge: "iOS Case Study",
   title: "SoPup",
   subtitle: "A dual-mode iOS app that enforces safe dog socialisation",
   heroImage: {
-    src: "/src/assets/images/projects/soPup/cover.png",
+    src: sopupCover,
     alt: "SoPup app preview",
   },
   meta: [
@@ -177,13 +182,13 @@ function Sopup() {
                 className="sp-mode-img-placeholder sp-mode-img-placeholder--puppy cs-zoomable"
                 onClick={() =>
                   setLightbox({
-                    src: "/src/assets/images/projects/soPup/mode_puppy.png",
+                    src: sopupModePuppy,
                     alt: "Puppy Mode UI screenshot",
                   })
                 }
               >
                 <img
-                  src="/src/assets/images/projects/soPup/mode_puppy.png"
+                  src={sopupModePuppy}
                   alt="Puppy Mode UI screenshot"
                   className="sp-mode-img"
                 />
@@ -221,13 +226,13 @@ function Sopup() {
                 className="sp-mode-img-placeholder sp-mode-img-placeholder--social cs-zoomable"
                 onClick={() =>
                   setLightbox({
-                    src: "/src/assets/images/projects/soPup/mode_social.png",
+                    src: sopupModeSocial,
                     alt: "Social Mode UI screenshot",
                   })
                 }
               >
                 <img
-                  src="/src/assets/images/projects/soPup/mode_social.png"
+                  src={sopupModeSocial}
                   alt="Social Mode UI screenshot"
                   className="sp-mode-img"
                 />
@@ -371,13 +376,13 @@ function Sopup() {
               className="cs-zoomable"
               onClick={() =>
                 setLightbox({
-                  src: "/src/assets/images/projects/soPup/keyFeatures.png",
+                  src: sopupKeyFeatures,
                   alt: "key Features",
                 })
               }
             >
               <img
-                src="/src/assets/images/projects/soPup/keyFeatures.png"
+                src={sopupKeyFeatures}
                 alt="key Features"
                 className="sp-mode-img"
               />
@@ -436,13 +441,13 @@ function Sopup() {
               className="cs-zoomable architecture-img"
               onClick={() =>
                 setLightbox({
-                  src: "/src/assets/images/projects/soPup/SimpleSystemDiagram.jpg",
+                  src: sopupSystemDiagram,
                   alt: "Simple System Diagram",
                 })
               }
             >
               <img
-                src="/src/assets/images/projects/soPup/SimpleSystemDiagram.jpg"
+                src={sopupSystemDiagram}
                 alt="Simple System Diagram"
                 className="sp-mode-img"
               />
