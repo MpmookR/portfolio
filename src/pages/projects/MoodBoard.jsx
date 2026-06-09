@@ -1,7 +1,9 @@
+import { useState } from "react";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import CaseStudyHero from "../../components/caseStudy/CaseStudyHero";
 import CaseStudyCTA from "../../components/caseStudy/CaseStudyCTA";
+import Lightbox from "../../components/caseStudy/Lightbox";
 import "../../css/moodboard.css";
 
 const MOODBOARD_HERO = {
@@ -20,9 +22,19 @@ const MOODBOARD_HERO = {
 };
 
 function MoodBoard() {
+  
+  const [lightbox, setLightbox] = useState(null);
+  
   return (
     <main className="containerBG">
       <Header />
+
+      <Lightbox
+        src={lightbox?.src}
+        alt={lightbox?.alt}
+        onClose={() => setLightbox(null)}
+      />
+
 
       <CaseStudyHero {...MOODBOARD_HERO} />
 
@@ -172,19 +184,39 @@ function MoodBoard() {
               <div className="mb-image-comparison">
                 <div className="mb-image-comparison-item">
                   <span className="mb-img-label mb-img-label--before">Before</span>
+                  <div className="cs-zoomable"
+                  onClick={() =>
+                  setLightbox({
+                  src: "/src/assets/images/projects/MoodBoard/onboarding_before.png",
+                    alt: "Onboarding screens before redesign",
+                  })
+                }
+                >
                   <img
-                    src="/src/assets/images/projects/MoodBoard/onboarding_before.png"
+                  src="/src/assets/images/projects/MoodBoard/onboarding_before.png"
                     alt="Onboarding screens before redesign"
                     className="mb-comparison-img"
-                  />
+                />
+                </div>
+              
                 </div>
                 <div className="mb-image-comparison-item">
                   <span className="mb-img-label mb-img-label--after">After</span>
-                  <img
-                    src="/src/assets/images/projects/MoodBoard/onboarding_after.png"
-                    alt="Onboarding screens after redesign"
-                    className="mb-comparison-img"
-                  />
+                  <div
+                    className="cs-zoomable"
+                    onClick={() =>
+                      setLightbox({
+                        src: "/src/assets/images/projects/MoodBoard/onboarding_after.png",
+                        alt: "Onboarding screens after redesign",
+                      })
+                    }
+                  >
+                    <img
+                      src="/src/assets/images/projects/MoodBoard/onboarding_after.png"
+                      alt="Onboarding screens after redesign"
+                      className="mb-comparison-img"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -224,11 +256,21 @@ function MoodBoard() {
                 </div>
               </div>
               <div className="mb-image-single">
-                <img
-                  src="/src/assets/images/projects/MoodBoard/WorkflowEdition.png"
-                  alt="Editing workflow before and after redesign"
-                  className="mb-composite-img"
-                />
+                <div
+                  className="cs-zoomable"
+                  onClick={() =>
+                    setLightbox({
+                      src: "/src/assets/images/projects/MoodBoard/WorkflowEdition.png",
+                      alt: "Editing workflow before and after redesign",
+                    })
+                  }
+                >
+                  <img
+                    src="/src/assets/images/projects/MoodBoard/WorkflowEdition.png"
+                    alt="Editing workflow before and after redesign"
+                    className="mb-composite-img"
+                  />
+                </div>
               </div>
 
               <p className="mb-improvement-result">
@@ -267,11 +309,21 @@ function MoodBoard() {
                 </div>
               </div>
               <div className="mb-image-single">
-                <img
-                  src="/src/assets/images/projects/MoodBoard/PhotoEditingRedesign.png"
-                  alt="Photo editing transform mode before and after redesign"
-                  className="mb-composite-img"
-                />
+                <div
+                  className="cs-zoomable"
+                  onClick={() =>
+                    setLightbox({
+                      src: "/src/assets/images/projects/MoodBoard/PhotoEditingRedesign.png",
+                      alt: "Photo editing transform mode before and after redesign",
+                    })
+                  }
+                >
+                  <img
+                    src="/src/assets/images/projects/MoodBoard/PhotoEditingRedesign.png"
+                    alt="Photo editing transform mode before and after redesign"
+                    className="mb-composite-img"
+                  />
+                </div>
               </div>
 
               <p className="mb-improvement-result">
@@ -322,7 +374,7 @@ function MoodBoard() {
 
       <CaseStudyCTA
         title="Explore MoodBoard"
-        subtitle="See more of my work."
+        subtitle="See more of my work"
         buttons={[
           { label: "← All Projects", href: "/portfolio", variant: "ghost" },
         ]}
