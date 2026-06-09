@@ -180,6 +180,46 @@
   color: var(--color-lime);
 }
 
+.cs-btn--outline-light {
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+}
+.cs-btn--outline-light:hover {
+  border-color: var(--color-lime);
+  color: var(--color-lime);
+}
+
+/* ────────────────────────────────────────
+   CTA SECTION
+──────────────────────────────────────── */
+.cs-cta {
+  background: linear-gradient(135deg, var(--color-green), #0d5018);
+  padding: 80px 60px;
+  text-align: center;
+}
+
+.cs-cta-title {
+  font-family: "Madimi One", sans-serif;
+  font-size: clamp(28px, 5vw, 48px);
+  color: var(--color-white);
+  margin-bottom: 12px;
+}
+
+.cs-cta-sub {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 36px;
+}
+
+.cs-cta-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
 /* ────────────────────────────────────────
    LIGHTBOX
 ──────────────────────────────────────── */
@@ -237,5 +277,14 @@
 @media (max-width: 767px) {
   .cs-hero {
     padding: 48px 20px 40px;
+  }
+
+  .cs-cta {
+    padding: 60px 24px;
+  }
+
+  .cs-cta-buttons {
+    flex-direction: column;
+    align-items: center;
   }
 }

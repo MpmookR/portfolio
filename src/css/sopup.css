@@ -1,52 +1,5 @@
 /* ── sopup.css ── SoPup Case Study Page ── */
-/* Hero styles live in caseStudy.css via CaseStudyHero component */
-
-/* ────────────────────────────────────────
-   CTA BUTTONS (sopup-page only)
-──────────────────────────────────────── */
-.sp-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 10px 20px;
-  border-radius: 99px;
-  font-family: "Rethink Sans", sans-serif;
-  font-size: 13px;
-  font-weight: var(--fw-semibold);
-  text-decoration: none;
-  transition: all 0.25s ease;
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-
-.sp-btn--solid {
-  background: var(--color-black);
-  color: var(--color-white);
-  border-color: var(--color-black);
-}
-.sp-btn--solid:hover {
-  background: var(--color-green);
-  border-color: var(--color-green);
-}
-
-.sp-btn--outline.sp-btn--light {
-  color: var(--color-white);
-  border-color: rgba(255,255,255,0.5);
-  background: transparent;
-}
-.sp-btn--outline.sp-btn--light:hover {
-  border-color: var(--color-lime);
-  color: var(--color-lime);
-}
-
-.sp-btn--ghost {
-  background: transparent;
-  color: var(--color-white);
-  border-color: transparent;
-}
-.sp-btn--ghost:hover {
-  color: var(--color-lime);
-}
+/* Hero and CTA styles live in caseStudy.css via shared components */
 
 /* ────────────────────────────────────────
    SECTIONS
@@ -792,36 +745,6 @@
 }
 
 /* ────────────────────────────────────────
-   CTA
-──────────────────────────────────────── */
-.sp-cta {
-  background: linear-gradient(135deg, var(--color-green), #0d5018);
-  padding: 80px 60px;
-  text-align: center;
-}
-
-.sp-cta-title {
-  font-family: "Madimi One", sans-serif;
-  font-size: clamp(28px, 5vw, 48px);
-  color: var(--color-white);
-  margin-bottom: 12px;
-}
-
-.sp-cta-sub {
-  font-family: "Rethink Sans", sans-serif;
-  font-size: 16px;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: 36px;
-}
-
-.sp-cta-buttons {
-  display: flex;
-  gap: 14px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-/* ────────────────────────────────────────
    RESPONSIVE
 ──────────────────────────────────────── */
 @media (max-width: 767px) {
@@ -894,12 +817,4 @@
     gap: 14px;
   }
 
-  .sp-cta {
-    padding: 60px 24px;
-  }
-
-  .sp-cta-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
 }

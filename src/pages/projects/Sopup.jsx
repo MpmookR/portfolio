@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import CaseStudyHero from "../../components/caseStudy/CaseStudyHero";
+import CaseStudyCTA from "../../components/caseStudy/CaseStudyCTA";
 import Lightbox from "../../components/caseStudy/Lightbox";
 import "../../css/sopup.css";
 
@@ -653,34 +654,15 @@ function Sopup() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="sp-cta">
-        <h2 className="sp-cta-title">Explore SoPup</h2>
-        <p className="sp-cta-sub">
-          Try the prototype, read the code, or see more work.
-        </p>
-        <div className="sp-cta-buttons">
-          <a
-            href="https://testflight.apple.com/join/duM8Wv9Q"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="sp-btn sp-btn--solid"
-          >
-            ✈ TestFlight
-          </a>
-          <a
-            href="https://github.com/MpmookR/So_Pup/tree/main/So_Pup"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="sp-btn sp-btn--outline sp-btn--light"
-          >
-            GitHub →
-          </a>
-          <a href="/portfolio" className="sp-btn sp-btn--ghost">
-            ← All Projects
-          </a>
-        </div>
-      </section>
+      <CaseStudyCTA
+        title="Explore SoPup"
+        subtitle="Try the prototype, read the code, or see more work"
+        buttons={[
+          { label: "✈ TestFlight", href: "https://testflight.apple.com/join/duM8Wv9Q", variant: "solid", external: true },
+          { label: "GitHub →", href: "https://github.com/MpmookR/So_Pup/tree/main/So_Pup", variant: "outline-light", external: true },
+          { label: "← All Projects", href: "/portfolio", variant: "ghost" },
+        ]}
+      />
 
       <Footer />
     </main>

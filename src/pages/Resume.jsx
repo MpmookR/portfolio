@@ -86,7 +86,7 @@ function Resume() {
         <div className="resume-header containerMain">
           <h1 className="resume-title">Puangpaka (Mook) Rattana</h1>
           <p className="resume-subtitle">
-            Frontend Developer • iOS Engineer • MSc Software Engineering
+            Frontend Developer • UX Designer • MSc Software Engineering
           </p>
         </div>
 
@@ -157,7 +157,8 @@ function Resume() {
               <p className="resume-summary">
                 <strong>
                   <span className="keyword-highlight">
-                    Eligible to work in the UK • No sponsorship required
+                    Eligible to work in the UK • No employer sponsorship
+                    required now or in the future
                   </span>
                 </strong>
               </p>

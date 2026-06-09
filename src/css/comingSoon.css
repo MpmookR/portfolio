@@ -1,0 +1,113 @@
+/* ── comingSoon.css ── Reusable Coming Soon section ── */
+
+.coming-soon {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 60px;
+  text-align: center;
+}
+
+.coming-soon-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 560px;
+}
+
+/* Badge */
+.coming-soon-badge {
+  display: inline-block;
+  background: var(--color-lime);
+  color: var(--color-black);
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 11px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 99px;
+  margin-bottom: 28px;
+}
+
+/* Project title */
+.coming-soon-title {
+  font-family: "Madimi One", sans-serif;
+  font-size: clamp(56px, 10vw, 100px);
+  color: var(--color-black);
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+}
+
+/* Animated dots label */
+.coming-soon-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--color-green);
+  margin-bottom: 24px;
+}
+
+.coming-soon-dots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.coming-soon-dots span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-green);
+  animation: cs-bounce 1.2s ease-in-out infinite;
+}
+.coming-soon-dots span:nth-child(2) { animation-delay: 0.2s; }
+.coming-soon-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes cs-bounce {
+  0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+  40%            { transform: translateY(-5px); opacity: 1; }
+}
+
+/* Teaser text */
+.coming-soon-teaser {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+/* Back link */
+.coming-soon-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 11px 24px;
+  border-radius: 99px;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  border: 2px solid var(--color-black);
+  color: var(--color-black);
+  background: transparent;
+  transition: all 0.25s ease;
+}
+.coming-soon-back:hover {
+  border-color: var(--color-green);
+  color: var(--color-green);
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .coming-soon {
+    padding: 60px 24px;
+  }
+}

@@ -5,6 +5,9 @@ import Resume from "./pages/Resume";
 import Sopup from "./pages/projects/Sopup";
 import SoWell from "./pages/projects/SoWell";
 import IShare from "./pages/projects/IShare";
+import MoodBoard from "./pages/projects/MoodBoard";
+import PassionHub from "./pages/projects/PassionHub";
+import Millennium from "./pages/projects/Millennium";
 
 function App() {
   return (
@@ -16,6 +19,9 @@ function App() {
         <Route path="/projects/sopup" element={<Sopup />} />
         <Route path="/projects/sowell" element={<SoWell />} />
         <Route path="/projects/ishare" element={<IShare />} />  
+        <Route path="/projects/moodboard" element={<MoodBoard />} />
+        <Route path="/projects/passionhub" element={<PassionHub />} />
+        <Route path="/projects/millennium" element={<Millennium />} />
       </Routes>
     </BrowserRouter>
   );

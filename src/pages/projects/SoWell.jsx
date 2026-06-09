@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import CaseStudyHero from "../../components/caseStudy/CaseStudyHero";
+import CaseStudyCTA from "../../components/caseStudy/CaseStudyCTA";
 import Lightbox from "../../components/caseStudy/Lightbox";
 import "../../css/sowell.css";
 
@@ -395,24 +396,14 @@ function SoWell() {
         </div>
       </section>
 
-      {/* ── CTA ── */}
-      <section className="sw-cta">
-        <h2 className="sw-cta-title">Explore SoWell</h2>
-        <p className="sw-cta-sub">Read the code or see more work.</p>
-        <div className="sw-cta-buttons">
-          <a
-            href="https://github.com/MpmookR/SoWell/tree/main"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="sw-btn sw-btn--outline sw-btn--light"
-          >
-            GitHub →
-          </a>
-          <a href="/portfolio" className="sw-btn sw-btn--ghost">
-            ← All Projects
-          </a>
-        </div>
-      </section>
+      <CaseStudyCTA
+        title="Explore SoWell"
+        subtitle="Read the code or see more work."
+        buttons={[
+          { label: "GitHub →", href: "https://github.com/MpmookR/SoWell/tree/main", variant: "outline-light", external: true },
+          { label: "← All Projects", href: "/portfolio", variant: "ghost" },
+        ]}
+      />
 
       <Footer />
     </main>
