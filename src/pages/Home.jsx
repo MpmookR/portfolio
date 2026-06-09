@@ -1,7 +1,7 @@
 import Footer from "../components/footer";
 import ClickableFolder from "../components/clickableFolder";
 import logoOrange from "../assets/images/logo/logo_orange.svg";
-import heroImage from "../assets/images/home/hero.svg";
+import heroImage from "../assets/images/home/hero.png";
 
 function Home() {
   return (
