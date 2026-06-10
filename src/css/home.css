@@ -20,10 +20,10 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-
-   background-image: url('/src/assets/images/home/homeBG.png');
-   background-size: cover;
-   background-position: fixed;
+  overflow-x: hidden; /* prevents horizontal scroll from the full-width sliding text banner */
+  background-image: url('../assets/images/home/homeBG.png');
+  background-size: cover;
+  background-position: fixed;
 }
 
 .home-main-content {
