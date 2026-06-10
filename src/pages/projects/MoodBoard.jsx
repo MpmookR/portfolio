@@ -3,6 +3,7 @@ import Header from "../../components/header";
 import Footer from "../../components/footer";
 import CaseStudyHero from "../../components/caseStudy/CaseStudyHero";
 import CaseStudyCTA from "../../components/caseStudy/CaseStudyCTA";
+import CaseStudyReflection from "../../components/caseStudy/CaseStudyReflection";
 import Lightbox from "../../components/caseStudy/Lightbox";
 import "../../css/moodboard.css";
 import moodboardIntro from "../../assets/images/projects/MoodBoard/intro.png";
@@ -341,41 +342,27 @@ function MoodBoard() {
         </div>
       </section>
 
-      {/* ── REFLECTION ── */}
-      <section className="mb-section mb-section--alt">
-        <div className="mb-section-inner">
-          <p className="mb-eyebrow">Reflection</p>
-          <h2 className="mb-section-title">What this project demonstrates</h2>
-
-          <div className="mb-skills-grid">
-            <div className="mb-skill-tag">Freelance client collaboration</div>
-            <div className="mb-skill-tag">UX research (survey design + synthesis)</div>
-            <div className="mb-skill-tag">iOS interaction patterns</div>
-            <div className="mb-skill-tag">Figma hi-fi prototyping</div>
-            <div className="mb-skill-tag">Before / after UX critique</div>
-            <div className="mb-skill-tag">Working within engineering constraints</div>
-            <div className="mb-skill-tag">Onboarding flow design</div>
-            <div className="mb-skill-tag">Widget editing UX</div>
-          </div>
-
-          <p className="mb-body mb-body--center mb-takeaway-text">
-            MoodBoard was a freelance engagement across two phases spanning six months.
-            Working closely with the app owner and a senior iOS engineer, I learned to
-            balance UX goals against real technical constraints — proposing solutions
-            that were not just usable, but feasible to build on iOS. The research-first
-            approach (28 survey responses before any redesign work began) ensured every
-            change had a validated rationale rather than a designer's assumption.
-          </p>
-
-          <div className="mb-outcome-banner">
-            <strong>Improved the full core journey:</strong> onboarding → editing → widget decoration
-            <p>
-              combining 28 survey responses with iterative redesign to improve
-              clarity, discoverability, and editing precision across both phases.
-            </p>
-          </div>
-        </div>
-      </section>
+      <CaseStudyReflection
+        alt
+        skills={[
+          "Freelance client collaboration",
+          "UX research (survey design + synthesis)",
+          "iOS interaction patterns",
+          "Figma hi-fi prototyping",
+          "Before / after UX critique",
+          "Working within engineering constraints",
+          "Onboarding flow design",
+          "Widget editing UX",
+        ]}
+        note="MoodBoard was a freelance engagement across two phases spanning six months. Working closely with the app owner and a senior iOS engineer, I learned to balance UX goals against real technical constraints, proposing solutions that were not just usable, but feasible to build on iOS. The research-first approach (28 survey responses before any redesign work began) ensured every change had a validated rationale rather than a designer's assumption."
+        banner={
+          <>
+            <strong>End-to-end UX improvement across two freelance phases </strong> from a research-backed onboarding redesign to a precision widget editing flow, every change was grounded in data, not assumption. 28 survey responses shaped the problem definition before a single screen was redesigned. Proposals were stress-tested against iOS constraints in collaboration with the engineering team,
+              so the designs were not just better — they were buildable.
+            
+          </>
+        }
+      />
 
       <CaseStudyCTA
         title="Explore MoodBoard"

@@ -3,6 +3,7 @@ import Header from "../../components/header";
 import Footer from "../../components/footer";
 import CaseStudyHero from "../../components/caseStudy/CaseStudyHero";
 import CaseStudyCTA from "../../components/caseStudy/CaseStudyCTA";
+import CaseStudyReflection from "../../components/caseStudy/CaseStudyReflection";
 import Lightbox from "../../components/caseStudy/Lightbox";
 import "../../css/sopup.css";
 import sopupCover from "../../assets/images/projects/soPup/cover.png";
@@ -620,44 +621,36 @@ function Sopup() {
         </div>
       </section>
 
-      {/* ── TAKEAWAY ── */}
-      <section className="sp-section">
-        <div className="sp-section-inner">
-          <p className="sp-eyebrow">Reflection</p>
-          <h2 className="sp-section-title">What this project demonstrates</h2>
-
-          <div className="sp-skills-grid">
-            <div className="sp-skill-tag">End-to-end product ownership</div>
-            <div className="sp-skill-tag">UX research → system design</div>
-            <div className="sp-skill-tag">
-              iOS engineering (SwiftUI, SwiftData, MapKit)
-            </div>
-            <div className="sp-skill-tag">
-              Serverless backend (Firebase, Cloud Functions, TypeScript)
-            </div>
-            <div className="sp-skill-tag">
-              Algorithm design (scoring + ranking pipeline)
-            </div>
-            <div className="sp-skill-tag">
-              Cross-device debugging (iOS 18, Swift actor data races)
-            </div>
-            <div className="sp-skill-tag">
-              Database design (Firestore real-time schema)
-            </div>
-            <div className="sp-skill-tag">Safety-by-design architecture</div>
+      {/* ── WALKTHROUGH VIDEO ── */}
+      <section className="is-section ">
+        <div className="is-section-inner">
+          <p className="is-eyebrow">Demo</p>
+          <h2 className="is-section-title">A full walkthrough of the app</h2>
+          <div className="is-video-wrap">
+            <iframe
+              src="https://drive.google.com/file/d/1AAIfEg8c5YseLjsxqNg8goIiYoUv0zjQ/preview"
+              title="SoWell project walkthrough"
+              allow="autoplay"
+              allowFullScreen
+            />
           </div>
-
-          <p className="sp-body sp-body--center sp-takeaway-text">
-            SoPup is a full-stack product built solo — from user research and
-            Figma prototypes through to a Swift actor-backed iOS client, a
-            serverless TypeScript backend on Cloud Run, and real-device testing
-            with 10 TestFlight users. It demonstrates that I can own a problem
-            end-to-end: identify a genuine user need, design the architecture,
-            implement it across the stack, debug real-world failures, and ship
-            something that works.
-          </p>
         </div>
       </section>
+
+      <CaseStudyReflection
+      alt
+        skills={[
+          "End-to-end product ownership",
+          "UX research → system design",
+          "iOS engineering (SwiftUI, SwiftData, MapKit)",
+          "Serverless backend (Firebase, Cloud Functions, TypeScript)",
+          "Algorithm design (scoring + ranking pipeline)",
+          "Cross-device debugging (iOS 18, Swift actor data races)",
+          "Database design (Firestore real-time schema)",
+          "Safety-by-design architecture",
+        ]}
+        note="SoPup is a full-stack product built solo — from user research and Figma prototypes through to a Swift actor-backed iOS client, a serverless TypeScript backend on Cloud Run, and real-device testing with 10 TestFlight users. It demonstrates that I can own a problem end-to-end: identify a genuine user need, design the architecture, implement it across the stack, debug real-world failures, and ship something that works."
+      />
 
       <CaseStudyCTA
         title="Explore SoPup"

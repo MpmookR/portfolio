@@ -3,6 +3,7 @@ import Header from "../../components/header";
 import Footer from "../../components/footer";
 import CaseStudyHero from "../../components/caseStudy/CaseStudyHero";
 import CaseStudyCTA from "../../components/caseStudy/CaseStudyCTA";
+import CaseStudyReflection from "../../components/caseStudy/CaseStudyReflection";
 import Lightbox from "../../components/caseStudy/Lightbox";
 import "../../css/sowell.css";
 import sowellLogin from "../../assets/images/projects/soWell/flow/login.png";
@@ -56,9 +57,25 @@ function SoWell() {
       />
 
       <CaseStudyHero {...SOWELL_HERO} />
+      
+      {/* ── WALKTHROUGH VIDEO ── */}
+      <section className="is-section is-section--alt">
+        <div className="is-section-inner">
+          <p className="is-eyebrow">Demo</p>
+          <h2 className="is-section-title">A full walkthrough of the app</h2>
+          <div className="is-video-wrap">
+            <iframe
+              src="https://drive.google.com/file/d/1yAfaemi14avPdC5eVgS3YtwGHLdTMXX5/preview"
+              title="SoWell project walkthrough"
+              allow="autoplay"
+              allowFullScreen
+            />
+          </div>
+        </div>
+      </section>
 
       {/* ── PROBLEM ── */}
-      <section className="sw-section sw-section--alt">
+      <section className="sw-section">
         <div className="sw-section-inner sw-two-col">
           <div>
             <p className="sw-eyebrow">The Problem</p>
@@ -94,7 +111,7 @@ function SoWell() {
       </section>
 
       {/* ── APP SCREENS ── */}
-      <section className="sw-section">
+      <section className="sw-section sw-section--alt">
         <div className="sw-section-inner">
           <p className="sw-eyebrow">App Screens</p>
           <h2 className="sw-section-title">Six screens. One calm, connected experience.</h2>
@@ -258,7 +275,7 @@ function SoWell() {
       </section>
 
       {/* ── ARCHITECTURE ── */}
-      <section className="sw-section sw-section--alt">
+      <section className="sw-section">
         <div className="sw-section-inner">
           <p className="sw-eyebrow">Architecture</p>
           <h2 className="sw-section-title">Built on a clean, layered foundation</h2>
@@ -301,7 +318,7 @@ function SoWell() {
       </section>
 
       {/* ── ENGINEERING NOTES ── */}
-      <section className="sw-section">
+      <section className="sw-section sw-section--alt">
         <div className="sw-section-inner">
           <p className="sw-eyebrow">Engineering</p>
           <h2 className="sw-section-title">Technical decisions worth noting</h2>
@@ -361,46 +378,32 @@ function SoWell() {
         </div>
       </section>
 
-      {/* ── REFLECTION ── */}
-      <section className="sw-section sw-section--alt">
-        <div className="sw-section-inner">
-          <p className="sw-eyebrow">Reflection</p>
-          <h2 className="sw-section-title">What this project demonstrates</h2>
-
-          <div className="sw-skills-grid">
-            <div className="sw-skill-tag">iOS development (SwiftUI + SwiftData)</div>
-            <div className="sw-skill-tag">Apple HealthKit integration</div>
-            <div className="sw-skill-tag">MVVM architecture</div>
-            <div className="sw-skill-tag">Firebase Auth + Firestore</div>
-            <div className="sw-skill-tag">Offline-first data design</div>
-            <div className="sw-skill-tag">UX design for health apps</div>
-            <div className="sw-skill-tag">Collaborative development</div>
-            <div className="sw-skill-tag">Test strategy (mock data toggle)</div>
-          </div>
-
-          <p className="sw-body sw-body--center sw-takeaway-text">
-            SoWell was built as a university coursework project in collaboration with
-            Kayley Govinden. It demonstrates how real-world health data from HealthKit
-            can be combined with user-logged emotional data to give a more complete picture
-            of daily wellbeing — while keeping the experience simple and low-friction. The
-            MVVM architecture and offline-first storage approach reflect production-quality
-            thinking applied at coursework scale.
-          </p>
-
-          <div className="sw-collab-note">
-            Built in collaboration with{" "}
-            <a
-              href="https://github.com/KROSE95"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{ color: "var(--color-green)", fontWeight: 600 }}
-            >
-              Kayley Govinden
-            </a>{" "}
-            as part of a university Mobile Development coursework.
-          </div>
+      <CaseStudyReflection
+        skills={[
+          "iOS development (SwiftUI + SwiftData)",
+          "Apple HealthKit integration",
+          "MVVM architecture",
+          "Firebase Auth + Firestore",
+          "Offline-first data design",
+          "UX design for health apps",
+          "Collaborative development",
+          "Test strategy (mock data toggle)",
+        ]}
+        note="SoWell was built as a university coursework project in collaboration with Kayley Govinden. It demonstrates how real-world health data from HealthKit can be combined with user-logged emotional data to give a more complete picture of daily wellbeing — while keeping the experience simple and low-friction. The MVVM architecture and offline-first storage approach reflect production-quality thinking applied at coursework scale."
+      >
+        <div className="sw-collab-note">
+          Built in collaboration with{" "}
+          <a
+            href="https://github.com/KROSE95"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ color: "var(--color-green)", fontWeight: 600 }}
+          >
+            Kayley Govinden
+          </a>{" "}
+          as part of a university Mobile Development coursework.
         </div>
-      </section>
+      </CaseStudyReflection>
 
       <CaseStudyCTA
         title="Explore SoWell"

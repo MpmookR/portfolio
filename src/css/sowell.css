@@ -1,4 +1,51 @@
 /* ────────────────────────────────────────
+   CTA BUTTONS
+──────────────────────────────────────── */
+.sw-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 20px;
+  border-radius: 99px;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.sw-btn--solid {
+  background: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+.sw-btn--solid:hover {
+  background: var(--color-green);
+  border-color: var(--color-green);
+}
+
+.sw-btn--outline.sw-btn--light {
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+}
+.sw-btn--outline.sw-btn--light:hover {
+  border-color: var(--color-lime);
+  color: var(--color-lime);
+}
+
+.sw-btn--ghost {
+  background: transparent;
+  color: var(--color-white);
+  border-color: transparent;
+}
+.sw-btn--ghost:hover {
+  color: var(--color-lime);
+}
+
+/* ────────────────────────────────────────
    SECTIONS
 ──────────────────────────────────────── */
 .sw-section {
@@ -160,7 +207,6 @@
   border-radius: 16px;
   overflow: hidden;
   height: 200px;
-  border: 1.5px solid rgba(0, 0, 0, 0.08);
 }
 
 .sw-screen-img-wrap img {
@@ -185,6 +231,7 @@
   border-radius: 48px;
   padding: 28px 24px;
   border: 2px solid var(--color-lime);
+  background: var(--color-white);
 }
 
 .sw-arch-icon {
@@ -344,6 +391,36 @@
 }
 
 /* ────────────────────────────────────────
+   CTA
+──────────────────────────────────────── */
+.sw-cta {
+  background: linear-gradient(135deg, var(--color-green), #0d5018);
+  padding: 80px 60px;
+  text-align: center;
+}
+
+.sw-cta-title {
+  font-family: "Madimi One", sans-serif;
+  font-size: clamp(28px, 5vw, 48px);
+  color: var(--color-white);
+  margin-bottom: 12px;
+}
+
+.sw-cta-sub {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 36px;
+}
+
+.sw-cta-buttons {
+  display: flex;
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ────────────────────────────────────────
    RESPONSIVE
 ──────────────────────────────────────── */
 @media (max-width: 767px) {
@@ -366,6 +443,14 @@
     gap: 16px;
   }
 
+  .sw-cta {
+    padding: 60px 24px;
+  }
+
+  .sw-cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media (max-width: 480px) {
