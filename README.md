@@ -1,16 +1,98 @@
-# React + Vite
+# Puangpaka (Mook) Rattana — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio website showcasing frontend engineering and UX design work.  
+Built with React + Vite and deployed on Netlify.
 
-Currently, two official plugins are available:
+**Live site:** [mooksportfolio.netlify.app](#)  
+**Contact:** mpmookr@gmail.com · [GitHub](https://github.com/MpmookR) · [LinkedIn](https://www.linkedin.com/in/puangpaka-rattana-4608981b2/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## About
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This portfolio presents two sides of my work:
 
-## Expanding the ESLint configuration
+- **Frontend Engineering** — full-stack iOS apps and web platforms built end-to-end
+- **UX Design** — freelance and academic design projects grounded in user research
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Each project page is a written case study covering the problem, research, design decisions, engineering challenges, and outcomes.
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|---|---|
+| Framework | React 19 |
+| Build tool | Vite 8 |
+| Routing | React Router 7 |
+| Styling | Plain CSS (component-scoped) |
+| Deployment | Netlify |
+
+---
+
+## Key Implementation Details
+
+- **Page transitions** — fade-in + slide-up animation on every route change using `useLocation` key remounting
+- **Scroll reset** — `window.scrollTo(0, 0)` on navigation so every page starts at the top
+- **Lightbox** — click-to-zoom image viewer rendered via React Portal (`createPortal`) so `position: fixed` is always relative to the viewport, not any CSS transform ancestor
+- **Asset bundling** — all images imported as ES modules so Vite processes and hashes them correctly for production (avoids broken images on Netlify)
+- **SPA routing** — `public/_redirects` configured so Netlify serves `index.html` for all routes instead of returning 404 on direct URL access or page refresh
+
+---
+
+## Running Locally
+
+```bash
+# Install dependencies
+npm install
+
+# Start dev server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build locally
+npm run preview
+```
+
+---
+
+## Project Structure
+
+```
+src/
+├── App.jsx                  # Router setup + page transition wrapper
+├── pages/
+│   ├── Home.jsx
+│   ├── Portfolio.jsx
+│   ├── Resume.jsx
+│   └── projects/            # Individual case study pages
+│       ├── Sopup.jsx
+│       ├── SoWell.jsx
+│       ├── IShare.jsx
+│       ├── MoodBoard.jsx
+│       ├── PassionHub.jsx
+│       └── Millennium.jsx
+├── components/
+│   ├── header.jsx
+│   ├── footer.jsx
+│   ├── projectCard.jsx
+│   ├── clickableFolder.jsx
+│   ├── ComingSoon.jsx
+│   └── caseStudy/           # Shared case study UI components
+│       ├── CaseStudyHero.jsx
+│       ├── CaseStudyCTA.jsx
+│       ├── Lightbox.jsx
+│       ├── CaseLink.jsx
+│       └── MetaPill.jsx
+├── css/                     # Per-page and component stylesheets
+└── assets/                  # Images imported as ES modules
+public/
+└── _redirects               # Netlify SPA routing fallback
+```
+
+---
+
+*Built by Puangpaka (Mook) Rattana — MSc Software Engineering · Frontend Developer · UX Designer*
