@@ -3,7 +3,7 @@
 Personal portfolio website showcasing frontend engineering and UX design work.  
 Built with React + Vite and deployed on Netlify.
 
-**Live site:** [mooksportfolio.netlify.app](#)  
+**Live site:** [Mook's Portfolio](mooksportfolio.netlify.app)  
 **Contact:** mpmookr@gmail.com · [GitHub](https://github.com/MpmookR) · [LinkedIn](https://www.linkedin.com/in/puangpaka-rattana-4608981b2/)
 
 ---
