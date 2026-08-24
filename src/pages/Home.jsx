@@ -22,9 +22,6 @@ function Home() {
                 Product Designer & Engineer
               </h1>
 
-              <p className="hero-specialism">
-                From user research and product design to development, testing and iteration
-              </p>
               <p className="hero-name" aria-label="Puangpaka Mook Rattana">
                 <span className="name-first">Puangpaka</span>
                 <span className="name-nickname" aria-hidden="true">
