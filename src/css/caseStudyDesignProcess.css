@@ -1,0 +1,249 @@
+/* ── caseStudyDesignProcess.css ── Shared CaseStudyDesignProcess Component ── */
+
+.cs-dp-section {
+  padding: 80px 0;
+}
+.cs-dp-section--alt {
+  background: var(--color-white);
+}
+.cs-dp-section--intro {
+  padding-bottom: 24px;
+}
+.cs-dp-section--content {
+  padding-top: 0;
+}
+
+.cs-dp-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.cs-dp-eyebrow {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 11px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-green);
+  margin-bottom: 8px;
+}
+
+.cs-dp-title {
+  font-family: "Madimi One", sans-serif;
+  font-size: clamp(26px, 4.5vw, 44px);
+  color: var(--color-black);
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.cs-dp-intro {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #444;
+  max-width: 700px;
+  margin: 0 auto 24px;
+  text-align: center;
+}
+
+.cs-dp-skip {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0;
+}
+
+.cs-dp-forward {
+  display: flex;
+  justify-content: center;
+  margin: 48px 0 0;
+}
+
+.cs-dp-skip-link {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 13px;
+  color: #888;
+  text-decoration: none;
+  border-bottom: 1px dashed #ccc;
+  padding-bottom: 2px;
+  text-align: center;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+.cs-dp-skip-link strong {
+  color: var(--color-green);
+  font-weight: var(--fw-semibold);
+}
+.cs-dp-skip-link:hover {
+  color: var(--color-green);
+  border-color: var(--color-green);
+}
+
+.cs-dp-block {
+  margin-top: 56px;
+}
+
+.cs-dp-block-title {
+  font-family: "Madimi One", sans-serif;
+  font-size: 22px;
+  color: var(--color-black);
+  margin-bottom: 12px;
+}
+
+.cs-dp-block-intro {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #444;
+  /* max-width: 700px; */
+  margin: 0 auto 24px;
+  /* text-align: center; */
+}
+
+/* Flow diagrams */
+.cs-dp-flow-item {
+  margin-top: 28px;
+  background: var(--color-white);
+  border: 1.5px solid var(--color-lime);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.cs-dp-flow-label {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 12px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--color-green);
+  margin-bottom: 12px;
+}
+
+.cs-dp-flow-img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Wireframes */
+.cs-dp-wireframe {
+  margin-top: 28px;
+  background: var(--color-white);
+  border-radius: 20px;
+  padding: 28px;
+  border: 1.5px solid #eee;
+}
+
+.cs-dp-wireframe-text {
+  margin-bottom: 20px;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.cs-dp-wireframe-tag {
+  display: inline-block;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 10px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--color-green);
+  background: #eef6e1;
+  border-radius: 99px;
+  padding: 4px 12px;
+  margin-bottom: 10px;
+}
+
+.cs-dp-wireframe-text p {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.cs-dp-wireframe .cs-zoomable {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+.cs-dp-wireframe .cs-zoomable + .cs-zoomable {
+  margin-top: 16px;
+}
+
+.cs-dp-wireframe-img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 460px;
+  border-radius: 14px;
+}
+
+/* Usability stats */
+.cs-dp-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 32px 0 24px;
+}
+
+.cs-dp-stat-tile {
+  background: var(--color-white);
+  border: 1.5px solid var(--color-lime);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+}
+
+.cs-dp-stat-num {
+  font-family: "Madimi One", sans-serif;
+  font-size: 30px;
+  color: var(--color-green);
+  line-height: 1;
+}
+
+.cs-dp-stat-label {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 12px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.cs-dp-callout {
+  background: #eef6e1;
+  border: 1.5px solid var(--color-lime);
+  color: var(--color-green);
+  border-radius: 16px;
+  padding: 16px 24px;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* ────────────────────────────────────────
+   RESPONSIVE
+──────────────────────────────────────── */
+@media (max-width: 767px) {
+  .cs-dp-inner {
+    padding: 0 20px;
+  }
+
+  .cs-dp-wireframe {
+    padding: 20px;
+  }
+
+  .cs-dp-wireframe-img {
+    max-height: 320px;
+  }
+
+  .cs-dp-stat-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
