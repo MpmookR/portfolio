@@ -68,13 +68,13 @@ function Portfolio() {
       <div className="portfolio-header containerMain">
         <h1 className="portfolio-title">Portfolio</h1>
         <p className="portfolio-subtitle">
-          Showcasing Frontend Engineering & UX Design Work
+          Showcasing Product Design & Engineering Work
         </p>
       </div>
 
-      {/* Frontend Engineering Section */}
+      {/* Product Design & Engineering Section */}
       <section className="portfolio-section">
-        <h2 className="section-title">Frontend Engineering</h2>
+        <h2 className="section-title">Product Design & Engineering</h2>
         <div className="projects-grid">
           {frontendProjects.map((project, index) => (
             <ProjectCard

@@ -12,18 +12,19 @@ function Home() {
         <div className="top-section containerMain">
           <header className="home-header">
             <a href="/" className="logo" aria-label="Mook's Portfolio logo">
-              <img
-                src={logoOrange}
-                alt="Mook's Portfolio logo"
-              />
+              <img src={logoOrange} alt="Mook's Portfolio logo" />
             </a>
           </header>
 
           <section className="heroName" aria-labelledby="hero-title">
             <div className="hero-title-block">
               <h1 id="hero-title" className="hero-title">
-                Junior Frontend Engineer
+                Product Designer & Engineer
               </h1>
+
+              <p className="hero-specialism">
+                From user research and product design to development, testing and iteration
+              </p>
               <p className="hero-name" aria-label="Puangpaka Mook Rattana">
                 <span className="name-first">Puangpaka</span>
                 <span className="name-nickname" aria-hidden="true">

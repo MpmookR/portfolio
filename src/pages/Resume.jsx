@@ -13,9 +13,11 @@ function Resume() {
         "TypeScript",
         "JavaScript",
         "React",
+        "Next.js",
         "React Router",
         "HTML",
         "CSS",
+        "Tailwind CSS",
         "Vite",
         "Responsive Design",
         "Accessibility (WCAG)",
@@ -32,50 +34,64 @@ function Resume() {
         "MapKit",
         "Core Location",
         "HealthKit",
+        "TestFlight",
       ],
     },
     {
-      title: "🏗️ Architecture",
+      title: "🏗️ Engineering & Architecture",
       skills: [
         "MVVM",
         "Clean Architecture",
+        "Component-Based Architecture",
         "Modular Structure",
         "State Management",
-        "SPA Development",
         "API Integration",
+        "Authentication",
+        "Responsive Implementation",
       ],
     },
     {
       title: "☁️ Backend & Cloud",
       skills: [
         "Node.js",
+        "REST APIs",
         "Firebase Auth",
         "Firestore",
         "Firebase Storage",
         "Cloud Functions",
-        "REST APIs",
-        "FCM",
+        "Firebase Cloud Messaging",
+        "Sanity CMS",
       ],
     },
     {
       title: "🎨 UX & Product Design",
       skills: [
         "UX Research",
-        "Wireframing",
-        "Prototyping",
         "User Flows",
+        "Information Architecture",
+        "Wireframing",
+        "Interactive Prototyping",
         "Usability Testing",
         "Design Systems",
+        "Developer Handoff",
         "Figma",
       ],
     },
     {
-      title: "🛠️ Tools",
-      skills: ["Git", "GitHub", "Postman", "VSCode", "VSCode"],
+      title: "🤖 AI & Prototyping",
+      skills: [
+        "OpenAI API",
+        "Claude Code",
+        "ChatGPT",
+        "Figma MCP",
+        "Prompt Design",
+        "Structured Outputs",
+        "AI-Assisted Prototyping",
+      ],
     },
     {
-      title: "🤖 AI-Assisted Development",
-      skills: ["Claude Code", "ChatGPT"],
+      title: "🛠️ Development Tools",
+      skills: ["Git", "GitHub", "Postman"],
     },
   ];
 
@@ -87,7 +103,8 @@ function Resume() {
         <div className="resume-header containerMain">
           <h1 className="resume-title">Puangpaka (Mook) Rattana</h1>
           <p className="resume-subtitle">
-            Frontend Developer • UX Designer • MSc Software Engineering
+            Frontend-Focused Product Engineer • Product Designer • MSc Software
+            Engineering
           </p>
         </div>
 
@@ -122,37 +139,21 @@ function Resume() {
           <div className="resume-items">
             <div className="resume-item">
               <p className="resume-summary">
-                <strong>
-                  <span className="keyword-highlight">
-                    Frontend & UX-Focused Software Developer
-                  </span>
-                </strong>{" "}
-                with experience building responsive web and iOS applications
-                using React, SwiftUI, TypeScript, and API-driven backends.
-                Combining a background in UX design with an MSc in Software
-                Engineering, I enjoy creating digital products that are both
-                intuitive for users and well-engineered behind the scenes.
+                I’m a <strong>Product Designer &amp; Engineer</strong> who
+                enjoys turning real user problems into thoughtful digital
+                products. With a background in product design and an MSc in Software
+                Engineering, I bring together user research, product thinking and technical understanding to take ideas from early exploration to tested, working experiences.
               </p>
 
               <p className="resume-summary">
-                I am particularly interested in{" "}
-                <strong>
-                  <span className="keyword-highlight">
-                    Frontend Developer roles where design and development work
-                    closely together.
-                  </span>
-                </strong>{" "}
-                I enjoy translating ideas, wireframes, and user requirements
-                into polished, accessible, and responsive experiences, while
-                collaborating with designers, developers, and stakeholders to
-                solve real user problems.
+                My work spans health, wellbeing and social products across web and iOS, reflecting my personal interest in fitness, nutrition and technology that improves everyday life. I care about simplifying complex journeys, creating accessible and polished interfaces, and collaborating with users and cross-functional teams to ensure the final product is both useful and practical to build.
               </p>
 
               <p className="resume-summary">
-                What excites me most is working in product-focused or agency
-                environments where I can contribute to both the user experience
-                and the technical implementation, helping turn concepts into
-                engaging and impactful digital products.
+                I’m particularly interested in roles where design and
+                engineering work closely together and where I can continue
+                learning while contributing to products with a meaningful
+                impact.
               </p>
 
               <p className="resume-summary">
@@ -167,9 +168,9 @@ function Resume() {
           </div>
         </section>
 
-        {/* Tech Stack */}
+        {/* Skills & Tools */}
         <section className="resume-section">
-          <h2 className="resume-section-title">Tech Stack</h2>
+          <h2 className="resume-section-title">Skills & Tools</h2>
           <div className="skills-grid">
             {skillsData.map((category, index) => (
               <div key={index} className="skill-category">
@@ -192,7 +193,9 @@ function Resume() {
           <div className="resume-items">
             <div className="resume-item">
               <h3 className="resume-role">
-                <Link to="/projects/sopup">🐶 SoPup: Dog Socialisation iOS App</Link>
+                <Link to="/projects/sopup">
+                  🐶 SoPup: Dog Socialisation iOS App
+                </Link>
               </h3>
               <p className="resume-company">
                 MSc Final Project | June – October 2025
@@ -200,28 +203,41 @@ function Resume() {
 
               <ul className="resume-list">
                 <li>
-                  Led product design and frontend development of a dual-mode
-                  mobile platform, designing user flows, wireframes, prototypes,
-                  and production-ready interfaces.
+                  Led the end-to-end product design and development of an iOS
+                  app helping dog owners find compatible dogs and arrange safer
+                  meetups by combined interviews with dog owners and research
+                  from veterinarians and dog trainers to design a full-stack
+                  dog-socialisation application and custom
+                  compatibility-matching logic.
                 </li>
                 <li>
-                  Translated UX research, usability testing, and user feedback
-                  into iterative improvements across onboarding, matchmaking,
-                  messaging, and meetup experiences.
+                  Designed the backend architecture and built Node.js and
+                  TypeScript REST API services consumed by the SwiftUI
+                  application.
                 </li>
                 <li>
-                  Developed responsive SwiftUI interfaces integrated with
-                  Firebase Auth, Firestore, Storage, and Cloud Functions.
+                  Developed a location and behaviour aware matching algorithm,
+                  duplicate-request prevention and controlled meetup status
+                  transitions.
                 </li>
                 <li>
-                  Built modular backend services in TypeScript supporting
-                  matchmaking, messaging, reviews, and real-time social
-                  interactions.
+                  Implemented Firestore data models and queries,
+                  duplicate-request prevention, Firebase Authentication and push
+                  notifications.
                 </li>
                 <li>
-                  Implemented real-time data updates, push notifications, and
-                  scalable architecture while maintaining a user-centred
-                  experience.
+                  Automated the creation of a chat room when a match was
+                  accepted, connecting database operations, notifications and
+                  frontend responses.
+                </li>
+                <li>
+                  Structured the codebase using models, services and
+                  repositories, separating user interface, business logic and
+                  data access.
+                </li>
+                <li>
+                  Released through TestFlight to 20+ users, using feedback to
+                  improve product flows and implementation.
                 </li>
               </ul>
 
@@ -231,7 +247,11 @@ function Resume() {
             </div>
 
             <div className="resume-item">
-              <h3 className="resume-role"><Link to="/projects/sowell">🌿 SoWell: Mood Tracker iOS App</Link></h3>
+              <h3 className="resume-role">
+                <Link to="/projects/sowell">
+                  🌿 SoWell: Mood Tracker iOS App
+                </Link>
+              </h3>
               <p className="resume-company">
                 MSc Group Project | March – April 2025
               </p>
@@ -267,7 +287,9 @@ function Resume() {
 
             <div className="resume-item">
               <h3 className="resume-role">
-                <Link to="/projects/ishare">🍱 iShare: Recipe Sharing Web Platform</Link>
+                <Link to="/projects/ishare">
+                  🍱 iShare: Recipe Sharing Web Platform
+                </Link>
               </h3>
               <p className="resume-company">
                 MSc Solo Project | March – April 2025
@@ -307,7 +329,8 @@ function Resume() {
             <div className="resume-item">
               <h3 className="resume-role">🎨 Freelance UX Designer</h3>
               <p className="resume-company">
-                <Link to="/projects/moodboard">MoodBoard iOS Widget App</Link> | July 2023 – April 2024
+                <Link to="/projects/moodboard">MoodBoard iOS Widget App</Link> |
+                July 2023 – April 2024
               </p>
               <ul className="resume-list">
                 <li>
@@ -398,7 +421,7 @@ function Resume() {
             </div>
 
             <div className="resume-item">
-              <h3 className="resume-role">Bachelor’s in marketing</h3>
+              <h3 className="resume-role">Bachelor’s in Marketing</h3>
               <p className="resume-company">
                 Prince of Songkla University, Thailand
               </p>
@@ -406,40 +429,6 @@ function Resume() {
           </div>
         </section>
 
-        {/* Key Strengths */}
-        {/* <section className="resume-section">
-          <h2 className="resume-section-title">What I Bring</h2>
-          <div className="resume-items">
-            <div className="resume-item">
-              <ul className="resume-list">
-                <li>
-                  Production iOS apps with SwiftUI, MVVM, and Clean Architecture
-                  patterns
-                </li>
-                <li>
-                  Frontend features with TypeScript, React, and modern
-                  JavaScript tooling
-                </li>
-                <li>
-                  Full-stack capabilities: Firebase, Cloud Functions, REST APIs
-                  integration
-                </li>
-                <li>
-                  Bridge between UX design and engineering across mobile and web
-                  platforms
-                </li>
-                <li>
-                  Strong foundation in async/await, Combine, and state
-                  management
-                </li>
-                <li>
-                  Experience as Freelance UX Designer — delivered Figma to
-                  production handoffs
-                </li>
-              </ul>
-            </div>
-          </div>
-        </section> */}
       </div>
 
       <Footer />
