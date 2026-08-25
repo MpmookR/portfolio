@@ -23,6 +23,7 @@ import sopupWireframeMeetup from "../../assets/images/designProcess/meetup.png";
 import sopupMode from "../../assets/images/designProcess/mode.png";
 import sopupReview from "../../assets/images/designProcess/review.png";
 import sopupWireframeHomeRefined from "../../assets/images/designProcess/Homepage_refined.png";
+import sopupMoodSwitcher from "../../assets/images/designProcess/modeSwitcher.png";
 
 const SOPUP_HERO = {
   badge: "iOS Case Study",
@@ -103,7 +104,7 @@ const SOPUP_DESIGN_PROCESS = {
   wireframeSection: {
     title: "Wireframes, screen by screen",
     intro:
-      "Four core journeys were wireframed in sequence, each one carrying a specific design decision forward from the research. The earliest screens started as pencil-and-paper sketches, walked through in person with dog owners I know so feedback came before anything was committed to Figma. Only once those sketches held up did they get digitised for prototyping and usability testing.",
+      "Six core journeys were wireframed in sequence, each one carrying a specific design decision forward from the research. The earliest screens started as pencil-and-paper sketches, which I walked through in person with dog owners I know so feedback came before anything was committed to Figma. Only once those sketches held up did they get digitised for prototyping and usability testing.",
     items: [
       {
         tag: "Onboarding",
@@ -120,6 +121,12 @@ const SOPUP_DESIGN_PROCESS = {
         images: [{ src: sopupMode, alt: "Mode assignment wireframes" }],
       },
       {
+        tag: "Mode Switcher",
+        description:
+          "The mode switcher is only visible to Puppy Mode users, and it's disabled until the system validates the dates. This prevents users from bypassing the safety rules, and makes it clear that the app is enforcing them rather than leaving it up to the user. After the user's tapped the switcher, a modal explains why the mode changed and what that means for their dog's socialisation.",
+        images: [{ src: sopupMoodSwitcher, alt: "Mode switcher wireframes" }],
+      },
+      {
         tag: "Homepage & Filters",
         description:
           "Profile cards are colour-coded by mode (blue for Puppy, orange for Social), so compatibility is legible before a profile is even opened. The filter panel groups General (gender, health, neuter status) above Pet Behaviour (play style, environment), so users narrow by safety first, personality second.",
@@ -130,7 +137,7 @@ const SOPUP_DESIGN_PROCESS = {
       {
         tag: "Match Flow",
         description:
-          "Unlike other dog social apps, where anyone can drop into your inbox uninvited, SoPup requires both owners to accept before a single message is exchanged. Sending a request means writing a short personal note first, a deliberate friction point that discourages low-effort spam. Pending and Requested live in separate tabs so incoming and outgoing intent are never ambiguous.",
+          "SoPup was built so both paws and owners feel safe before a single message is exchanged, mutual agreement does the heavy lifting. Unlike other dog social apps, where anyone can drop into an inbox uninvited, both owners have to accept a match before any conversation starts. Sending a request means writing a short personal note first, a deliberate friction point that discourages low-effort spam. Pending and Requested live in separate tabs so incoming and outgoing intent are never ambiguous.",
         images: [{ src: sopupWireframeMatch, alt: "Match flow wireframes" }],
       },
       {
@@ -138,11 +145,11 @@ const SOPUP_DESIGN_PROCESS = {
         description:
           "Meet-up scheduling lives inside the chat as an embedded card rather than a separate flow, so proposing, accepting, and reviewing a playdate never breaks the conversation. If a Puppy Mode match hasn't cleared vaccinations, the app states that plainly in-thread instead of silently disabling the button.",
         images: [
-          { src: sopupWireframeChat, alt: "Chat and meet-up wireframes" },
-          {
+                    {
             src: sopupWireframeMeetup,
             alt: "Meet-up scheduling and mode-mismatch wireframes",
           },
+          { src: sopupWireframeChat, alt: "Chat and meet-up wireframes" },
         ],
       },
     ],
@@ -908,7 +915,7 @@ function Sopup() {
             icon: "figma",
             external: true,
           })),
-          
+
           { label: "✈ TestFlight", href: "https://testflight.apple.com/join/duM8Wv9Q", variant: "solid", external: true },
           
           { label: "GitHub →", href: "https://github.com/MpmookR/So_Pup/tree/main/So_Pup", variant: "outline-light", external: true },
