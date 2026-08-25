@@ -278,9 +278,8 @@
   font-size: 14px;
   line-height: 1.75;
   color: #444;
-  max-width: 680px;
+  max-width: 100%;
   margin: 0 auto 32px;
-  text-align: center;
 }
 
 /* optional green callout banner */

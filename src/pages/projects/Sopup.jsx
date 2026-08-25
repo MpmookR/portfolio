@@ -150,7 +150,7 @@ const SOPUP_DESIGN_PROCESS = {
   statsSection: {
     title: "Validating with real dog owners",
     intro:
-      "Before development wrapped, the prototype was tested with 7 dog owners via a structured survey. 42.9% had used a similar app before and 57.1% hadn't, giving a mix of newcomer and experienced feedback. This ran on the Figma prototype, separate from the TestFlight testing further down the page, which validated the built app rather than the design.",
+      "Before development wrapped, the prototype was tested with 18 dog owners via a structured survey. 42.9% had used a similar app before and 57.1% hadn't, giving a mix of newcomer and experienced feedback. This ran on the Figma prototype, separate from the TestFlight testing further down the page, which validated the built app rather than the design.",
     stats: [
       {
         value: "85.7%",
@@ -901,7 +901,16 @@ function Sopup() {
         title="Explore SoPup"
         subtitle="Try the prototype, read the code, or see more work"
         buttons={[
+          ...SOPUP_HERO.figmaLinks.map((link) => ({
+            label: `${link.label}`,
+            href: link.href,
+            variant: "figma",
+            icon: "figma",
+            external: true,
+          })),
+          
           { label: "✈ TestFlight", href: "https://testflight.apple.com/join/duM8Wv9Q", variant: "solid", external: true },
+          
           { label: "GitHub →", href: "https://github.com/MpmookR/So_Pup/tree/main/So_Pup", variant: "outline-light", external: true },
           { label: "← All Projects", href: "/portfolio", variant: "ghost" },
         ]}

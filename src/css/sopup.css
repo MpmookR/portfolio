@@ -118,13 +118,17 @@
   font-size: 15px;
   line-height: 1.75;
   color: #444;
-  max-width: 620px;
+  max-width: 100%;
   margin-bottom: 24px;
 }
 .sp-body--center {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+}
+
+.body--iteration {
+  max-width: 95%;
 }
 
 .sp-quote {
@@ -527,6 +531,7 @@
   border-radius: 20px;
   padding: 28px 24px;
   border: 2px solid var(--color-lime);
+  background: var(--color-white);
 }
 
 .sp-arch-icon {
