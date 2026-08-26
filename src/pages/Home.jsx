@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import Footer from "../components/footer";
 import ClickableFolder from "../components/clickableFolder";
 import logoOrange from "../assets/images/logo/logo_orange.svg";
-import heroImage from "../assets/images/home/hero.png";
+import heroImage from "../assets/images/home/hero_intro.png";
 
 function Home() {
   return (

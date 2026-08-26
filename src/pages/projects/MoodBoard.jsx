@@ -50,12 +50,7 @@ function MoodBoard() {
           <p className="mb-eyebrow">Overview</p>
           <h2 className="mb-section-title">Two phases · One cleaner product</h2>
           <p className="mb-body mb-body--center">
-            MoodBoard is an iOS widget customisation app that lets users build
-            personalised moodboards with photos, stickers, text, emoji, pins, and
-            styles. I joined as a freelance UX designer across two distinct phases.
-            First improving the onboarding experience, then redesigning the photo
-            editing and widget decoration flow to make interactions more precise,
-            discoverable, and aligned with iOS UI standards.
+            MoodBoard is an iOS widget customisation app that lets users build personalised moodboards with photos, stickers, text, emoji, pins, and styles. I joined as a freelance UX designer across two phases. The first focused on the onboarding experience; the second redesigned the photo editing and widget decoration flow to make interactions more precise, discoverable, and aligned with iOS UI standards.
           </p>
         </div>
       </section>
@@ -66,7 +61,7 @@ function MoodBoard() {
           <p className="mb-eyebrow">The Problem</p>
           <h2 className="mb-section-title">Friction in the two most critical flows</h2>
           <p className="mb-body mb-body--center">
-            The app's core value is creative widget decoration — but users were
+            The app's core value is creative widget decoration, but users were
             hitting friction at both ends: before they got started, and during editing.
           </p>
 
@@ -84,7 +79,7 @@ function MoodBoard() {
               <div className="mb-problem-area">Phase 2 · Editing</div>
               <h4>Widget editing & photo arrangement</h4>
               <ul className="mb-problem-list">
-                <li>Too many controls visible at once — visual clutter overwhelmed users</li>
+                <li>Too many controls visible at once, and the clutter overwhelmed users</li>
                 <li>Scroll-heavy controls hurt discoverability</li>
                 <li>Elements were too small to edit precisely on canvas</li>
                 <li>Hard to select the right photo when multiple items overlapped</li>
@@ -101,7 +96,7 @@ function MoodBoard() {
           <h2 className="mb-section-title">Validating pain points before redesigning</h2>
           <p className="mb-body mb-body--center">
             A user survey with 28 responses confirmed what early usage patterns
-            suggested — and gave clear direction for where to focus the redesign.
+            suggested and gave clear direction for where to focus the redesign.
           </p>
 
           <div className="mb-research-row">
@@ -121,7 +116,7 @@ function MoodBoard() {
               <div className="mb-finding-card">
                 <h5>Precision issues</h5>
                 <p>
-                  Controls were too small for accurate editing — users felt like
+                  Controls were too small for accurate editing, so users felt like
                   they were fighting the interface.
                 </p>
               </div>
@@ -135,8 +130,8 @@ function MoodBoard() {
               <div className="mb-finding-card">
                 <h5>UX expectations</h5>
                 <p>
-                  Users expected familiar iOS patterns (e.g. Instagram-style delete)
-                  — the app deviated without clear benefit.
+                  Users expected familiar iOS patterns (e.g. Instagram-style delete),
+                  but the app deviated without clear benefit.
                 </p>
               </div>
             </div>
@@ -150,8 +145,8 @@ function MoodBoard() {
           <p className="mb-eyebrow">Redesign</p>
           <h2 className="mb-section-title">Three improvements, one better journey</h2>
           <p className="mb-body mb-body--center">
-            Each improvement maps directly to a validated research finding —
-            no speculative changes.
+            Each improvement maps directly to a validated research finding,
+            not a speculative change.
           </p>
 
           <div className="mb-improvements">
@@ -179,7 +174,7 @@ function MoodBoard() {
                 <div className="mb-after">
                   <div className="mb-after-label">After</div>
                   <ul>
-                    <li>Stronger hierarchy — value lands on the first screen</li>
+                    <li>Stronger hierarchy, so value lands on the first screen</li>
                     <li>Final CTA rewritten to motivate action, not just continue</li>
                     <li>Navigation consistent throughout all onboarding steps</li>
                   </ul>
@@ -247,7 +242,7 @@ function MoodBoard() {
                 <div className="mb-before">
                   <div className="mb-before-label">Before</div>
                   <ul>
-                    <li>All tools exposed simultaneously — overwhelming</li>
+                    <li>All tools exposed simultaneously, which felt overwhelming</li>
                     <li>Feature discovery depended on scrolling</li>
                     <li>Canvas felt cluttered during active editing</li>
                   </ul>
@@ -256,7 +251,7 @@ function MoodBoard() {
                   <div className="mb-after-label">After</div>
                   <ul>
                     <li>Tap-based grouped panel: Style / Filter / Pin / Transform</li>
-                    <li>Controls are contextual — shown only when relevant</li>
+                    <li>Controls are contextual, shown only when relevant</li>
                     <li>Cleaner canvas that feels iOS-native</li>
                   </ul>
                 </div>
@@ -289,7 +284,7 @@ function MoodBoard() {
               <div className="mb-improvement-header">
                 <div className="mb-improvement-num">03</div>
                 <div className="mb-improvement-header-text">
-                  <h4>Photo Editing Redesign — Transform Mode</h4>
+                  <h4>Photo Editing Redesign: Transform Mode</h4>
                   <p>
                     Enable precise Move / Scale / Rotate for small widget elements
                     that were nearly impossible to control directly on canvas.
@@ -300,7 +295,7 @@ function MoodBoard() {
                 <div className="mb-before">
                   <div className="mb-before-label">Before</div>
                   <ul>
-                    <li>Direct canvas manipulation of tiny elements — imprecise</li>
+                    <li>Direct canvas manipulation of tiny elements, which was imprecise</li>
                     <li>Easy to mis-edit, requiring repeated undos</li>
                     <li>No dedicated mode for position / scale / rotation</li>
                   </ul>
@@ -309,7 +304,7 @@ function MoodBoard() {
                   <div className="mb-after-label">After</div>
                   <ul>
                     <li>Dedicated Transform mode with explicit Move, Scale, Rotate</li>
-                    <li>Editing lifted off canvas — no more fighting small targets</li>
+                    <li>Editing lifted off canvas, so no more fighting small targets</li>
                     <li>Clear affordances reduce trial-and-error</li>
                   </ul>
                 </div>
@@ -334,7 +329,7 @@ function MoodBoard() {
 
               <p className="mb-improvement-result">
                 Better precision, more confidence during decoration, and fewer
-                mistakes — especially for users building dense, layered widgets.
+                mistakes, especially for users building dense, layered widgets.
               </p>
             </div>
 
@@ -354,12 +349,10 @@ function MoodBoard() {
           "Onboarding flow design",
           "Widget editing UX",
         ]}
-        note="MoodBoard was a freelance engagement across two phases spanning six months. Working closely with the app owner and a senior iOS engineer, I learned to balance UX goals against real technical constraints, proposing solutions that were not just usable, but feasible to build on iOS. The research-first approach (28 survey responses before any redesign work began) ensured every change had a validated rationale rather than a designer's assumption."
+        note="MoodBoard was a freelance engagement across two phases spanning six months, working directly with the senior iOS engineer. Every proposal had to clear two bars, not one: was it a better experience, and could it actually be built. Transform Mode is the clearest example: a dedicated Move/Scale/Rotate panel replaced direct canvas manipulation, not because it looked nicer, but because tiny widget elements were provably unbuildable to edit precisely any other way. Research came first throughout 28 survey responses shaped the problem definition before a single screen changed, so every fix traced back to a named pain point rather than a designer's hunch."
         banner={
           <>
-            <strong>End-to-end UX improvement across two freelance phases </strong> from a research-backed onboarding redesign to a precision widget editing flow, every change was grounded in data, not assumption. 28 survey responses shaped the problem definition before a single screen was redesigned. Proposals were stress-tested against iOS constraints in collaboration with the engineering team,
-              so the designs were not just better — they were buildable.
-            
+          <em>MoodBoard is no longer live on the App Store.</em> It was built in part to support the engineer's application for a Senior iOS role at Apple. Once he was hired, the app had served its purpose and was sunset. The redesign work and the funnel data it produced are what remain of that period.          
           </>
         }
       />
