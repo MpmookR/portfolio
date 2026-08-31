@@ -9,6 +9,7 @@ import iShareLogo from "../assets/images/projects/iShare/iShareLogo.png";
 import moodboardLogo from "../assets/images/projects/MoodBoard/moodboard_logo.png";
 import passionHubLogo from "../assets/images/projects/passionHub/passionHub_logo.png";
 import millenniumLogo from "../assets/images/projects/MillenniumResidence/millennium_logo.png";
+import localEditionLogo from "../assets/images/projects/Local/local_logo.jpg";
 
 function Portfolio() {
   const frontendProjects = [
@@ -19,6 +20,13 @@ function Portfolio() {
       link: "/projects/sopup",
       tags: ["Swift", "SwiftUI", "SwiftData", "Node.js/TypeScript", "Firebase Cloud Functions", "Serverless", "API Integration", "UX/UI Design"],
       featured: true,
+    },
+        {
+      title: "LocalEdition",
+      description: "A bilingual (Thai/English) QR-code menu built end-to-end for a Hat Yai cocktail bar, from client discovery and product scoping to a Next.js + Sanity CMS build the owner now runs herself.",
+      image: localEditionLogo,
+      link: "/projects/localedition",
+      tags: ["Next.js", "React", "TypeScript", "Sanity CMS", "Tailwind CSS", "Product Scoping", "Client Handoff", "Bilingual UX"],
     },
     {
       title: "SoWell",

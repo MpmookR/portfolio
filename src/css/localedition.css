@@ -1,0 +1,516 @@
+/* ── localedition.css ── LocalEdition Case Study Page ── */
+/* Hero and CTA styles live in caseStudy.css via shared components */
+
+/* ────────────────────────────────────────
+   SECTIONS
+──────────────────────────────────────── */
+.le-section {
+  padding: 80px 0;
+}
+.le-section--alt {
+  background: var(--color-white);
+}
+
+.le-section-inner {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+.le-eyebrow {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 11px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-green);
+  margin-bottom: 8px;
+}
+
+.le-section-title {
+  font-family: "Madimi One", sans-serif;
+  font-size: clamp(26px, 4.5vw, 44px);
+  color: var(--color-black);
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.le-subhead {
+  font-family: "Madimi One", sans-serif;
+  font-size: 17px;
+  color: var(--color-black);
+  text-align: center;
+  margin-bottom: 8px;
+}
+.le-subhead--spaced {
+  margin-top: 48px;
+}
+
+.le-caption {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: #888;
+  text-align: center;
+  max-width: 640px;
+  margin: 14px auto 0;
+}
+
+.le-body {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #444;
+  max-width: 100%;
+}
+.le-body--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  max-width: 720px;
+}
+.le-body--spaced {
+  margin-top: 24px;
+}
+
+.le-quote {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border-left: 4px solid var(--color-lime);
+  background: #f9f9e8;
+  border-radius: 0 12px 12px 0;
+  font-family: "Madimi One", sans-serif;
+  font-size: 15px;
+  color: var(--color-green);
+  line-height: 1.5;
+  max-width: 600px;
+}
+.le-quote--center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* ────────────────────────────────────────
+   SCOPE CUT/KEPT CARDS
+──────────────────────────────────────── */
+.le-scope-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.le-scope-card {
+  border-radius: 20px;
+  padding: 28px 24px;
+  border: 2px solid transparent;
+}
+.le-scope-card--cut {
+  background: #fff0ee;
+  border-color: #ffb8b3;
+}
+.le-scope-card--kept {
+  background: #eef6e1;
+  border-color: var(--color-lime);
+}
+
+.le-scope-label {
+  font-family: "Madimi One", sans-serif;
+  font-size: 15px;
+  color: var(--color-black);
+  margin-bottom: 16px;
+}
+
+.le-scope-list {
+  list-style: none;
+}
+.le-scope-list li {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 13px;
+  color: #444;
+  line-height: 1.55;
+  padding: 8px 0 8px 18px;
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.le-scope-list li:last-child {
+  border-bottom: none;
+}
+.le-scope-card--cut .le-scope-list li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--color-red);
+  font-size: 11px;
+}
+.le-scope-card--kept .le-scope-list li:before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--color-green);
+  font-size: 11px;
+}
+
+/* ────────────────────────────────────────
+   TWO-COL (PROBLEM)
+──────────────────────────────────────── */
+.le-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.le-stat-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.le-stat-stack--row {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 28px;
+}
+.le-stat-stack--row .le-stat-card {
+  flex: 1;
+  min-width: 220px;
+}
+
+.le-stat-card {
+  border-radius: 20px;
+  padding: 28px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.le-stat-card--red {
+  background: #fff0ee;
+  border: 2px solid #ffb8b3;
+}
+.le-stat-card--green {
+  background: #eef6e1;
+  border: 2px solid var(--color-lime);
+}
+
+.le-stat-num {
+  font-family: "Madimi One", sans-serif;
+  font-size: 30px;
+  line-height: 1.1;
+  color: var(--color-black);
+}
+.le-stat-card--red .le-stat-num { color: var(--color-red); }
+.le-stat-card--green .le-stat-num { color: var(--color-green); }
+
+.le-stat-desc {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* ────────────────────────────────────────
+   CALLOUT (neutral note / honesty banner)
+──────────────────────────────────────── */
+.le-callout {
+  margin-top: 28px;
+  background: var(--color-bg);
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 18px 22px;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.7;
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.le-callout--amber {
+  margin-top: 28px;
+  background: #fff3e0;
+  border: 1.5px solid #ffd9a0;
+  border-radius: 16px;
+  padding: 18px 22px;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 14px;
+  color: #6b4a10;
+  line-height: 1.7;
+}
+.le-callout--amber strong {
+  color: #8a5a00;
+}
+
+/* ────────────────────────────────────────
+   RESEARCH / SCHEMA GRID
+──────────────────────────────────────── */
+.le-schema-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 40px;
+}
+
+.le-schema-card {
+  background: var(--color-white);
+  border: 1.5px solid var(--color-lime);
+  border-radius: 20px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.le-schema-tag {
+  display: inline-block;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 10px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--color-green);
+  background: #eef6e1;
+  border-radius: 99px;
+  padding: 4px 12px;
+  align-self: flex-start;
+}
+
+.le-schema-card h4 {
+  font-family: "Madimi One", sans-serif;
+  font-size: 17px;
+  color: var(--color-black);
+}
+
+.le-schema-card p {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 14px;
+  color: #555;
+  line-height: 1.7;
+}
+
+/* ────────────────────────────────────────
+   BILINGUAL FLOW STEPS
+──────────────────────────────────────── */
+.le-flow-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.le-flow-step {
+  background: var(--color-white);
+  border: 2px solid var(--color-lime);
+  border-radius: 20px;
+  padding: 24px;
+  text-align: center;
+}
+
+.le-flow-icon {
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+.le-flow-step h4 {
+  font-family: "Madimi One", sans-serif;
+  font-size: 15px;
+  color: var(--color-black);
+  margin-bottom: 8px;
+}
+
+.le-flow-step p {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ────────────────────────────────────────
+   WCAG CONTRAST TABLE
+──────────────────────────────────────── */
+.le-wcag-table-wrap {
+  margin-top: 32px;
+  overflow-x: auto;
+  border: 1.5px solid var(--color-lime);
+  border-radius: 16px;
+}
+
+.le-wcag-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.le-wcag-table th {
+  text-align: left;
+  font-size: 10px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--color-green);
+  background: #eef6e1;
+  padding: 12px 16px;
+}
+
+.le-wcag-table td {
+  padding: 14px 16px;
+  color: #444;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  white-space: normal;
+}
+
+.le-wcag-table tbody tr:hover {
+  background: #fbfbf5;
+}
+
+.le-wcag-swatch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.le-wcag-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+.le-wcag-on {
+  display: block;
+  font-size: 10px;
+  color: #999;
+  margin: 2px 0 2px 16px;
+}
+
+.le-wcag-result--good {
+  color: var(--color-green);
+}
+.le-wcag-result--warn {
+  color: #8a5a00;
+}
+
+/* ────────────────────────────────────────
+   IMAGE COMPARE (before/after, EN/TH)
+──────────────────────────────────────── */
+.le-compare {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.le-compare-item {
+  text-align: center;
+}
+
+.le-compare-item .cs-zoomable {
+  width: 100%;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-black);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.le-compare-img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.le-compare-tag {
+  display: inline-block;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 10px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: var(--color-green);
+  background: #eef6e1;
+  border-radius: 99px;
+  padding: 4px 12px;
+  margin-bottom: 12px;
+}
+
+/* ────────────────────────────────────────
+   SINGLE IMAGE SHOWCASE
+──────────────────────────────────────── */
+.le-showcase {
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.le-showcase .cs-zoomable {
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--color-black);
+  display: flex;
+  justify-content: center;
+}
+
+.le-showcase-img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 640px;
+}
+
+/* ────────────────────────────────────────
+   OUTCOME BANNER
+──────────────────────────────────────── */
+.le-outcome-banner {
+  margin-top: 32px;
+  background: var(--color-lime);
+  border-radius: 16px;
+  padding: 20px 24px;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 14px;
+  color: var(--color-black);
+  line-height: 1.6;
+}
+
+.le-outcome-link-row {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.le-outcome-link {
+  display: inline-block;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-black);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--color-black);
+  padding-bottom: 2px;
+}
+.le-outcome-link:hover { opacity: 0.7; }
+
+/* ────────────────────────────────────────
+   RESPONSIVE
+──────────────────────────────────────── */
+@media (max-width: 767px) {
+  .le-section-inner { padding: 0 20px; }
+  .le-two-col { grid-template-columns: 1fr; gap: 32px; }
+  .le-schema-grid { grid-template-columns: 1fr; }
+  .le-scope-grid { grid-template-columns: 1fr; }
+  .le-flow-steps { grid-template-columns: 1fr; }
+  .le-compare { grid-template-columns: 1fr; }
+  .le-compare-item .cs-zoomable { height: 320px; }
+}

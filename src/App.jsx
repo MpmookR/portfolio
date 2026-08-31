@@ -9,6 +9,7 @@ import IShare from "./pages/projects/IShare";
 import MoodBoard from "./pages/projects/MoodBoard";
 import PassionHub from "./pages/projects/PassionHub";
 import Millennium from "./pages/projects/Millennium";
+import LocalEdition from "./pages/projects/LocalEdition";
 
 // Separate component so useLocation() can be called inside <BrowserRouter>.
 // key={location.key} remounts the div on every route change,
@@ -33,6 +34,7 @@ function AppRoutes() {
         <Route path="/projects/moodboard" element={<MoodBoard />} />
         <Route path="/projects/passionhub" element={<PassionHub />} />
         <Route path="/projects/millennium" element={<Millennium />} />
+        <Route path="/projects/localedition" element={<LocalEdition />} />
       </Routes>
     </div>
   );
