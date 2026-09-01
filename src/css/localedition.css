@@ -1,6 +1,14 @@
 /* ── localedition.css ── LocalEdition Case Study Page ── */
 /* Hero and CTA styles live in caseStudy.css via shared components */
 
+/* LocalEdition's own brand palette (the built product, not this portfolio's theme) */
+:root {
+  --le-color-gold: #dbaf59;
+  --le-color-cream: #f6da9e;
+  --le-color-muted: #928878;
+  --le-color-dark: #13100c;
+}
+
 /* ────────────────────────────────────────
    SECTIONS
 ──────────────────────────────────────── */
@@ -77,7 +85,7 @@
   margin-top: 24px;
   padding: 16px 20px;
   border-left: 4px solid var(--color-lime);
-  background: #f9f9e8;
+  background: #fbffe6;
   border-radius: 0 12px 12px 0;
   font-family: "Madimi One", sans-serif;
   font-size: 15px;
@@ -89,6 +97,16 @@
   margin-left: auto;
   margin-right: auto;
   text-align: center;
+}
+
+.le-section-inner code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+    monospace;
+  font-size: 0.85em;
+  background: var(--color-black);
+  color: var(--color-lime);
+  padding: 1px 6px;
+  border-radius: 5px;
 }
 
 /* ────────────────────────────────────────
@@ -111,7 +129,7 @@
   border-color: #ffb8b3;
 }
 .le-scope-card--kept {
-  background: #eef6e1;
+  background: var(--color-greenLight);
   border-color: var(--color-lime);
 }
 
@@ -190,7 +208,7 @@
   border: 2px solid #ffb8b3;
 }
 .le-stat-card--green {
-  background: #eef6e1;
+  background: var(--color-greenLight);
   border: 2px solid var(--color-lime);
 }
 
@@ -245,50 +263,84 @@
 }
 
 /* ────────────────────────────────────────
-   RESEARCH / SCHEMA GRID
+   DATA MODELING: DECISION CARDS + CODE BLOCKS
 ──────────────────────────────────────── */
-.le-schema-grid {
+.le-schema-link-row {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.le-decision-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 24px;
-  margin-top: 40px;
+  margin-top: 32px;
 }
 
-.le-schema-card {
+.le-decision-card {
   background: var(--color-white);
   border: 1.5px solid var(--color-lime);
   border-radius: 20px;
-  padding: 28px 24px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.le-schema-tag {
-  display: inline-block;
-  font-family: "Rethink Sans", sans-serif;
-  font-size: 10px;
-  font-weight: var(--fw-semibold);
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  color: var(--color-green);
-  background: #eef6e1;
-  border-radius: 99px;
-  padding: 4px 12px;
-  align-self: flex-start;
-}
-
-.le-schema-card h4 {
+.le-decision-card h4 {
   font-family: "Madimi One", sans-serif;
-  font-size: 17px;
+  font-size: 16px;
   color: var(--color-black);
 }
 
-.le-schema-card p {
+.le-decision-card p {
   font-family: "Rethink Sans", sans-serif;
-  font-size: 14px;
+  font-size: 13px;
   color: #555;
-  line-height: 1.7;
+  line-height: 1.65;
+}
+
+.le-decision-card .le-code-block {
+  margin: 0;
+  max-width: 100%;
+  padding: 14px 16px;
+}
+.le-decision-card .le-code-block code {
+  font-size: 11.5px;
+}
+
+.le-decision-note {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 12px;
+  line-height: 1.55;
+  color: #8a5a00;
+  background: #fff3e0;
+  border: 1px solid #ffd9a0;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.le-code-block {
+  margin: 20px auto 0;
+  max-width: 560px;
+  background: var(--le-color-dark);
+  border-radius: 12px;
+  padding: 20px 24px;
+  overflow-x: auto;
+  text-align: left;
+}
+
+.le-code-block pre {
+  margin: 0;
+}
+
+.le-code-block code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+    monospace;
+  font-size: 12.5px;
+  line-height: 1.6;
+  color: var(--le-color-cream);
+  white-space: pre;
 }
 
 /* ────────────────────────────────────────
@@ -331,11 +383,49 @@
 /* ────────────────────────────────────────
    WCAG CONTRAST TABLE
 ──────────────────────────────────────── */
+.le-wcag-legend {
+  max-width: 640px;
+  margin: 20px auto 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+.le-wcag-legend-item {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--color-black);
+  background: var(--color-white);
+  border: 1.5px solid #eee;
+  border-radius: 21px;
+  padding: 10px 14px;
+  max-width: 280px;
+  flex: 1;
+  min-width: 220px;
+}
+.le-wcag-legend-item strong {
+  color: var(--color-green);
+}
+
 .le-wcag-table-wrap {
-  margin-top: 32px;
+  margin-top: 20px;
   overflow-x: auto;
   border: 1.5px solid var(--color-lime);
-  border-radius: 16px;
+  border-radius: 21px;
+}
+
+.le-wcag-summary {
+  margin: 16px auto 0;
+  max-width: 640px;
+  text-align: center;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--color-black);
+  background: var(--color-lime);
+  border-radius: 21px;
+  padding: 12px 16px;
 }
 
 .le-wcag-table {
@@ -344,6 +434,7 @@
   font-family: "Rethink Sans", sans-serif;
   font-size: 13px;
   white-space: nowrap;
+  background: var(--color-white);
 }
 
 .le-wcag-table th {
@@ -365,7 +456,7 @@
 }
 
 .le-wcag-table tbody tr:hover {
-  background: #fbfbf5;
+  background: var(--color-greenLight);
 }
 
 .le-wcag-swatch {
@@ -382,6 +473,10 @@
   border: 1px solid rgba(0, 0, 0, 0.15);
   flex-shrink: 0;
 }
+.le-wcag-dot--gold { background: var(--le-color-gold); }
+.le-wcag-dot--cream { background: var(--le-color-cream); }
+.le-wcag-dot--muted { background: var(--le-color-muted); }
+.le-wcag-dot--dark { background: var(--le-color-dark); }
 
 .le-wcag-on {
   display: block;
@@ -440,7 +535,7 @@
   letter-spacing: 1.2px;
   text-transform: uppercase;
   color: var(--color-green);
-  background: #eef6e1;
+  background: var(--color-greenLight);
   border-radius: 99px;
   padding: 4px 12px;
   margin-bottom: 12px;
@@ -458,7 +553,6 @@
 .le-showcase .cs-zoomable {
   border-radius: 16px;
   overflow: hidden;
-  background: var(--color-black);
   display: flex;
   justify-content: center;
 }
@@ -476,13 +570,14 @@
 ──────────────────────────────────────── */
 .le-outcome-banner {
   margin-top: 32px;
-  background: var(--color-lime);
-  border-radius: 16px;
+  border-radius: 21px;
   padding: 20px 24px;
   font-family: "Rethink Sans", sans-serif;
   font-size: 14px;
+  background: var(--color-lime);
   color: var(--color-black);
   line-height: 1.6;
+  text-align: center;
 }
 
 .le-outcome-link-row {
@@ -500,7 +595,7 @@
   border-bottom: 1.5px solid var(--color-black);
   padding-bottom: 2px;
 }
-.le-outcome-link:hover { opacity: 0.7; }
+.le-outcome-link:hover {   color: var(--color-green); }
 
 /* ────────────────────────────────────────
    RESPONSIVE
@@ -508,7 +603,7 @@
 @media (max-width: 767px) {
   .le-section-inner { padding: 0 20px; }
   .le-two-col { grid-template-columns: 1fr; gap: 32px; }
-  .le-schema-grid { grid-template-columns: 1fr; }
+  .le-decision-grid { grid-template-columns: 1fr; }
   .le-scope-grid { grid-template-columns: 1fr; }
   .le-flow-steps { grid-template-columns: 1fr; }
   .le-compare { grid-template-columns: 1fr; }
