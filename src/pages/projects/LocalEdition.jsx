@@ -15,7 +15,7 @@ import localHero from "../../assets/images/projects/Local/homepagehero.png";
 import localFull from "../../assets/images/projects/Local/overall.png";
 
 const LOCALEDITION_HERO = {
-  badge: "Full-Stack Web App · Solo Client Project",
+  badge: "Freelance Client Project",
   title: "LocalEdition",
   subtitle:
     "A bilingual QR-code menu for a Hat Yai cocktail bar, built end to end and handed off to a non-technical owner",
