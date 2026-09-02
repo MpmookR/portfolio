@@ -13,6 +13,8 @@ import localRefontBefore from "../../assets/images/projects/Local/font_before.pn
 import localRefontAfter from "../../assets/images/projects/Local/font_after.png";
 import localHero from "../../assets/images/projects/Local/homepagehero.png";
 import localFull from "../../assets/images/projects/Local/overall.png";
+import localOpenDay from "../../assets/images/projects/Local/openDay.png";
+import localSortZero from "../../assets/images/projects/Local/sort0.png";
 
 const LOCALEDITION_HERO = {
   badge: "Freelance Client Project",
@@ -276,6 +278,12 @@ function LocalEdition() {
             <div className="le-decision-card">
               <span className="le-compare-tag">Bent rule 01</span>
               <h4>Free text, not a day-picker</h4>
+              <p>
+                A day/time picker only bends as far as the cases it's built for.
+                Songkran closures, private events, off-season hours don't fit
+                neat slots, a field she rewrites in her own words does.
+                
+              </p>
               <div className="le-code-block">
                 <pre>
                   <code>{`defineField({
@@ -286,16 +294,34 @@ function LocalEdition() {
 })`}</code>
                 </pre>
               </div>
-              <p>
-                A day/time picker only bends as far as the cases it's built for.
-                Songkran closures, private events, off-season hours don't fit
-                neat slots, a field she rewrites in her own words does.
+              <div
+                className="cs-zoomable le-decision-shot"
+                onClick={() =>
+                  setLightbox({
+                    src: localOpenDay,
+                    alt: "Live site hours next to the Sanity Studio field she edits them in",
+                  })
+                }
+              >
+                <img
+                  src={localOpenDay}
+                  alt="Live site hours next to the Sanity Studio field she edits them in"
+                />
+              </div>
+              <p className="le-decision-caption">
+                Live site ↔ Sanity Studio — click to zoom
               </p>
             </div>
 
             <div className="le-decision-card">
               <span className="le-compare-tag">Bent rule 02</span>
               <h4>A feature flag built from content</h4>
+              <p>
+                She wasn't sure she'd keep using "Special of the Month," so
+                instead of a toggle only I could flip,{" "}
+                <code>sortOrder 0</code> doubles as the toggle itself: add
+                that section in Studio, delete it when she's done.
+              </p>
               <div className="le-code-block">
                 <pre>
                   <code>{`defineField({
@@ -303,16 +329,25 @@ function LocalEdition() {
   title: 'Sort Order',
   type: 'number',
   initialValue: 0,
-  validation: (rule) => rule.required().integer().min(0),
 })`}</code>
                 </pre>
               </div>
-              <p>
-                She wasn't sure yet if she'd use a "Special of the Month"
-                long-term, so instead of a toggle only I could flip,{" "}
-                <code>sortOrder 0</code> doubles as the toggle itself: add that
-                section in Studio and it appears with an image, delete it and
-                it's gone.
+              <div
+                className="cs-zoomable le-decision-shot"
+                onClick={() =>
+                  setLightbox({
+                    src: localSortZero,
+                    alt: "Live Special of the Month card next to the Sanity Studio section list, sortOrder 0 highlighted",
+                  })
+                }
+              >
+                <img
+                  src={localSortZero}
+                  alt="Live Special of the Month card next to the Sanity Studio section list, sortOrder 0 highlighted"
+                />
+              </div>
+              <p className="le-decision-caption">
+                Live site ↔ Sanity Studio — click to zoom
               </p>
               <div className="le-decision-note">
                 Known gap: the "0 = highlighted" rule lives in a handover doc,
