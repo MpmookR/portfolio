@@ -149,7 +149,7 @@ function IShare() {
           <p className="is-body is-body--center">
              From login and recipe creation through to liking, saving, and commenting.
           </p>
-          <div className="is-video-wrap">
+          <div className="cs-video-wrap">
             <iframe
               src="https://drive.google.com/file/d/1OXVBdpcp3pUUkcjs1Qhe3Tfx4KZjeZER/preview"
               title="iShare project walkthrough"

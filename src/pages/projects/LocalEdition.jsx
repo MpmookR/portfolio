@@ -389,7 +389,7 @@ function LocalEdition() {
             </div>
           </div>
 
-          <div className="is-video-wrap">
+          <div className="cs-video-wrap">
             <iframe
               src="https://drive.google.com/file/d/1DDGrrsk7PqOHytEhhkzYcJZ8BFWBzf0P/preview"
               title="Language switching demo: toggling between English and Thai with no reload"

@@ -879,7 +879,7 @@ function Sopup() {
         <div className="is-section-inner">
           <p className="is-eyebrow">Demo</p>
           <h2 className="is-section-title">A full walkthrough of the app</h2>
-          <div className="is-video-wrap">
+          <div className="cs-video-wrap">
             <iframe
               src="https://drive.google.com/file/d/1AAIfEg8c5YseLjsxqNg8goIiYoUv0zjQ/preview"
               title="SoWell project walkthrough"
