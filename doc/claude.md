@@ -1,0 +1,2 @@
+- No em dash
+- always check the css folder and components before making style changes, to keep the same style consistent across the whole project

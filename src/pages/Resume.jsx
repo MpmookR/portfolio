@@ -4,6 +4,7 @@ import Footer from "../components/footer";
 import "../css/header.css";
 import "../css/footer.css";
 import "../css/resume.css";
+import resumeFile from "../assets/resumeFile/PDEng_PRattana.pdf";
 
 function Resume() {
   const skillsData = [
@@ -130,6 +131,14 @@ function Resume() {
             >
               🔗 LinkedIn
             </a>
+            <a
+              href={resumeFile}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="resume-contact-link"
+            >
+              📥 Download Resume
+            </a>
           </div>
         </div>
 
@@ -138,22 +147,72 @@ function Resume() {
           <h2 className="resume-section-title">About Me</h2>
           <div className="resume-items">
             <div className="resume-item">
-              <p className="resume-summary">
-                I’m a <strong>Product Designer &amp; Engineer</strong> who
-                enjoys turning real user problems into thoughtful digital
-                products. With a background in product design and an MSc in Software
-                Engineering, I bring together user research, product thinking and technical understanding to take ideas from early exploration to tested, working experiences.
+              <p className="resume-lead">
+                I turn real user problems into{" "}
+                <span className="resume-lead-highlight">
+                  thoughtful digital products
+                </span>
+                , end to end, from research to shipped code.
               </p>
 
               <p className="resume-summary">
-                My work spans health, wellbeing and social products across web and iOS, reflecting my personal interest in fitness, nutrition and technology that improves everyday life. I care about simplifying complex journeys, creating accessible and polished interfaces, and collaborating with users and cross-functional teams to ensure the final product is both useful and practical to build.
+                Background in product design, MSc in Software
+                Engineering. I combine user research, product thinking,
+                and technical understanding to take ideas from early
+                exploration through to tested, working experiences.
+
+                My work spans{" "}
+                <strong>
+                  health, wellbeing and social products across web and
+                  iOS
+                </strong>
+                , and that's not a coincidence: SoPup grew out of
+                thinking about social wellbeing, and iShare grew out of
+                time actually spent cooking. Fitness and nutrition show up the same way, in what I track and follow day to day
               </p>
 
+              <div className="resume-interests">
+                <p className="resume-interests-label">Outside of work</p>
+                <ul className="resume-interests-list">
+                  <li>
+                    <a
+                      href="https://strava.app.link/UtZZi2TVR5b"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="resume-contact-link"
+                    >
+                      🏋🏽‍♀️ Lifting
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.tiktok.com/@mookrattana.p"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="resume-contact-link"
+                    >
+                      🍃 Fitness
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="https://www.tiktok.com/@mookrattana.p"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="resume-contact-link"
+                    >
+                      🍳 Cooking
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
               <p className="resume-summary">
-                I’m particularly interested in roles where design and
-                engineering work closely together and where I can continue
-                learning while contributing to products with a meaningful
-                impact.
+                I care about simplifying complex journeys and building
+                interfaces that are accessible and polished. I'm looking
+                for roles where design and engineering work closely
+                together, learning while I contribute to products with
+                meaningful impact.
               </p>
 
               <p className="resume-summary">
@@ -188,7 +247,7 @@ function Resume() {
         </section>
 
         {/* Experience */}
-        <section className="resume-section">
+        {/* <section className="resume-section">
           <h2 className="resume-section-title">Experience</h2>
           <div className="resume-items">
             <div className="resume-item">
@@ -401,7 +460,9 @@ function Resume() {
               </ul>
             </div>
           </div>
-        </section>
+        </section> */}
+
+
         {/* Education */}
         <section className="resume-section">
           <h2 className="resume-section-title">Education</h2>

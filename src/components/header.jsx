@@ -53,11 +53,11 @@ function Header() {
             Portfolio
           </Link>
           <Link
-            to="/resume"
-            className={`nav-link ${isActive("/resume") ? "active" : ""}`}
+            to="/aboutme"
+            className={`nav-link ${isActive("/aboutme") ? "active" : ""}`}
             onClick={closeMenu}
           >
-            Resume
+            About Me
           </Link>
         </nav>
       </div>

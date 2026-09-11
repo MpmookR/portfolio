@@ -49,7 +49,7 @@ function Home() {
               label="Projects"
               path="/portfolio"
             />
-            <ClickableFolder folderType="pink" label="Resume" path="/resume" />
+            <ClickableFolder folderType="pink" label="About Me" path="/aboutme" />
           </div>
         </section>
       </div>
