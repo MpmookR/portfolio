@@ -682,12 +682,237 @@
 }
 
 /* ────────────────────────────────────────
+   SUGGESTION SCORING (UNDER THE HOOD)
+──────────────────────────────────────── */
+/* Ondo's own ink and olive, for the code block (the built product, not this portfolio's theme).
+   Olive on ink is 11.6:1. */
+:root {
+  --od-ink: #131a00;
+  --od-olive-200: #c9d88a;
+}
+
+.od-section-inner code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.85em;
+}
+
+.od-pipeline {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+  counter-reset: none;
+}
+
+.od-pipeline-step {
+  background: var(--color-white);
+  border: 2px solid var(--color-lime);
+  border-radius: 20px;
+  padding: 22px 20px;
+  position: relative;
+}
+
+.od-pipeline-num {
+  font-family: "Madimi One", sans-serif;
+  font-size: 28px;
+  line-height: 1;
+  color: var(--color-lime);
+  -webkit-text-stroke: 1.2px var(--color-green);
+  display: block;
+  margin-bottom: 10px;
+}
+
+.od-pipeline-step h3 {
+  font-family: "Madimi One", sans-serif;
+  font-size: 17px;
+  color: var(--color-black);
+  margin-bottom: 6px;
+}
+
+.od-pipeline-step p {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.6;
+}
+
+.od-score-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-top: 48px;
+  align-items: start;
+}
+.od-score-grid > div {
+  min-width: 0;
+}
+
+.od-subhead--left {
+  text-align: left;
+  margin-bottom: 12px;
+}
+
+.od-caption--left {
+  text-align: left;
+  margin-left: 0;
+}
+
+.od-body--small {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.od-table-wrap--tight {
+  margin-top: 0;
+}
+
+.od-table--compact {
+  min-width: 0;
+}
+.od-table--compact td,
+.od-table--compact tbody th {
+  padding: 12px 14px;
+}
+.od-table--compact tbody th {
+  font-family: "Rethink Sans", sans-serif;
+  font-weight: var(--fw-semibold);
+  font-size: 13px;
+  white-space: normal;
+}
+
+.od-points {
+  font-family: "Madimi One", sans-serif;
+  font-size: 15px;
+  color: var(--color-green);
+  white-space: nowrap;
+}
+
+.od-rank {
+  color: #666;
+  width: 1%;
+}
+
+.od-signal-chips {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.od-signal-chip {
+  font-size: 11.5px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-black);
+  background: var(--color-greenLight);
+  border: 1px solid var(--color-lime);
+  border-radius: 99px;
+  padding: 2px 10px;
+  white-space: nowrap;
+}
+
+.od-code-block {
+  background: var(--od-ink);
+  border-radius: 16px;
+  padding: 20px 22px;
+  overflow-x: auto;
+  text-align: left;
+}
+.od-code-block pre {
+  margin: 0;
+}
+.od-code-block code {
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--od-olive-200);
+  white-space: pre;
+}
+
+.od-link-row {
+  margin-top: 12px;
+}
+
+.od-text-link {
+  display: inline-block;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 13px;
+  font-weight: var(--fw-semibold);
+  color: var(--color-black);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--color-black);
+  padding-bottom: 1px;
+}
+.od-text-link:hover,
+.od-text-link:focus-visible {
+  color: var(--color-green);
+  border-bottom-color: var(--color-green);
+}
+
+.od-decision-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.od-decision-card {
+  background: var(--color-white);
+  border: 1.5px solid var(--color-lime);
+  border-radius: 20px;
+  padding: 22px 24px;
+}
+.od-decision-card .od-ba-tag {
+  background: var(--color-greenLight);
+  margin-bottom: 10px;
+}
+.od-decision-card h4 {
+  font-family: "Madimi One", sans-serif;
+  font-size: 16px;
+  color: var(--color-black);
+  margin-bottom: 6px;
+}
+.od-decision-card p {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 13.5px;
+  color: #555;
+  line-height: 1.65;
+}
+
+.od-adapt {
+  margin-top: 32px;
+  background: #f3f6fa;
+  border: 1.5px solid #dbe4ef;
+  border-radius: 20px;
+  padding: 22px 24px;
+}
+.od-adapt p {
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.7;
+}
+
+.od-research {
+  margin: 20px auto 0;
+  max-width: 720px;
+  text-align: center;
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #555;
+}
+.od-research strong {
+  color: var(--color-black);
+}
+
+/* ────────────────────────────────────────
    RESPONSIVE
 ──────────────────────────────────────── */
 @media (max-width: 1023px) {
   .od-problem-grid { grid-template-columns: repeat(3, 1fr); }
   .od-principle-grid { grid-template-columns: repeat(3, 1fr); }
   .od-ba-grid { grid-template-columns: 1fr; }
+  .od-pipeline { grid-template-columns: 1fr 1fr; }
+  .od-score-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 767px) {
@@ -698,6 +923,7 @@
   .od-problem-grid { grid-template-columns: 1fr 1fr; }
   .od-principle-grid { grid-template-columns: 1fr 1fr; }
   .od-proof-grid { grid-template-columns: 1fr; }
+  .od-decision-grid { grid-template-columns: 1fr; }
   .od-wireframe { padding: 10px; }
   .od-in-ondo { flex-direction: column; gap: 6px; }
   .od-outcome {
@@ -709,6 +935,7 @@
 }
 
 @media (max-width: 420px) {
+  .od-pipeline { grid-template-columns: 1fr; }
   .od-problem-grid { grid-template-columns: 1fr; }
   .od-principle-grid { grid-template-columns: 1fr; }
 }

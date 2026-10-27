@@ -14,6 +14,8 @@ import wfCheckout from "../../assets/images/projects/Ondo/sum_checkout.png";
 
 const GITHUB_URL = "https://github.com/MpmookR/ondo";
 const LIVE_URL = "https://ondo-hazel.vercel.app/";
+const RECOMMEND_URL = "https://github.com/MpmookR/ondo/blob/main/src/lib/recommend.ts";
+const TESTS_URL = "https://github.com/MpmookR/ondo/blob/main/src/lib/recommend.test.ts";
 const STORY_URL = "https://github.com/MpmookR/ondo/blob/main/doc/story.md";
 
 // Walkthrough video (Google Drive "preview" link, same as the LocalEdition embed).
@@ -197,6 +199,37 @@ const OUTCOMES = [
   { result: "AOV up, conversion flat", call: "Ship it", tone: "good" },
   { result: "AOV up, conversion down past the threshold", call: "Stop and simplify", tone: "bad" },
   { result: "Conversion up, AOV flat", call: "Clarity works, relevance doesn't yet", tone: "warn" },
+];
+
+// Suggestion scoring, from src/lib/recommend.ts in the Ondo repo.
+const PIPELINE = [
+  { step: "01", title: "Filter", body: "Hard rules first: over their caffeine limit, contains something they avoid, out of stock, or already in the box. Gone, whatever it would score." },
+  { step: "02", title: "Score", body: "Every item left earns points for the signals it matches. Zero points means it's never shown, so there's no filler." },
+  { step: "03", title: "Rank", body: "Highest score first. On a tie, the cheaper item wins, which keeps the first add low-risk. Top six only." },
+  { step: "04", title: "Explain", body: "The reason line comes from the signal that scored, most specific first, so every card can say why it's there." },
+];
+
+const SIGNALS = [
+  { signal: "Matches their goal", points: "+3", example: "Ceremonial matcha for calm focus" },
+  { signal: "Pairs with a drink in the box", points: "+2", example: "Rice crackers next to a sencha" },
+  { signal: "Brews a drink in the box", points: "+1", example: "Gear only, when there's no explicit pairing" },
+  { signal: "Easy to try", points: "+1", example: "£6 or less, or a sample size" },
+];
+
+const WORKED_EXAMPLE = [
+  { item: "Matcha Taster Tin", signals: ["Goal +3", "Easy +1"], score: 4, price: "£5", reason: "Fits calm focus" },
+  { item: "Sesame Rice Crackers", signals: ["Pairs +2", "Easy +1"], score: 3, price: "£4", reason: "Goes with your Shizuoka Sencha" },
+  { item: "Tieguanyin Oolong", signals: ["Goal +3"], score: 3, price: "£11", reason: "Fits calm focus" },
+  { item: "Everyday Latte Matcha", signals: ["Goal +3"], score: 3, price: "£14", reason: "Fits calm focus" },
+  { item: "Kyoto Ceremonial Matcha", signals: ["Goal +3"], score: 3, price: "£24", reason: "Fits calm focus" },
+  { item: "Bamboo Whisk & Bowl Set", signals: ["Goal +3"], score: 3, price: "£26", reason: "Fits calm focus" },
+];
+
+const SCORING_DECISIONS = [
+  { tag: "Decision 01", title: "Filters before scores", body: "Safety isn't a weight. A high score can never rescue something above the caffeine limit or containing an allergen, because it's removed before scoring starts." },
+  { tag: "Decision 02", title: "Snacks never claim a goal", body: "Bites and sweeteners carry no goal tags. They only reach the rail through a pairing or as an easy first add, so a biscuit is never sold as good for focus." },
+  { tag: "Decision 03", title: "A rail that doesn't move", body: "The rail is worked out from the drinks in the box when the page opened. Adding an item turns its + into a stepper in place. Only changing a preference rebuilds it." },
+  { tag: "Decision 04", title: "The reason is the real reason", body: "The reason line is picked from the signals that actually scored: pairing, then brewing, then goal, then easy to try. It can't say something the ranking didn't use." },
 ];
 
 function PrincipleBadge({ n }) {
@@ -482,6 +515,7 @@ function Ondo() {
             item page: filter out anything the customer can't have, then rank
             by goal, pairing and an easy first try. One set of rules means the
             suggestions never contradict each other from screen to screen.
+            Here's how those rules work.
           </p>
 
           <div className="od-table-wrap">
@@ -521,8 +555,199 @@ function Ondo() {
         </div>
       </section>
 
+      {/* ── SUGGESTION SCORING (ENGINEER LENS) ── */}
+      <section className="od-section" id="scoring">
+        <div className="od-section-inner">
+          <p className="od-eyebrow">Under the Hood</p>
+          <h2 className="od-section-title">How a suggestion earns its place</h2>
+          <p className="od-body od-body--center">
+            "Relevant" only works if it's predictable. Scoring was part of what
+            I presented on the Monday: a slide that ranked one customer's rail,
+            signal by signal. Ondo rebuilds the same rules as plain, tested
+            TypeScript. Filter first, then score, rank and explain, so every
+            card can say exactly why it's there.
+          </p>
+
+          <ol className="od-pipeline">
+            {PIPELINE.map((p) => (
+              <li className="od-pipeline-step" key={p.step}>
+                <span className="od-pipeline-num">{p.step}</span>
+                <h3>{p.title}</h3>
+                <p>{p.body}</p>
+              </li>
+            ))}
+          </ol>
+
+          <div className="od-score-grid">
+            <div>
+              <h3 className="od-subhead od-subhead--left">Points per signal</h3>
+              <div className="od-table-wrap od-table-wrap--tight">
+                <table className="od-table od-table--compact">
+                  <caption className="od-sr-only">
+                    Points each signal adds to a suggestion's score
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Signal</th>
+                      <th scope="col">Points</th>
+                      <th scope="col">Example</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {SIGNALS.map((row) => (
+                      <tr key={row.signal}>
+                        <th scope="row">{row.signal}</th>
+                        <td className="od-points">{row.points}</td>
+                        <td>{row.example}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <p className="od-caption od-caption--left">
+                The goal is worth the most because it's why they signed up. A
+                pairing is the most specific reason, so it leads the reason line
+                whenever there is one.
+              </p>
+            </div>
+            <div>
+              <h3 className="od-subhead od-subhead--left">The whole pipeline</h3>
+              <div className="od-code-block">
+                <pre>
+                  <code>{`export const POINTS = {
+  goalMatch: 3,
+  pairsWithBox: 2,
+  brewsYourBox: 1,
+  easyToTry: 1,
+} as const;
+
+return catalogue
+  .filter((item) => passesFilters(item, customer, box))
+  .map((item) => score(item, customer, ctx))
+  .filter((s) => s.score > 0)
+  .sort((a, b) =>
+    b.score - a.score || a.item.price - b.item.price)
+  .slice(0, limit)
+  .map((s) => ({
+    item: s.item,
+    score: s.score,
+    reason: reasonFor(s, goalLabel),
+  }));`}</code>
+                </pre>
+              </div>
+              <div className="od-link-row">
+                <a
+                  href={RECOMMEND_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="od-text-link"
+                >
+                  View recommend.ts on GitHub →
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <h3 className="od-subhead od-subhead--spaced">Worked example</h3>
+          <p className="od-body od-body--center od-body--small">
+            Goal: calm focus. Caffeine limit 4 of 5. Avoids dairy. Box: a
+            Yirgacheffe filter coffee and a Shizuoka sencha.
+          </p>
+          <div className="od-table-wrap">
+            <table className="od-table od-table--compact">
+              <caption className="od-sr-only">
+                The six suggestions for this customer, with the signals that
+                scored, the total and the reason shown on the card
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Suggestion</th>
+                  <th scope="col">Signals</th>
+                  <th scope="col">Score</th>
+                  <th scope="col">Price</th>
+                  <th scope="col">Reason on the card</th>
+                </tr>
+              </thead>
+              <tbody>
+                {WORKED_EXAMPLE.map((row, i) => (
+                  <tr key={row.item}>
+                    <td className="od-rank">{i + 1}</td>
+                    <th scope="row">{row.item}</th>
+                    <td>
+                      <span className="od-signal-chips">
+                        {row.signals.map((sig) => (
+                          <span className="od-signal-chip" key={sig}>
+                            {sig}
+                          </span>
+                        ))}
+                      </span>
+                    </td>
+                    <td className="od-points">{row.score}</td>
+                    <td>{row.price}</td>
+                    <td>"{row.reason}"</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="od-caption">
+            Five items tie on 3, so price decides their order. The espresso
+            blends are over the caffeine limit, the chai and the shortbread
+            contain dairy, and the grinder is out of stock, so none of them can
+            appear however well they'd score.
+          </p>
+
+          <div className="od-decision-grid">
+            {SCORING_DECISIONS.map((d) => (
+              <div className="od-decision-card" key={d.tag}>
+                <span className="od-ba-tag od-ba-tag--after">{d.tag}</span>
+                <h4>{d.title}</h4>
+                <p>{d.body}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="od-adapt">
+            <span className="od-ba-tag od-ba-tag--before">From meals to caffeine</span>
+            <p>
+              The original ranked meals, with a <strong>"fills a gap"</strong>{" "}
+              signal (+2 for a breakfast, soup or snack when the box was only
+              mains) and +3 for each goal a customer picked. Caffeine has no
+              meal gaps, so in Ondo that slot became{" "}
+              <strong>"brews a drink in the box"</strong>, and customers pick
+              one goal. The filter-first order, the tie-break, the top six and
+              the one-reason rule carried over unchanged.
+            </p>
+          </div>
+
+          <p className="od-research">
+            <strong>Why explain at all:</strong> relevant cart suggestions help
+            while irrelevant ones erode trust (Baymard Institute), and
+            recommendations that explain themselves are trusted more
+            (Herlocker, Konstan &amp; Riedl, 2000).
+          </p>
+
+          <div className="od-callout">
+            The worked example above is one of 26 tests, alongside the hard
+            filters, the tie-break and the rail that doesn't reshuffle. The
+            pairings and goal tags are my own judgement for the demo; in a real
+            business a coffee and tea specialist would own them, and the code
+            would only read them.{" "}
+            <a
+              href={TESTS_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="od-text-link"
+            >
+              See the tests →
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ── HOW I'D PROVE IT ── */}
-      <section className="od-section">
+      <section className="od-section od-section--alt">
         <div className="od-section-inner">
           <p className="od-eyebrow">Measuring It</p>
           <h2 className="od-section-title">How I'd prove it</h2>
@@ -567,7 +792,7 @@ function Ondo() {
       </section>
 
       {/* ── WALKTHROUGH ── */}
-      <section className="od-section od-section--alt" id="walkthrough">
+      <section className="od-section" id="walkthrough">
         <div className="od-section-inner">
           <p className="od-eyebrow">The Prototype</p>
           <h2 className="od-section-title">See it working</h2>
@@ -615,13 +840,14 @@ function Ondo() {
       </section>
 
       <CaseStudyReflection
+        alt
         skills={[
           "Problem framing under a 2-day deadline",
           "Funnel thinking: AOV vs conversion",
           "Auditing an existing flow",
           "Principle-led redesign",
           "Progressive disclosure",
-          "Explainable recommendations",
+          "Explainable recommendation rules (TypeScript, tested)",
           "Experiment design with a guard rail",
           "Low-fi wireframing, before and after",
           "Prototyping in code",
