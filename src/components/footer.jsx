@@ -26,14 +26,15 @@ function Footer() {
             </svg>
           </a>
           <a
-            href="https://strava.app.link/UtZZi2TVR5b"
+            href="https://hevy.com/user/mookr"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Strava"
+            aria-label="Hevy"
             className="social-icon social-icon--circle"
           >
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
-              <path d="M10.1 2 4.4 13.2h3.4l2.3-4.6 2.3 4.6h3.4L10.1 2Zm5.7 11.2-1.7 3.4-1.7-3.4H9.8l4.3 8.8 4.4-8.8h-2.7Z" />
+              {/* Dumbbell: Hevy workout log */}
+              <path d="M5 5.5h3v13H5zM16 5.5h3v13h-3zM2 8.5h2.5v7H2zM19.5 8.5H22v7h-2.5zM8 10.5h8v3H8z" />
             </svg>
           </a>
         </div>

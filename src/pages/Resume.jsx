@@ -176,7 +176,7 @@ function Resume() {
                 <ul className="resume-interests-list">
                   <li>
                     <a
-                      href="https://strava.app.link/UtZZi2TVR5b"
+                      href="https://hevy.com/user/mookr"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="resume-contact-link"
