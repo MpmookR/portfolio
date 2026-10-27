@@ -10,6 +10,7 @@ import moodboardLogo from "../assets/images/projects/MoodBoard/moodboard_logo.pn
 import passionHubLogo from "../assets/images/projects/passionHub/passionHub_logo.png";
 import millenniumLogo from "../assets/images/projects/MillenniumResidence/millennium_logo.png";
 import localEditionLogo from "../assets/images/projects/Local/local_logo.jpg";
+import ondoLogo from "../assets/images/projects/Ondo/ondo_logo.png";
 
 function Portfolio() {
   const frontendProjects = [
@@ -27,6 +28,13 @@ function Portfolio() {
       image: localEditionLogo,
       link: "/projects/localedition",
       tags: ["Next.js", "React", "TypeScript", "Sanity CMS", "Tailwind CSS", "Product Scoping", "Client Handoff", "Bilingual UX"],
+    },
+    {
+      title: "Ondo: First Box Redesign",
+      description: "A take-home redesign of a subscription's first box, lifting basket size without costing conversion. Audited, redesigned, prototyped in code and presented in two days.",
+      image: ondoLogo,
+      link: "/projects/ondo",
+      tags: ["Next.js", "React", "TypeScript", "Product Design", "UX Audit", "Wireframing", "Conversion", "Recommendations", "A/B Test Plan", "Prototyping in Code"],
     },
     {
       title: "SoWell",
