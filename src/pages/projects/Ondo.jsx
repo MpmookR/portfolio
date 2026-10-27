@@ -19,7 +19,7 @@ const STORY_URL = "https://github.com/MpmookR/ondo/blob/main/doc/story.md";
 // Walkthrough video (Google Drive "preview" link, same as the LocalEdition embed).
 // Hero and CTA buttons scroll to the #walkthrough section where it's embedded.
 const VIDEO_EMBED_URL =
-  "https://drive.google.com/file/d/10L_jZ09INJm_mX-G4sqCEeA670lisGsq/preview";
+  "https://drive.google.com/file/d/1U3PbRRYqWTnXzXWToM4QADx5LqFT6zga/preview";
 
 const ONDO_HERO = {
   badge: "Take-home Redesign",
