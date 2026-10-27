@@ -23,19 +23,20 @@ function Portfolio() {
       featured: true,
     },
         {
-      title: "LocalEdition",
-      description: "A bilingual (Thai/English) QR-code menu built end-to-end for a Hat Yai cocktail bar, from client discovery and product scoping to a Next.js + Sanity CMS build the owner now runs herself.",
-      image: localEditionLogo,
-      link: "/projects/localedition",
-      tags: ["Next.js", "React", "TypeScript", "Sanity CMS", "Tailwind CSS", "Product Scoping", "Client Handoff", "Bilingual UX"],
-    },
-    {
       title: "Ondo: First Box Redesign",
       description: "A take-home redesign of a subscription's first box, lifting basket size without costing conversion. Audited, redesigned, prototyped in code and presented in two days.",
       image: ondoLogo,
       link: "/projects/ondo",
       tags: ["Next.js", "React", "TypeScript", "Product Design", "UX Audit", "Wireframing", "Conversion", "Recommendations", "A/B Test Plan", "Prototyping in Code"],
     },
+        {
+      title: "LocalEdition",
+      description: "A bilingual (Thai/English) QR-code menu built end-to-end for a Hat Yai cocktail bar, from client discovery and product scoping to a Next.js + Sanity CMS build the owner now runs herself.",
+      image: localEditionLogo,
+      link: "/projects/localedition",
+      tags: ["Next.js", "React", "TypeScript", "Sanity CMS", "Tailwind CSS", "Product Scoping", "Client Handoff", "Bilingual UX"],
+    },
+
     {
       title: "SoWell",
       description: "A HealthKit-integrated mood and wellbeing tracker with diary entries, calendar view, and weekly summaries to help users monitor their mental health and identify patterns",
