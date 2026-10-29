@@ -6,7 +6,7 @@ import CaseStudyCTA from "../../components/caseStudy/CaseStudyCTA";
 import CaseStudyReflection from "../../components/caseStudy/CaseStudyReflection";
 import Lightbox from "../../components/caseStudy/Lightbox";
 import "../../css/ondo.css";
-import ondoHero from "../../assets/images/projects/Ondo/hero.jpg";
+import ondoHero from "../../assets/images/projects/Ondo/hero.png";
 import wfSummary from "../../assets/images/projects/Ondo/sum_summary.png";
 import wfMenu from "../../assets/images/projects/Ondo/sum_menu.png";
 import wfDetails from "../../assets/images/projects/Ondo/sum_mealDetails.png";
@@ -21,7 +21,7 @@ const STORY_URL = "https://github.com/MpmookR/ondo/blob/main/doc/story.md";
 // Walkthrough video (Google Drive "preview" link, same as the LocalEdition embed).
 // Hero and CTA buttons scroll to the #walkthrough section where it's embedded.
 const VIDEO_EMBED_URL =
-  "https://drive.google.com/file/d/1U3PbRRYqWTnXzXWToM4QADx5LqFT6zga/preview";
+  "https://drive.google.com/file/d/1x6MWmgVA3pDVcOylKLfBfCogfZQSg-x4/preview";
 
 const ONDO_HERO = {
   badge: "Take-home Redesign",
