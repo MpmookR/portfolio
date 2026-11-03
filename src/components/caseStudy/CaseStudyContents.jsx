@@ -8,6 +8,7 @@ import "../../css/caseStudy.css";
  * Props:
  *  groups  [{ label, items: [{ id, label }] }]
  *          label is optional (a group without one has no heading).
+ *          One group without a label gives a flat numbered list.
  *          Each id must match a section's id on the page.
  *
  * Behaviour:
@@ -138,7 +139,7 @@ function CaseStudyContents({ groups = [] }) {
                               onClick={(e) => goTo(e, item.id)}
                               tabIndex={visible ? 0 : -1}
                             >
-                              {group.label && (
+                              {(group.label || groups.length === 1) && (
                                 <span className="cs-toc-num" aria-hidden="true">
                                   {String(i + 1).padStart(2, "0")}
                                 </span>

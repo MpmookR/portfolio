@@ -18,6 +18,7 @@ import "../../css/caseStudyDesignProcess.css";
  *  forwardTo        — { id, label } — renders a link at the bottom that jumps
  *                      to #id, pointing design-focused readers to more design
  *                      content later in the page (e.g. a post-launch iteration)
+ *  id               : optional anchor id on the intro section, for in-page links
  *  onImageClick     — (src, alt) => void — called when a zoomable image is
  *                      clicked; wire this to the page's Lightbox state
  *  flowSection      — { title, intro, items: [{ label, image: { src, alt } }] }
@@ -34,6 +35,7 @@ function CaseStudyDesignProcess({
   skipTo,
   forwardTo,
   onImageClick,
+  id,
   flowSection,
   wireframeSection,
   statsSection,
@@ -43,7 +45,7 @@ function CaseStudyDesignProcess({
 
   return (
     <>
-      <section className="cs-dp-section cs-dp-section--intro cs-dp-section--alt">
+      <section id={id} className="cs-dp-section cs-dp-section--intro cs-dp-section--alt">
         <div className="cs-dp-inner">
           <p className="cs-dp-eyebrow">{eyebrow}</p>
           <h2 className="cs-dp-title">{title}</h2>

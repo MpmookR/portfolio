@@ -941,14 +941,6 @@
 }
 
 /* ────────────────────────────────────────
-   CONTENTS NAV TARGETS
-   Same breathing room as the existing in-page jumps.
-──────────────────────────────────────── */
-.od-section[id] {
-  scroll-margin-top: 24px;
-}
-
-/* ────────────────────────────────────────
    HERO: CHAPTER SWITCH
 ──────────────────────────────────────── */
 .od-chapters {

@@ -601,6 +601,9 @@
   .cs-toc { transition: none; }
 }
 
-.cs-reflection-section[id] {
+/* In-page jumps (skip links and the Contents nav) on every case study
+   land with a little room above the section. One rule for all pages, since
+   each page's CSS is loaded globally. */
+.containerBG section[id] {
   scroll-margin-top: 24px;
 }

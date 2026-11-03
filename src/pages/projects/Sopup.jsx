@@ -6,6 +6,7 @@ import CaseStudyCTA from "../../components/caseStudy/CaseStudyCTA";
 import CaseStudyReflection from "../../components/caseStudy/CaseStudyReflection";
 import CaseStudyDesignProcess from "../../components/caseStudy/CaseStudyDesignProcess";
 import Lightbox from "../../components/caseStudy/Lightbox";
+import CaseStudyContents from "../../components/caseStudy/CaseStudyContents";
 import "../../css/sopup.css";
 import sopupCover from "../../assets/images/projects/soPup/cover.png";
 import sopupModePuppy from "../../assets/images/projects/soPup/mode_puppy.png";
@@ -188,6 +189,27 @@ const SOPUP_DESIGN_PROCESS = {
   forwardTo: { id: "product-iteration", label: "Product Iteration" },
 };
 
+// Contents nav: one flat list, in page order. Each id matches a section below.
+const CONTENTS = [
+  {
+    items: [
+      { id: "problem", label: "The problem" },
+      { id: "research", label: "Research" },
+      { id: "design-process", label: "Design process" },
+      { id: "core-concept", label: "Core concept" },
+      { id: "algorithm", label: "Under the hood" },
+      { id: "user-flow", label: "User flow" },
+      { id: "architecture", label: "Architecture" },
+      { id: "challenges", label: "Engineering challenges" },
+      { id: "validation", label: "Validation" },
+      { id: "product-iteration", label: "Product iteration" },
+      { id: "whats-next", label: "What's next" },
+      { id: "demo", label: "Demo" },
+      { id: "reflection", label: "Reflection" },
+    ],
+  },
+];
+
 function Sopup() {
   const [lightbox, setLightbox] = useState(null);
 
@@ -201,10 +223,12 @@ function Sopup() {
         onClose={() => setLightbox(null)}
       />
 
+      <CaseStudyContents groups={CONTENTS} />
+
       <CaseStudyHero {...SOPUP_HERO} />
 
       {/* ── PROBLEM ── */}
-      <section className="sp-section sp-section--alt">
+      <section id="problem" className="sp-section sp-section--alt">
         <div className="sp-section-inner sp-two-col">
           <div className="sp-col-text">
             <p className="sp-eyebrow">The Problem</p>
@@ -241,7 +265,7 @@ function Sopup() {
       </section>
 
       {/* ── RESEARCH ── */}
-      <section className="sp-section">
+      <section id="research" className="sp-section">
         <div className="sp-section-inner">
           <p className="sp-eyebrow">Research</p>
           <h2 className="sp-section-title">Understanding the problem space</h2>
@@ -282,6 +306,7 @@ function Sopup() {
 
         <CaseStudyDesignProcess
         {...SOPUP_DESIGN_PROCESS} alt
+        id="design-process"
         onImageClick={(src, alt) => setLightbox({ src, alt })}
         />
 
@@ -376,7 +401,7 @@ function Sopup() {
       </section>
 
       {/* ── ALGORITHM ── */}
-      <section className="sp-section">
+      <section id="algorithm" className="sp-section">
         <div className="sp-section-inner">
           <p className="sp-eyebrow">Under the Hood</p>
           <h2 className="sp-section-title">Research → Algorithm</h2>
@@ -450,7 +475,7 @@ function Sopup() {
       </section>
 
       {/* ── MEET-UP FLOW ── */}
-      <section className="sp-section sp-section--alt">
+      <section id="user-flow" className="sp-section sp-section--alt">
         <div className="sp-section-inner">
           <p className="sp-eyebrow">User Flow</p>
           <h2 className="sp-section-title">
@@ -525,7 +550,7 @@ function Sopup() {
       </section>
 
       {/* ── ARCHITECTURE ── */}
-      <section className="sp-section">
+      <section id="architecture" className="sp-section">
         <div className="sp-section-inner">
           <p className="sp-eyebrow">Architecture</p>
           <h2 className="sp-section-title">Three-layer serverless system</h2>
@@ -590,7 +615,7 @@ function Sopup() {
       </section>
 
       {/* ── CHALLENGES ── */}
-      <section className="sp-section sp-section--alt">
+      <section id="challenges" className="sp-section sp-section--alt">
         <div className="sp-section-inner">
           <p className="sp-eyebrow">Engineering</p>
           <h2 className="sp-section-title">Challenges worth talking about</h2>
@@ -664,7 +689,7 @@ function Sopup() {
       </section>
 
       {/* ── TESTING ── */}
-      <section className="sp-section">
+      <section id="validation" className="sp-section">
         <div className="sp-section-inner">
           <p className="sp-eyebrow">Validation</p>
           <h2 className="sp-section-title">
@@ -827,7 +852,7 @@ function Sopup() {
       </section>
 
       {/* ── FUTURE WORK ── */}
-      <section className="sp-section">
+      <section id="whats-next" className="sp-section">
         <div className="sp-section-inner">
           <p className="sp-eyebrow">What's Next</p>
           <h2 className="sp-section-title">Product thinking beyond Build 5</h2>
@@ -874,7 +899,7 @@ function Sopup() {
       </section>
 
       {/* ── WALKTHROUGH VIDEO ── */}
-      <section className="is-section sp-section--alt">
+      <section id="demo" className="is-section sp-section--alt">
 
         <div className="is-section-inner">
           <p className="is-eyebrow">Demo</p>
@@ -891,6 +916,7 @@ function Sopup() {
       </section>
 
       <CaseStudyReflection
+        id="reflection"
         skills={[
           "User research → validated design decisions",
           "Wireframing & prototyping (paper sketches → Figma)",
