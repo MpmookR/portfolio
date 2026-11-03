@@ -15,8 +15,9 @@ import "../../css/caseStudy.css";
  *                  variant: "solid" | "outline" | "ghost"
  *                  icon:    "github" | null
  *  figmaLinks  — [{ href, label }] — Figma prototype previews
+ *  children    : optional extra content shown under the subtitle
  */
-function CaseStudyHero({ badge, title, subtitle, heroImage, meta = [], links = [], figmaLinks = [] }) {
+function CaseStudyHero({ badge, title, subtitle, heroImage, meta = [], links = [], figmaLinks = [], children }) {
   return (
     <section className="cs-hero">
       {badge && <div className="cs-hero-badge">{badge}</div>}
@@ -24,6 +25,8 @@ function CaseStudyHero({ badge, title, subtitle, heroImage, meta = [], links = [
       <h1 className="cs-hero-title">{title}</h1>
 
       {subtitle && <p className="cs-hero-sub">{subtitle}</p>}
+
+      {children}
 
       {heroImage && (
         <div className="cs-hero-image-wrap">

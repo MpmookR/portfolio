@@ -5,6 +5,7 @@
 //   note    — string     paragraph shown below the skills grid (optional)
 //   banner  — ReactNode  content for the green callout box (optional)
 //   alt     — bool       white background variant (optional)
+//   id      : string     anchor id for in-page links (optional)
 //   children             any extra content rendered after the banner (optional)
 function CaseStudyReflection({
   skills,
@@ -12,10 +13,12 @@ function CaseStudyReflection({
   note,
   banner,
   alt = false,
+  id,
   children,
 }) {
   return (
     <section
+      id={id}
       className={`cs-reflection-section${alt ? " cs-reflection-section--alt" : ""}`}
     >
       <div className="cs-reflection-inner">

@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import Header from "../../components/header";
 import Footer from "../../components/footer";
 import CaseStudyHero from "../../components/caseStudy/CaseStudyHero";
 import CaseStudyCTA from "../../components/caseStudy/CaseStudyCTA";
 import CaseStudyReflection from "../../components/caseStudy/CaseStudyReflection";
 import Lightbox from "../../components/caseStudy/Lightbox";
+import CaseStudyContents from "../../components/caseStudy/CaseStudyContents";
+import OndoWeekAfter from "./OndoWeekAfter";
+import {
+  STORYBOOK_URL,
+  WEEK_HERO_IMAGE,
+  WEEK_SECTIONS,
+} from "./ondoWeekAfterData";
 import "../../css/ondo.css";
 import ondoHero from "../../assets/images/projects/Ondo/hero.png";
 import wfSummary from "../../assets/images/projects/Ondo/sum_summary.png";
@@ -23,28 +30,76 @@ const STORY_URL = "https://github.com/MpmookR/ondo/blob/main/doc/story.md";
 const VIDEO_EMBED_URL =
   "https://drive.google.com/file/d/1x6MWmgVA3pDVcOylKLfBfCogfZQSg-x4/preview";
 
+// Hero copy covers both chapters. The chapter cards swap the image and the
+// meta pills, so a reader can preview either chapter without scrolling.
 const ONDO_HERO = {
-  badge: "Take-home Redesign",
+  badge: "Take-home → Design system",
   title: "Ondo",
   subtitle:
-    "Redesigning a subscription's first box so customers add more, without making it harder to pay. A mobile-first redesign, coded and presented in one weekend.",
-  heroImage: {
-    src: ondoHero,
-    alt: "Four Ondo prototype screens on mobile: Your box, Shop, an item page and checkout",
-  },
-  meta: [
-    { label: "Timeline", value: "2 days · Fri night to Mon 11am" },
-    { label: "Role", value: "Product Design + Engineering · Solo" },
-    { label: "Platform", value: "Mobile-first web" },
-    { label: "Delivered", value: "Working prototype + presentation" },
-  ],
+    "Redesigning a subscription's first box so customers add more, without making it harder to pay. Designed, coded and presented in one weekend, then grown into a full product and design system the week after.",
   links: [
     { href: LIVE_URL, label: "🟢 Live Site", variant: "solid" },
+    { href: STORYBOOK_URL, label: "🎨 Design system", variant: "outline" },
     { href: "#walkthrough", label: "📽️ Watch the walkthrough", variant: "outline" },
     { href: STORY_URL, label: "📄 Read the full story", variant: "outline" },
     { href: GITHUB_URL, label: "GitHub Repo", variant: "outline", icon: "github" },
   ],
 };
+
+const CHAPTERS = [
+  {
+    id: "weekend",
+    tag: "Chapter 1 · 2 days",
+    title: "The weekend sprint",
+    desc: "Working prototype + presentation",
+    jumpTo: "overview",
+    heroImage: {
+      src: ondoHero,
+      alt: "Four Ondo prototype screens on mobile: Your box, Shop, an item page and checkout",
+    },
+    meta: [
+      { label: "Timeline", value: "2 days · Fri night to Mon 11am" },
+      { label: "Role", value: "Product Design + Engineering · Solo" },
+      { label: "Platform", value: "Mobile-first web" },
+      { label: "Delivered", value: "Working prototype + presentation" },
+    ],
+  },
+  {
+    id: "week",
+    tag: "Chapter 2 · 1 week",
+    title: "The week after",
+    desc: "Design system, onboarding, user flows",
+    jumpTo: "week",
+    heroImage: WEEK_HERO_IMAGE,
+    meta: [
+      { label: "Timeline", value: "1 week · after the take-home" },
+      { label: "Role", value: "Design + Engineering · Solo" },
+      { label: "Stack", value: "Next.js · Tailwind · Storybook" },
+      { label: "Delivered", value: "Design system, onboarding, user flows" },
+    ],
+  },
+];
+
+// Contents nav: one group per chapter, plus the reflection.
+const CONTENTS = [
+  {
+    label: "Chapter 1 · The weekend",
+    items: [
+      { id: "overview", label: "Overview" },
+      { id: "weekend", label: "Two days" },
+      { id: "brief", label: "The brief" },
+      { id: "found", label: "What I found" },
+      { id: "principles", label: "Principles" },
+      { id: "screens", label: "Screen by screen" },
+      { id: "summary", label: "Summary" },
+      { id: "scoring", label: "Under the hood" },
+      { id: "measuring", label: "How I'd prove it" },
+      { id: "walkthrough", label: "See it working" },
+    ],
+  },
+  { label: "Chapter 2 · The week after", items: WEEK_SECTIONS },
+  { items: [{ id: "reflection", label: "Reflection" }] },
+];
 
 // The five principles. Colours match the numbered badges on the wireframes.
 const PRINCIPLES = [
@@ -261,6 +316,8 @@ function PointList({ items }) {
 
 function Ondo() {
   const [lightbox, setLightbox] = useState(null);
+  const [chapterId, setChapterId] = useState("weekend");
+  const chapter = CHAPTERS.find((c) => c.id === chapterId);
 
   return (
     <main className="containerBG">
@@ -272,10 +329,41 @@ function Ondo() {
         onClose={() => setLightbox(null)}
       />
 
-      <CaseStudyHero {...ONDO_HERO} />
+      <CaseStudyContents groups={CONTENTS} />
+
+      <CaseStudyHero
+        {...ONDO_HERO}
+        heroImage={chapter.heroImage}
+        meta={chapter.meta}
+      >
+        <div className="od-chapters" role="group" aria-label="Preview a chapter">
+          {CHAPTERS.map((c, i) => (
+            <Fragment key={c.id}>
+              {i > 0 && (
+                <span className="od-chapter-arrow" aria-hidden="true">
+                  →
+                </span>
+              )}
+              <button
+                type="button"
+                className={`od-chapter${c.id === chapterId ? " is-active" : ""}`}
+                aria-pressed={c.id === chapterId}
+                onClick={() => setChapterId(c.id)}
+              >
+                <span className="od-chapter-tag">{c.tag}</span>
+                <span className="od-chapter-title">{c.title}</span>
+                <span className="od-chapter-desc">{c.desc}</span>
+              </button>
+            </Fragment>
+          ))}
+        </div>
+        <a href={`#${chapter.jumpTo}`} className="od-text-link od-chapter-jump">
+          Read {chapter.title.toLowerCase()} ↓
+        </a>
+      </CaseStudyHero>
 
       {/* ── OVERVIEW ── */}
-      <section className="od-section od-section--alt">
+      <section className="od-section od-section--alt" id="overview">
         <div className="od-section-inner">
           <p className="od-eyebrow">Overview</p>
           <h2 className="od-section-title">
@@ -305,7 +393,7 @@ function Ondo() {
       </section>
 
       {/* ── TIMELINE ── */}
-      <section className="od-section">
+      <section className="od-section" id="weekend">
         <div className="od-section-inner">
           <p className="od-eyebrow">The Weekend</p>
           <h2 className="od-section-title">
@@ -345,7 +433,7 @@ function Ondo() {
       </section>
 
       {/* ── THE BRIEF ── */}
-      <section className="od-section od-section--alt">
+      <section className="od-section od-section--alt" id="brief">
         <div className="od-section-inner od-two-col">
           <div>
             <p className="od-eyebrow">The Brief</p>
@@ -384,7 +472,7 @@ function Ondo() {
       </section>
 
       {/* ── WHAT I FOUND ── */}
-      <section className="od-section">
+      <section className="od-section" id="found">
         <div className="od-section-inner">
           <p className="od-eyebrow">What I Found</p>
           <h2 className="od-section-title">
@@ -414,7 +502,7 @@ function Ondo() {
       </section>
 
       {/* ── PRINCIPLES ── */}
-      <section className="od-section od-section--alt">
+      <section className="od-section od-section--alt" id="principles">
         <div className="od-section-inner">
           <p className="od-eyebrow">Principles</p>
           <h2 className="od-section-title">Four principles and one guard rail</h2>
@@ -506,7 +594,7 @@ function Ondo() {
       </section>
 
       {/* ── SUMMARY MATRIX ── */}
-      <section className="od-section od-section--alt">
+      <section className="od-section od-section--alt" id="summary">
         <div className="od-section-inner">
           <p className="od-eyebrow">Summary</p>
           <h2 className="od-section-title">Relevance is the thread</h2>
@@ -747,7 +835,7 @@ return catalogue
       </section>
 
       {/* ── HOW I'D PROVE IT ── */}
-      <section className="od-section od-section--alt">
+      <section className="od-section od-section--alt" id="measuring">
         <div className="od-section-inner">
           <p className="od-eyebrow">Measuring It</p>
           <h2 className="od-section-title">How I'd prove it</h2>
@@ -839,7 +927,11 @@ return catalogue
         </div>
       </section>
 
+      {/* ── CHAPTER 2: THE WEEK AFTER ── */}
+      <OndoWeekAfter onZoom={setLightbox} />
+
       <CaseStudyReflection
+        id="reflection"
         alt
         skills={[
           "Problem framing under a 2-day deadline",
@@ -852,6 +944,11 @@ return catalogue
           "Low-fi wireframing, before and after",
           "Prototyping in code",
           "Presenting design decisions",
+          "Design tokens and theming",
+          "A documented design system in Storybook",
+          "An AI guide that keeps generated UI on-brand",
+          "Onboarding that's easy to leave",
+          "Mapping edge cases in user flows",
         ]}
         note="What I'd point to from this project: questioning the brief's own hunch (the tabs) before designing for it, tying every change to a named principle so the reasoning is easy to follow and easy to challenge, and treating conversion as a hard limit rather than something to trade away for basket size."
         banner={
@@ -866,9 +963,10 @@ return catalogue
 
       <CaseStudyCTA
         title="Explore Ondo"
-        subtitle="Try the live site, watch the walkthrough, read the full redesign story or browse the code"
+        subtitle="Try the live site, browse the design system, watch the walkthrough, read the full story or browse the code"
         buttons={[
           { label: "🟢 Live Site", href: LIVE_URL, variant: "solid", external: true },
+          { label: "🎨 Design system", href: STORYBOOK_URL, variant: "outline-light", external: true },
           { label: "📽️ Watch the walkthrough", href: "#walkthrough", variant: "outline-light" },
           { label: "📄 Read the full story", href: STORY_URL, variant: "outline-light", external: true },
           { label: "GitHub →", href: GITHUB_URL, variant: "outline-light", external: true },

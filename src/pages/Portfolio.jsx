@@ -37,20 +37,20 @@ function Portfolio() {
       tags: ["Next.js", "React", "TypeScript", "Sanity CMS", "Tailwind CSS", "Product Scoping", "Client Handoff", "Bilingual UX"],
     },
 
-    {
-      title: "SoWell",
-      description: "A HealthKit-integrated mood and wellbeing tracker with diary entries, calendar view, and weekly summaries to help users monitor their mental health and identify patterns",
-      image: soWellLogo,
-      link: "/projects/sowell",
-      tags: ["Swift", "SwiftUI", "SwiftData", "Firebase", "HealthKit", "API Integration", "UX/UI Design"],
-    },
-    {
-      title: "iShare",
-      description: "A social recipe-sharing platform where users can post, search, like, save, and comment on recipes, fostering a vibrant community of food enthusiasts",
-      image: iShareLogo,
-      link: "/projects/ishare",
-      tags: ["React", "C#", "ASP.NET Core", "SQLite", "Redux", "Swagger", "Netlify", "Render"],
-    },
+    // {
+    //   title: "SoWell",
+    //   description: "A HealthKit-integrated mood and wellbeing tracker with diary entries, calendar view, and weekly summaries to help users monitor their mental health and identify patterns",
+    //   image: soWellLogo,
+    //   link: "/projects/sowell",
+    //   tags: ["Swift", "SwiftUI", "SwiftData", "Firebase", "HealthKit", "API Integration", "UX/UI Design"],
+    // },
+    // {
+    //   title: "iShare",
+    //   description: "A social recipe-sharing platform where users can post, search, like, save, and comment on recipes, fostering a vibrant community of food enthusiasts",
+    //   image: iShareLogo,
+    //   link: "/projects/ishare",
+    //   tags: ["React", "C#", "ASP.NET Core", "SQLite", "Redux", "Swagger", "Netlify", "Render"],
+    // },
   ];
 
   const uxProjects = [
@@ -62,20 +62,20 @@ function Portfolio() {
       tags: ["Figma", "UX Design", "UX Research","Wireframing","Prototyping","User Flows","Usability Testing", "Stakeholder Engagement", "Developer Collaboration", "Real-world Product Experience"],
       featured: true,
     },
-    {
-      title: "The Passion Hub: Web Platform",
-      description: "Designed a child development centre website, collaborating with stakeholders to translate business goals into an accessible and user-centred web experience",
-      image: passionHubLogo,
-      link: "/projects/passionhub",
-      tags: ["UI/UX", "Figma", "UX Research","Wireframing","Prototyping", "Stakeholder Engagement", "Developer Collaboration", "Real-world Product Experience"],
-    },
-    {
-      title: "The Millennium Residence: Website Redesign",
-      description: "Complete redesign of a condominium's website to enhance user experience, improve navigation, and modernize the visual design.",
-      image: millenniumLogo,
-      link: "/projects/Millennium",
-      tags: ["UI/UX", "Figma", "Web Redesign"],
-    },
+    // {
+    //   title: "The Passion Hub: Web Platform",
+    //   description: "Designed a child development centre website, collaborating with stakeholders to translate business goals into an accessible and user-centred web experience",
+    //   image: passionHubLogo,
+    //   link: "/projects/passionhub",
+    //   tags: ["UI/UX", "Figma", "UX Research","Wireframing","Prototyping", "Stakeholder Engagement", "Developer Collaboration", "Real-world Product Experience"],
+    // },
+    // {
+    //   title: "The Millennium Residence: Website Redesign",
+    //   description: "Complete redesign of a condominium's website to enhance user experience, improve navigation, and modernize the visual design.",
+    //   image: millenniumLogo,
+    //   link: "/projects/Millennium",
+    //   tags: ["UI/UX", "Figma", "Web Redesign"],
+    // },
   ];
 
   return (
