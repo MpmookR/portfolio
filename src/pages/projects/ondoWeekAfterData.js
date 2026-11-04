@@ -14,10 +14,9 @@ export const WEEK_HERO_IMAGE = {
 export const WEEK_SECTIONS = [
   { id: "week", label: "Two open questions" },
   { id: "design-system", label: "A design system first" },
-  { id: "built", label: "The screens, built" },
   { id: "onboarding", label: "Onboarding" },
   { id: "starter-box", label: "The starter box" },
-  { id: "no-surprises", label: "Nothing chosen for them" },
+  { id: "built", label: "The screens, built" },
   { id: "flows", label: "The unhappy paths" },
   { id: "whats-next", label: "What's next" },
 ];

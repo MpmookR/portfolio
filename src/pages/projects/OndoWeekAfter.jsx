@@ -8,6 +8,18 @@ import flowBox from "../../assets/images/projects/Ondo/flow/05-your-box.png";
 import flowCheckout from "../../assets/images/projects/Ondo/flow/06-checkout.png";
 import flowSession from "../../assets/images/projects/Ondo/flow/07-session.png";
 import flowLeaving from "../../assets/images/projects/Ondo/flow/08-leaving-onboarding.png";
+import uiShop from "../../assets/images/projects/Ondo/mockup/shop.png";
+import uiShopDark from "../../assets/images/projects/Ondo/mockup/shop-dark.png";
+import uiItemDark from "../../assets/images/projects/Ondo/mockup/item-dark.png";
+import uiOnbGoal from "../../assets/images/projects/Ondo/mockup/onb-goal.png";
+import uiOnbDrinks from "../../assets/images/projects/Ondo/mockup/onb-drinks.png";
+import uiOnbKit from "../../assets/images/projects/Ondo/mockup/onb-kit.png";
+import uiOnbCaffeine from "../../assets/images/projects/Ondo/mockup/onb-caffeine.png";
+import uiOnbExtras from "../../assets/images/projects/Ondo/mockup/onb-extras.png";
+import uiPacking from "../../assets/images/projects/Ondo/mockup/packing.png";
+import uiBox from "../../assets/images/projects/Ondo/mockup/box.png";
+import uiBoxEmpty from "../../assets/images/projects/Ondo/mockup/box-empty.png";
+import uiBoxDelivery from "../../assets/images/projects/Ondo/mockup/box-delivery.png";
 import { STORYBOOK_URL } from "./ondoWeekAfterData";
 
 const DESIGN_DOC_URL = "https://github.com/MpmookR/ondo/blob/main/doc/design_system.md";
@@ -63,6 +75,7 @@ const BUILT = [
   { from: "Checkout", to: "Checkout, a demo: no payment is taken", path: "/checkout" },
 ];
 
+// What building it showed: things the wireframes couldn't, and how the customer stays in charge.
 const BUILT_LESSONS = [
   {
     tag: "Found in code",
@@ -70,9 +83,19 @@ const BUILT_LESSONS = [
     body: "Back has to return to the list the customer came from, not walk them through every item they opened on the way.",
   },
   {
-    tag: "Found in code",
-    title: "An empty box needs a start",
-    body: "A new visitor with nothing in the box sees best sellers and a prompt to tell us about themselves, instead of a blank page.",
+    tag: "Browsing",
+    title: "Skipping onboarding still works",
+    body: "No limits are applied to what they haven't told us. An empty box offers \"Help me build my box\" next to the best sellers, instead of a blank page or a wall.",
+  },
+  {
+    tag: "Delivery",
+    title: "Delivery starts empty",
+    body: "The card suggests how often from what's in the box, and says when it may run short, but never picks. Tapping checkout too early opens Delivery and says why, instead of a disabled button.",
+  },
+  {
+    tag: "Session",
+    title: "A reload keeps everything",
+    body: "Including a placed order, so the confirmation never turns back into a payment form.",
   },
 ];
 
@@ -117,27 +140,28 @@ const STARTER_DECISIONS = [
   },
 ];
 
-const CONTROL_DECISIONS = [
-  {
-    tag: "Suggestions",
-    title: "One set of rules everywhere",
-    body: "Your box, the shop's For you tab and the item page share the same filters and ranking, and every suggestion says why. No snacks are suggested before there's a drink in the box.",
-  },
-  {
-    tag: "Browsing",
-    title: "Skipping onboarding still works",
-    body: "No limits are applied to what they haven't told us, and a \"Tell us a little about you\" prompt sits next to the best sellers instead of a wall.",
-  },
-  {
-    tag: "Delivery",
-    title: "Delivery starts empty",
-    body: "The card suggests how often from what's in the box, and says when it may run short, but never picks. Tapping checkout too early opens Delivery and says why, instead of a disabled button.",
-  },
-  {
-    tag: "Session",
-    title: "A reload keeps everything",
-    body: "Including a placed order, so the confirmation never turns back into a payment form.",
-  },
+const THEME_SHOTS = [
+  { src: uiShop, label: "Shop, light", alt: "Ondo Shop in the light theme" },
+  { src: uiShopDark, label: "Shop, dark", alt: "Ondo Shop in the dark theme, same components" },
+  { src: uiItemDark, label: "Item, dark", alt: "Ondo tea item page in the dark theme, with the coffee accent" },
+];
+
+const ONBOARDING_SHOTS = [
+  { src: uiOnbGoal, label: "1 · How the day should feel", alt: "Onboarding question 1: How do you want your day to feel? Calm focus selected" },
+  { src: uiOnbDrinks, label: "4 · What they drink now", alt: "Onboarding question 4: What do you drink now? Tea and matcha selected" },
+  { src: uiOnbKit, label: "5 · Brew kit draws itself in", alt: "Onboarding question 5: What do you brew with? A matcha whisk drawing appears" },
+  { src: uiOnbCaffeine, label: "6 · Glasses pour for the limit", alt: "Onboarding question 6: caffeine limit shown as five glasses, 4 of 5 filled" },
+  { src: uiOnbExtras, label: "8 · Optional extras", alt: "Onboarding optional step: add bites or a sweetener, with Skip these" },
+];
+
+const STARTER_SHOTS = [
+  { src: uiPacking, label: "Packing the box", alt: "Preparing your box: a box being packed, with ticks for calm focus, leaving out dairy and caffeine limit" },
+  { src: uiBox, label: "The starter box", alt: "Your box after onboarding: Shizuoka Sencha, marked Picked for you, For calm focus" },
+];
+
+const BUILT_SHOTS = [
+  { src: uiBoxEmpty, label: "Skipped onboarding", alt: "An empty box: Want help building your box? with a Help me build my box button" },
+  { src: uiBoxDelivery, label: "Delivery suggests, never picks", alt: "The delivery card: Your box may run short, with 15, 30 and 45 days and one-off options" },
 ];
 
 const FLOW_BOARDS = [
@@ -156,6 +180,30 @@ const NEXT = [
   { step: "Next 02", title: "Close the two red gaps", body: "A saved delivery date that has passed by the time they come back, and answers lost if onboarding is reloaded mid-way." },
   { step: "Next 03", title: "Measure it", body: "AOV and items per order on paid orders, always next to conversion, as in the plan from Chapter 1." },
 ];
+
+// A row of phone screens. Scrolls sideways on small screens; click to zoom.
+export function PhoneShots({ shots, onZoom, caption }) {
+  return (
+    <>
+      <ul className="od-phones">
+        {shots.map((shot) => (
+          <li className="od-phone" key={shot.label}>
+            <button
+              type="button"
+              className="od-phone-frame"
+              onClick={() => onZoom(shot)}
+              aria-label={`Zoom into: ${shot.label}`}
+            >
+              <img src={shot.src} alt={shot.alt} loading="lazy" />
+            </button>
+            <span className="od-phone-label">{shot.label}</span>
+          </li>
+        ))}
+      </ul>
+      {caption && <p className="od-caption">{caption}</p>}
+    </>
+  );
+}
 
 function DecisionGrid({ items }) {
   return (
@@ -259,6 +307,12 @@ function OndoWeekAfter({ onZoom }) {
             ))}
           </ol>
 
+          <PhoneShots
+            shots={THEME_SHOTS}
+            onZoom={onZoom}
+            caption="The same ShopCard and item page in both themes. The accent follows the drink: green for matcha, blue for tea."
+          />
+
           <DecisionGrid items={SYSTEM_DECISIONS} />
 
           <div className="od-link-row od-link-row--center">
@@ -275,49 +329,8 @@ function OndoWeekAfter({ onZoom }) {
         </div>
       </section>
 
-      {/* ── THE SCREENS, BUILT ── */}
-      <section className="od-section od-section--alt" id="built">
-        <div className="od-section-inner">
-          <p className="od-eyebrow">The Screens, Built</p>
-          <h2 className="od-section-title">
-            Building them showed what wireframes can't
-          </h2>
-          <p className="od-body od-body--center">
-            Each screen from the weekend became a real page in Ondo.
-          </p>
-
-          <div className="od-table-wrap">
-            <table className="od-table">
-              <caption className="od-sr-only">
-                Where each take-home screen lives in Ondo
-              </caption>
-              <thead>
-                <tr>
-                  <th scope="col">Take-home screen</th>
-                  <th scope="col">In Ondo</th>
-                  <th scope="col">Route</th>
-                </tr>
-              </thead>
-              <tbody>
-                {BUILT.map((row) => (
-                  <tr key={row.from}>
-                    <th scope="row">{row.from}</th>
-                    <td>{row.to}</td>
-                    <td>
-                      <code>{row.path}</code>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <DecisionGrid items={BUILT_LESSONS} />
-        </div>
-      </section>
-
       {/* ── ONBOARDING ── */}
-      <section className="od-section" id="onboarding">
+      <section className="od-section od-section--alt" id="onboarding">
         <div className="od-section-inner">
           <p className="od-eyebrow">Onboarding</p>
           <h2 className="od-section-title">Where the first box comes from</h2>
@@ -334,6 +347,8 @@ function OndoWeekAfter({ onZoom }) {
               </li>
             ))}
           </ol>
+
+          <PhoneShots shots={ONBOARDING_SHOTS} onZoom={onZoom} />
 
           <DecisionGrid items={ONBOARDING_DECISIONS} />
 
@@ -362,7 +377,7 @@ function OndoWeekAfter({ onZoom }) {
       </section>
 
       {/* ── STARTER BOX ── */}
-      <section className="od-section od-section--alt" id="starter-box">
+      <section className="od-section" id="starter-box">
         <div className="od-section-inner">
           <div className="od-two-col">
             <div>
@@ -398,6 +413,8 @@ function OndoWeekAfter({ onZoom }) {
             </div>
           </div>
 
+          <PhoneShots shots={STARTER_SHOTS} onZoom={onZoom} />
+
           <DecisionGrid items={STARTER_DECISIONS} />
 
           <div className="od-callout">
@@ -408,21 +425,58 @@ function OndoWeekAfter({ onZoom }) {
         </div>
       </section>
 
-      {/* ── NOTHING CHOSEN FOR THEM ── */}
-      <section className="od-section" id="no-surprises">
+      {/* ── THE SCREENS, BUILT ── */}
+      <section className="od-section od-section--alt" id="built">
         <div className="od-section-inner">
-          <p className="od-eyebrow">Nothing Chosen for Them</p>
-          <h2 className="od-section-title">The customer stays in charge</h2>
+          <p className="od-eyebrow">The Screens, Built</p>
+          <h2 className="od-section-title">
+            Building them showed what wireframes can't
+          </h2>
           <p className="od-body od-body--center">
+            Each screen from the weekend became a real page in Ondo, and
+            building them surfaced the cases a wireframe never has to answer.
             Suggestions can lift the basket, but only the customer decides
             what's in it.
           </p>
-          <DecisionGrid items={CONTROL_DECISIONS} />
+
+          <div className="od-table-wrap">
+            <table className="od-table">
+              <caption className="od-sr-only">
+                Where each take-home screen lives in Ondo
+              </caption>
+              <thead>
+                <tr>
+                  <th scope="col">Take-home screen</th>
+                  <th scope="col">In Ondo</th>
+                  <th scope="col">Route</th>
+                </tr>
+              </thead>
+              <tbody>
+                {BUILT.map((row) => (
+                  <tr key={row.from}>
+                    <th scope="row">{row.from}</th>
+                    <td>{row.to}</td>
+                    <td>
+                      <code>{row.path}</code>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <PhoneShots
+            shots={BUILT_SHOTS}
+            onZoom={onZoom}
+            caption="The take-home's plans live here as delivery frequencies: every 15, 30 or 45 days, or a one-off. Each sets the price, from 10% off to full price."
+          />
+
+          <DecisionGrid items={BUILT_LESSONS} />
         </div>
       </section>
 
       {/* ── THE UNHAPPY PATHS ── */}
-      <section className="od-section od-section--alt" id="flows">
+      <section className="od-section" id="flows">
         <div className="od-section-inner">
           <p className="od-eyebrow">The Unhappy Paths</p>
           <h2 className="od-section-title">Mapping every edge case</h2>
@@ -460,7 +514,7 @@ function OndoWeekAfter({ onZoom }) {
       </section>
 
       {/* ── WHAT'S NEXT ── */}
-      <section className="od-section" id="whats-next">
+      <section className="od-section od-section--alt" id="whats-next">
         <div className="od-section-inner">
           <p className="od-eyebrow">What's Next</p>
           <h2 className="od-section-title">Test it, close the gaps, measure it</h2>

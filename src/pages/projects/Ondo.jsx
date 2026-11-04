@@ -6,7 +6,11 @@ import CaseStudyCTA from "../../components/caseStudy/CaseStudyCTA";
 import CaseStudyReflection from "../../components/caseStudy/CaseStudyReflection";
 import Lightbox from "../../components/caseStudy/Lightbox";
 import CaseStudyContents from "../../components/caseStudy/CaseStudyContents";
-import OndoWeekAfter from "./OndoWeekAfter";
+import OndoWeekAfter, { PhoneShots } from "./OndoWeekAfter";
+import uiBoxRail from "../../assets/images/projects/Ondo/mockup/box-rail.png";
+import uiShop from "../../assets/images/projects/Ondo/mockup/shop.png";
+import uiItem from "../../assets/images/projects/Ondo/mockup/item.png";
+import uiCheckout from "../../assets/images/projects/Ondo/mockup/checkout.png";
 import {
   STORYBOOK_URL,
   WEEK_HERO_IMAGE,
@@ -23,7 +27,6 @@ const GITHUB_URL = "https://github.com/MpmookR/ondo";
 const LIVE_URL = "https://ondo-hazel.vercel.app/";
 const RECOMMEND_URL = "https://github.com/MpmookR/ondo/blob/main/src/lib/recommend.ts";
 const TESTS_URL = "https://github.com/MpmookR/ondo/blob/main/src/lib/recommend.test.ts";
-const STORY_URL = "https://github.com/MpmookR/ondo/blob/main/doc/story.md";
 
 // Walkthrough video (Google Drive "preview" link, same as the LocalEdition embed).
 // Hero and CTA buttons scroll to the #walkthrough section where it's embedded.
@@ -36,12 +39,11 @@ const ONDO_HERO = {
   badge: "Take-home → Design system",
   title: "Ondo",
   subtitle:
-    "Redesigning a subscription's first box so customers add more, without making it harder to pay. Designed, coded and presented in one weekend, then grown into a full product and design system the week after.",
+    "Redesigning a subscription's first box so customers add more, without making it harder to pay",
   links: [
     { href: LIVE_URL, label: "🟢 Live Site", variant: "solid" },
     { href: STORYBOOK_URL, label: "🎨 Design system", variant: "outline" },
-    { href: "#walkthrough", label: "📽️ Watch the walkthrough", variant: "outline" },
-    { href: STORY_URL, label: "📄 Read the full story", variant: "outline" },
+    { href: "#walkthrough", label: "📽️ Watch weekend sprint", variant: "outline" },
     { href: GITHUB_URL, label: "GitHub Repo", variant: "outline", icon: "github" },
   ],
 };
@@ -82,6 +84,7 @@ const CHAPTERS = [
 
 // Contents nav: one group per chapter, plus the reflection.
 const CONTENTS = [
+  { items: [{ id: "tldr", label: "In 30 seconds" }] },
   {
     label: "Chapter 1 · The weekend",
     items: [
@@ -110,6 +113,30 @@ const PRINCIPLES = [
   { n: 5, name: "Guard rail", line: "Nothing extra between the customer and paying." },
 ];
 
+// The 30-second read, for anyone who stops after the hero.
+const TLDR = [
+  {
+    label: "The problem",
+    title: "Add-ons were easy to miss",
+    body: "New customers rarely added extras to their first box. The goal was a bigger box, without losing anyone at checkout.",
+  },
+  {
+    label: "The insight",
+    title: "Lost in the tabs, with a broken shortcut",
+    body: "The hunch was right: add-ons were buried in tabs. And tapping a suggested add-on opened the whole menu, not the item they tapped.",
+  },
+  {
+    label: "What I changed",
+    title: "Suggest where people already are",
+    body: "Suggestions on the box itself, each saying why it's there, added in one tap. Checkout shows the box before asking to pay.",
+  },
+  {
+    label: "What I delivered",
+    title: "A prototype in 2 days, a product in a week",
+    body: "A prototype in Figma and code, presented on day two. A week later: a design system, onboarding and user flows, live.",
+  },
+];
+
 const PROBLEMS = [
   { id: "A", title: "They don't see it", body: "Add-ons sit behind a button, a full-screen picker and tabs." },
   { id: "B", title: "It doesn't feel relevant", body: "A random juice doesn't connect to why they signed up." },
@@ -135,15 +162,14 @@ const SCREENS = [
     ],
     afterLead: "The page opens compact, and expands one group at a time.",
     after: [
-      { p: [2, 3], text: <><strong>Your preferences.</strong> A collapsed card replays what the customer told us in onboarding: goal, allergies and exclusions. It's the input behind every suggestion on the page.</> },
-      { p: [2], text: <>The order summary collapses to a count, a price and thumbnails ("8 meals · £00.00"). Add-ons collapse the same way. The whole box fits on one screen.</> },
-      { p: [1], text: <>Expanded, the box is a vertical list with quantity steppers, like the basket in every delivery app they already use. Add-ons are grouped by category with their own totals.</> },
-      { p: [3], text: <>"For your [goal] goal" suggests items that fit the goal or pair with something in the box, and each card says why ("Fits your [goal] goal", "Goes with your [meal]").</> },
-      { p: [1], text: <>Suggestions add in place with a + that turns into a stepper. No picker, no leaving the page. Tapping one opens that item's own details page.</> },
-      { p: [4], text: <>One "Add / Change items" button replaces the two, and opens the one menu.</> },
+      { p: [2, 3], text: <>Preferences, meals and add-ons each collapse to one line ("8 meals · £00.00"), so the whole box fits on one screen. Preferences are the input behind every suggestion.</> },
+      { p: [1], text: <>Expanded, the box is a vertical list with quantity steppers, like the basket in every delivery app they already use.</> },
+      { p: [3], text: <>"For your [goal] goal" suggests items that fit the goal or pair with the box, and each card says why ("Goes with your [meal]").</> },
+      { p: [1, 4], text: <>Suggestions add in place with a + that turns into a stepper. One "Add / Change items" button replaces the two pickers.</> },
     ],
     note: "The weekly total stays pinned to the bottom, with the first-box discount and free delivery.",
-    inOndo: "Your box: preferences, a box grouped by category, a rail of up to six suggestions (each with a reason) and the total always in view.",
+    inOndo: "Your box: every item says why it was picked, and the rail below suggests more for the customer's goal, with the total always in view.",
+    shot: { src: uiBoxRail, alt: "Ondo Your box: an add-on marked 'Goes with your Shizuoka Sencha' and a 'For calm focus' suggestion rail" },
   },
   {
     id: "menu",
@@ -156,13 +182,14 @@ const SCREENS = [
       { p: [3], text: <>"My preferences" and "Based on your preferences" exist, but nothing tells the customer which preference picked an item, or why.</> },
     ],
     after: [
-      { p: [4], text: <>One menu with sticky tabs: For you · Meals · Breakfast · Sides & snacks, and the rest. Cards sit in two columns with name, tags, kcal and was/now price. "Add to box" turns into a stepper on the card.</> },
-      { p: [4], text: <>Plan type sits at the top of the menu, with the price difference per meal and one line on what the plan means.</> },
-      { p: [3], text: <>"For you" comes first and says what it's based on ("Picked from your answers: [goal], avoiding [allergen]"), then "More meals for your goal" and "Goes well with your box", using the same rules as the order summary.</> },
+      { p: [4], text: <>One menu with sticky tabs (For you · Meals · Breakfast · Sides & snacks) and two-column cards. "Add to box" turns into a stepper on the card.</> },
+      { p: [3], text: <>"For you" comes first and says what it's based on ("Picked from your answers: [goal], avoiding [allergen]"), using the same rules as the order summary.</> },
+      { p: [4], text: <>Plan type sits at the top of the menu, with the price difference per meal and one line on what the plan means, so a third plan is one more option, not a new screen.</> },
       { p: [2], text: <>Switch plan and nothing silently disappears. Meals that aren't on that plan are grouped and collapsed ("Not available in Plan A (1)").</> },
     ],
     note: 'A sticky "View your box · 8 items · £00.00" bar keeps the box and its total one tap away.',
-    inOndo: "Shop: tabs for For you, Coffee, Tea, Matcha and Gear. Items a customer can't have (over their caffeine limit, or containing something they avoid) sit in collapsed sections with the reason.",
+    inOndo: "Shop: \"For you\" says what it's picked from. Items a customer can't have (over their caffeine limit, or containing something they avoid) sit in collapsed sections with the reason.",
+    shot: { src: uiShop, alt: "Ondo Shop: the For you tab, 'Picked from your answers: calm focus, caffeine up to 4 of 5, avoiding dairy'" },
   },
   {
     id: "item-details",
@@ -184,7 +211,8 @@ const SCREENS = [
       { p: [3], text: <>"Goes well with this" suggests items that pair with this meal or fit the goal, each with a reason and a + to add without leaving the page.</> },
     ],
     note: 'A pinned bar shows how many are in the box, the price and plan ("3 in your box · £00.00 · Plan A"), with a stepper in place of the old "Add" button.',
-    inOndo: 'Item page: description, caffeine level, brew highlights, a "Contains" box that is never collapsed, a "Goes well with this" rail and a pinned order bar.',
+    inOndo: 'Item page: caffeine level and brew highlights up front, a "Contains" box that is never collapsed, a "Goes well with this" rail and a pinned order bar.',
+    shot: { src: uiItem, alt: "Ondo item page for Shizuoka Sencha: caffeine level, brew highlights, Contains box and a pinned stepper" },
   },
   {
     id: "checkout",
@@ -196,57 +224,13 @@ const SCREENS = [
       { p: [5], text: <>"Your delivery" (plan, every meal, subtotal, discount, delivery and the first week's total) sits below the Pay Now button. The customer enters card details before seeing what they're paying for.</> },
     ],
     after: [
-      { p: [5], text: <>"Your first box" sits at the top: "8 meals · 4 add-ons · Plan B · £00.00", collapsed, with every line one tap away. What they're paying for is confirmed first.</> },
-      { p: [5], text: <>The first delivery date is right below, with "Change", so the customer doesn't go back a step to check it.</> },
+      { p: [5], text: <>"Your first box" sits at the top ("8 meals · 4 add-ons · Plan B · £00.00"), with the delivery date and "Change" right below. What they're paying for is confirmed first.</> },
       { p: [5], text: <>Wallet payment first: one tap with Face ID, no card to find and type. Card details stay below "or pay with card".</> },
       { p: [5], text: <>The button shows the amount ("Pay £00.00"), and the subscription terms are in plain English: skip or cancel any time.</> },
     ],
     note: 'I removed a "hot deals" page I\'d sketched before checkout. An extra step before payment is where people drop off.',
-    inOndo: 'Checkout: progress steps, a "Your first box" summary that expands to every line, the delivery date with a "Change" calendar, Apple Pay and Google Pay, the card form and "Pay £…". It\'s a demo: no payment is taken.',
-  },
-];
-
-// Summary matrix: which principle each screen's changes serve.
-const MATRIX = [
-  {
-    screen: "Order summary",
-    cells: [
-      "Box as a vertical list, steppers, add in place",
-      "Preferences, meals and add-ons collapse",
-      "Preferences replayed; suggestions for the goal, each with a reason",
-      'One "Add / Change items" route',
-      "Total pinned",
-    ],
-  },
-  {
-    screen: "Menu",
-    cells: [
-      "",
-      "Unavailable items collapsed, never hidden",
-      '"For you" first, says what it\'s based on',
-      "One menu, tabs, two columns, plan type on top",
-      '"View your box" bar with the total',
-    ],
-  },
-  {
-    screen: "Meal details",
-    cells: [
-      "Full page with back, not an overlay",
-      "Accordions for details on demand; allergens never collapsed",
-      '"Goes well with this"',
-      "",
-      "Box count and price pinned",
-    ],
-  },
-  {
-    screen: "Checkout",
-    cells: [
-      "",
-      "Box summary collapsed",
-      "",
-      "",
-      "Summary and date before payment; wallet pay; total on the button",
-    ],
+    inOndo: 'Checkout: "Your first box" and the delivery date come before the payment details, with Apple Pay first. It\'s a demo: no payment is taken.',
+    shot: { src: uiCheckout, alt: "Ondo checkout: 'Your first box, £25.85', first delivery Wednesday 11 November, then Pay with Apple Pay" },
   },
 ];
 
@@ -362,32 +346,44 @@ function Ondo() {
         </a>
       </CaseStudyHero>
 
+      {/* ── IN 30 SECONDS ── */}
+      <section className="od-section" id="tldr">
+        <div className="od-section-inner">
+          <p className="od-eyebrow">In 30 Seconds</p>
+          <h2 className="od-section-title">The short version</h2>
+          <div className="od-tldr-grid">
+            {TLDR.map((t) => (
+              <div className="od-tldr-card" key={t.label}>
+                <span className="od-tldr-label">{t.label}</span>
+                <h3>{t.title}</h3>
+                <p>{t.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── OVERVIEW ── */}
       <section className="od-section od-section--alt" id="overview">
         <div className="od-section-inner">
           <p className="od-eyebrow">Overview</p>
           <h2 className="od-section-title">
-            A take-home task, rebuilt so I can share it
+            A subscription's first box, where add-ons were easy to miss
           </h2>
           <p className="od-body">
             Ondo started as a take-home task from a product design interview:
-            the first box of a meal subscription, where add-ons were easy to
-            miss. I redesigned the flow in Figma and presented a working
+            the first box of a meal subscription, where customers rarely added
+            extras. I redesigned the flow in Figma and presented a working
             prototype on the day.
           </p>
-          <p className="od-body">
-            The Figma redesign was built in the company's own brand and design
-            system, under their licence, so I'm keeping those files private and
-            not naming the company. Instead, I rebuilt the same proposal under
-            an invented caffeine subscription, Ondo: new name, logo, catalogue
-            and copy. The product thinking carries over unchanged.
-          </p>
           <div className="od-callout">
-            <strong>About the visuals:</strong> the high-fidelity Figma screens
-            stay private because they carry the company's brand. The wireframes
-            on this page are brand-free low-fi versions of the original flow and
-            my redesign, and the last part of each screen shows how the same
-            idea lives in Ondo.
+            <strong>Why it's called Ondo:</strong> the original redesign used
+            the company's own brand and design system, so I'm keeping those
+            files private and not naming the company. I rebuilt the same
+            proposal under an invented caffeine subscription, Ondo. The
+            wireframes on this page are brand-free versions of the original
+            flow and my redesign, and each screen ends with how the idea looks
+            in Ondo.
           </div>
         </div>
       </section>
@@ -441,15 +437,17 @@ function Ondo() {
               Grow the box, but never at the cost of conversion
             </h2>
             <p className="od-body">
-              The goal: more items and a higher average order value (AOV) in a
-              new customer's first box. The guard rail: conversion. It's easy to
-              lift basket size with upsells and lose the customer entirely, so
-              when the two pull against each other, conversion wins.
+              The goal: <strong className="od-hl od-hl--goal">more items and a higher average order value
+              (AOV)</strong> in a new customer's first box. The guard rail:{" "}
+              <strong className="od-hl od-hl--rail">conversion</strong>. It's easy to lift basket size with
+              upsells and lose the customer entirely, so when the two pull
+              against each other, <strong className="od-hl od-hl--rail">conversion wins</strong>.
             </p>
             <p className="od-body">
-              The brief also flagged what was coming next: a third plan (Plan
-              C) and more add-on categories. The redesign had to make room for
-              both, not just fix today's screens.
+              The brief also flagged what was coming next:{" "}
+              <strong>a third plan (Plan C) and more add-on categories</strong>.
+              Each plan changes the price of every item, so the redesign had to
+              make room for both, not just fix today's screens.
             </p>
           </div>
           <div className="od-stat-stack">
@@ -476,12 +474,17 @@ function Ondo() {
         <div className="od-section-inner">
           <p className="od-eyebrow">What I Found</p>
           <h2 className="od-section-title">
-            The add-ons weren't lost in the tabs. People never got that far.
+            The add-ons really were lost in the tabs, and the shortcut to them
+            misled
           </h2>
           <p className="od-body od-body--center">
-            The company's hunch was that the tabs buried the add-ons. My read:
-            most people drop off before they ever reach the tabs. Add-ons need
-            to be where people already are, and easy to add to the basket.
+            The company's hunch was that the tabs buried the add-ons. Walking
+            the flow as a new customer confirmed it: they sit behind a button,
+            a full-screen picker and a row of tabs. It also showed a second
+            problem the brief didn't mention. The one shortcut didn't work:
+            tapping a suggested add-on on the order summary opened the whole
+            add-on menu, not the item they tapped. Add-ons need to be where
+            people already are, and easy to add to the basket.
           </p>
 
           <h3 className="od-subhead od-subhead--spaced">
@@ -584,16 +587,26 @@ function Ondo() {
 
               {s.note && <div className="od-screen-note">{s.note}</div>}
 
-              <p className="od-in-ondo">
-                <span className="od-in-ondo-tag">In Ondo</span>
-                {s.inOndo}
-              </p>
+              <div className="od-in-ondo-row">
+                <button
+                  type="button"
+                  className="od-phone-frame"
+                  onClick={() => setLightbox(s.shot)}
+                  aria-label={`Zoom into the Ondo ${s.title.toLowerCase()} screen`}
+                >
+                  <img src={s.shot.src} alt={s.shot.alt} loading="lazy" />
+                </button>
+                <p className="od-in-ondo">
+                  <span className="od-in-ondo-tag">In Ondo</span>
+                  {s.inOndo}
+                </p>
+              </div>
             </article>
           ))}
         </div>
       </section>
 
-      {/* ── SUMMARY MATRIX ── */}
+      {/* ── SUMMARY ── */}
       <section className="od-section od-section--alt" id="summary">
         <div className="od-section-inner">
           <p className="od-eyebrow">Summary</p>
@@ -603,43 +616,8 @@ function Ondo() {
             item page: filter out anything the customer can't have, then rank
             by goal, pairing and an easy first try. One set of rules means the
             suggestions never contradict each other from screen to screen.
-            Here's how those rules work.
           </p>
 
-          <div className="od-table-wrap">
-            <table className="od-table">
-              <caption className="od-sr-only">
-                Which principle each screen's changes serve
-              </caption>
-              <thead>
-                <tr>
-                  <th scope="col">Screen</th>
-                  {PRINCIPLES.map((p) => (
-                    <th scope="col" key={p.n}>
-                      <span className="od-th">
-                        <span className={`od-badge od-badge--${p.n}`} aria-hidden="true">
-                          {p.n}
-                        </span>
-                        {p.name}
-                      </span>
-                    </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {MATRIX.map((row) => (
-                  <tr key={row.screen}>
-                    <th scope="row">{row.screen}</th>
-                    {row.cells.map((c, i) => (
-                      <td key={i}>
-                        {c || <span className="od-empty" aria-label="None">·</span>}
-                      </td>
-                    ))}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
         </div>
       </section>
 
@@ -666,6 +644,21 @@ function Ondo() {
             ))}
           </ol>
 
+          <p className="od-research">
+            <strong>Why explain at all:</strong> relevant cart suggestions help
+            while irrelevant ones erode trust (Baymard Institute), and
+            recommendations that explain themselves are trusted more
+            (Herlocker, Konstan &amp; Riedl, 2000).
+          </p>
+
+          <details className="od-more">
+            <summary>
+              <span>
+                <strong>See the scoring in detail</strong>
+                <span className="od-more-sub">Points, the code, a worked example and the tests</span>
+              </span>
+            </summary>
+            <div className="od-more-body">
           <div className="od-score-grid">
             <div>
               <h3 className="od-subhead od-subhead--left">Points per signal</h3>
@@ -809,13 +802,6 @@ return catalogue
             </p>
           </div>
 
-          <p className="od-research">
-            <strong>Why explain at all:</strong> relevant cart suggestions help
-            while irrelevant ones erode trust (Baymard Institute), and
-            recommendations that explain themselves are trusted more
-            (Herlocker, Konstan &amp; Riedl, 2000).
-          </p>
-
           <div className="od-callout">
             The worked example above is one of 26 tests, alongside the hard
             filters, the tie-break and the rail that doesn't reshuffle. The
@@ -831,6 +817,8 @@ return catalogue
               See the tests →
             </a>
           </div>
+            </div>
+          </details>
         </div>
       </section>
 
@@ -904,20 +892,6 @@ return catalogue
                 Building a first box: suggestions with reasons, adding in place,
                 and a checkout that shows the box before payment.
               </p>
-              <div className="od-live-row">
-                <a
-                  href={LIVE_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="cs-btn cs-btn--solid"
-                >
-                  🟢 Try the live site
-                </a>
-                <p className="od-caption">
-                  Best on your phone. On desktop, narrow the window or open
-                  your browser's mobile view.
-                </p>
-              </div>
             </>
           ) : (
             <div className="od-callout">
@@ -932,25 +906,15 @@ return catalogue
 
       <CaseStudyReflection
         id="reflection"
-        alt
         skills={[
-          "Problem framing under a 2-day deadline",
-          "Funnel thinking: AOV vs conversion",
-          "Auditing an existing flow",
+          "Problem framing: AOV vs conversion",
           "Principle-led redesign",
-          "Progressive disclosure",
-          "Explainable recommendation rules (TypeScript, tested)",
           "Experiment design with a guard rail",
-          "Low-fi wireframing, before and after",
           "Prototyping in code",
-          "Presenting design decisions",
-          "Design tokens and theming",
-          "A documented design system in Storybook",
-          "An AI guide that keeps generated UI on-brand",
-          "Onboarding that's easy to leave",
+          "A documented design system",
           "Mapping edge cases in user flows",
         ]}
-        note="What I'd point to from this project: questioning the brief's own hunch (the tabs) before designing for it, tying every change to a named principle so the reasoning is easy to follow and easy to challenge, and treating conversion as a hard limit rather than something to trade away for basket size."
+        note="What I'd point to from this project: checking the brief's own hunch (the tabs) by walking the flow, and finding a second problem it missed, tying every change to a named principle so the reasoning is easy to follow and easy to challenge, and treating conversion as a hard limit rather than something to trade away for basket size."
         banner={
           <>
             <strong>What this shows:</strong> I can take an unfamiliar flow
@@ -959,7 +923,25 @@ return catalogue
             and come with a plan to measure whether the design actually worked.
           </>
         }
-      />
+      >
+        <div className="od-differently">
+          <h3>What I'd do differently</h3>
+          <ul>
+            <li>
+              <strong>Put it in front of people sooner.</strong> Everything here
+              is reasoned from the flow, not watched. Five sessions from
+              onboarding to checkout is the first thing I'd run, before
+              building more.
+            </li>
+            <li>
+              <strong>Start where the first box comes from.</strong> The
+              take-home began at the order summary. Designing onboarding in
+              the second week changed how I sized the box (I cut it from 30
+              days to 15), so I'd ask about it on day one.
+            </li>
+          </ul>
+        </div>
+      </CaseStudyReflection>
 
       <CaseStudyCTA
         title="Explore Ondo"
@@ -967,8 +949,6 @@ return catalogue
         buttons={[
           { label: "🟢 Live Site", href: LIVE_URL, variant: "solid", external: true },
           { label: "🎨 Design system", href: STORYBOOK_URL, variant: "outline-light", external: true },
-          { label: "📽️ Watch the walkthrough", href: "#walkthrough", variant: "outline-light" },
-          { label: "📄 Read the full story", href: STORY_URL, variant: "outline-light", external: true },
           { label: "GitHub →", href: GITHUB_URL, variant: "outline-light", external: true },
           { label: "← All Projects", href: "/portfolio", variant: "ghost" },
         ]}
