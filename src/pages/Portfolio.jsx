@@ -222,14 +222,13 @@ function StackCard({ project, index, lens, onLensChange, cardRef }) {
 }
 
 const EMAIL = "mpmookr@gmail.com";
-const CONTACT_LINES = ["Have a project in mind?", "Let's bring it to life together."];
 
 function ContactSection() {
   const sectionRef = useRef(null);
   const [visible, setVisible] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  // Reveal the headline word by word the first time the section scrolls into view.
+  // Draw the doodles the first time the band scrolls into view.
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
@@ -240,7 +239,7 @@ function ContactSection() {
           observer.disconnect();
         }
       },
-      { threshold: 0.3 }
+      { threshold: 0.4 }
     );
     observer.observe(section);
     return () => observer.disconnect();
@@ -261,8 +260,6 @@ function ContactSection() {
     }
   };
 
-  let wordIndex = 0;
-
   return (
     <section
       id="contact"
@@ -270,28 +267,23 @@ function ContactSection() {
       className={`work-contact ${visible ? "is-visible" : ""}`}
       aria-labelledby="contact-title"
     >
-      <div className="contact-card">
-        <span className="contact-blob contact-blob--lime" aria-hidden="true" />
-        <span className="contact-blob contact-blob--pink" aria-hidden="true" />
-
+      <div className="contact-band">
         <p className="contact-eyebrow">Contact</p>
         <h2 id="contact-title" className="contact-title">
-          {CONTACT_LINES.map((line, lineIndex) => (
-            <span key={line} className="contact-line">
-              {lineIndex > 0 ? " " : ""}
-              {line.split(" ").map((word, i, words) => {
-                const index = wordIndex++;
-                return (
-                  <span key={`${word}-${index}`}>
-                    <span className="contact-word" style={{ "--w": index }}>{word}</span>
-                    {i < words.length - 1 ? " " : ""}
-                  </span>
-                );
-              })}
-            </span>
-          ))}
+          Have a{" "}
+          <span className="contact-circled">
+            project
+            <svg className="contact-scribble" viewBox="0 0 200 64" preserveAspectRatio="none" aria-hidden="true">
+              <path
+                pathLength="1"
+                d="M150 10C110 2 40 4 14 20 -4 32 20 52 80 56 140 60 196 50 194 30 192 12 140 4 96 6 60 8 30 14 22 22"
+              />
+            </svg>
+          </span>{" "}
+          in mind? Let's bring it to life together.
         </h2>
 
+        {/* One action pill: the email and its copy button travel together */}
         <div className="contact-actions">
           <a href={`mailto:${EMAIL}`} className="contact-email">
             <span className="contact-email-roll">
@@ -301,16 +293,21 @@ function ContactSection() {
             <span className="contact-email-arrow" aria-hidden="true">→</span>
           </a>
           <button type="button" className={`contact-copy ${copied ? "is-copied" : ""}`} onClick={copyEmail}>
-            {copied ? "Copied" : "Copy email"}
+            {copied ? (
+              <>
+                <svg className="contact-copy-icon" viewBox="0 0 16 16" aria-hidden="true">
+                  <path d="M3 8.5l3 3 7-7" />
+                </svg>
+                Copied
+              </>
+            ) : (
+              "Copy"
+            )}
           </button>
           <span className="visually-hidden" aria-live="polite">
             {copied ? "Email address copied" : ""}
           </span>
         </div>
-
-        <a href="#work-top" className="contact-top">
-          Back to top <span aria-hidden="true">↑</span>
-        </a>
       </div>
     </section>
   );
