@@ -28,7 +28,7 @@
 /* ---- Intro ---- */
 .work-intro,
 .stack,
-.work-outro {
+.work-contact {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
@@ -167,6 +167,7 @@
 }
 
 .stack-card-face {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   align-items: center;
@@ -211,6 +212,8 @@
   padding: 3px;
   border: 1.5px solid var(--card-fg);
   border-radius: 999px;
+  position: relative;
+  z-index: 2;
 }
 
 .stack-switch-btn {
@@ -306,11 +309,30 @@
   color: var(--cta-fg);
   font-weight: var(--fw-bold);
   text-decoration: none;
+}
+
+/* Stretched link: the CTA's hit area covers the whole card, so a tap
+   anywhere opens the case study. The lens switch sits above it.
+   Don't put a transform on the CTA itself, or this layer shrinks to it. */
+.stack-card-cta::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.stack-card-cta-arrow {
+  display: inline-block;
   transition: transform 0.2s ease;
 }
 
-.stack-card-cta:hover {
+.stack-card-face:hover .stack-card-cta-arrow {
   transform: translateX(4px);
+}
+
+.stack-card-face:has(.stack-card-cta:focus-visible) {
+  outline: 3px solid var(--card-fg);
+  outline-offset: 4px;
 }
 
 .stack-card-media {
@@ -332,36 +354,207 @@
   transform: scale(1.04);
 }
 
-/* ---- Outro ---- */
-.work-outro {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  padding-top: 40px;
+/* ---- Contact ---- */
+.work-contact {
+  padding-top: 24px;
   padding-bottom: 96px;
 }
 
-.work-outro-text {
-  max-width: 620px;
-  font-family: "Madimi One", sans-serif;
-  font-size: clamp(24px, 3vw, 32px);
-  line-height: 1.2;
+.contact-card {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: 72px 64px 40px;
+  border-radius: 32px;
+  background: var(--color-black);
+  color: var(--color-bg);
+  isolation: isolate;
 }
 
-.work-outro-link {
+/* Soft shapes that drift behind the text, kept faint so contrast holds */
+.contact-blob {
+  position: absolute;
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: contact-drift 14s ease-in-out infinite alternate;
+}
+
+.contact-blob--lime {
+  width: 420px;
+  height: 420px;
+  top: -200px;
+  right: -140px;
+  background: var(--color-lime);
+  opacity: 0.22;
+}
+
+.contact-blob--pink {
+  width: 260px;
+  height: 260px;
+  bottom: -150px;
+  left: 18%;
+  background: var(--color-pink);
+  opacity: 0.2;
+  animation-duration: 18s;
+  animation-direction: alternate-reverse;
+}
+
+@keyframes contact-drift {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(-40px, 30px) scale(1.08); }
+}
+
+.contact-eyebrow {
+  font-size: 14px;
+  font-weight: var(--fw-bold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-lime);
+}
+
+.contact-title {
+  max-width: 900px;
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.contact-line {
+  display: block;
+}
+
+.contact-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.6em) rotate(4deg);
+  transition:
+    opacity 0.5s ease,
+    transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transition-delay: calc(var(--w) * 70ms);
+}
+
+.work-contact.is-visible .contact-word {
+  opacity: 1;
+  transform: none;
+}
+
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 24px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease 0.7s, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1) 0.7s;
+}
+
+.work-contact.is-visible .contact-actions {
+  opacity: 1;
+  transform: none;
+}
+
+.contact-email {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 16px;
   min-height: 48px;
-  padding: 0 24px;
+  color: var(--color-bg);
+  font-family: "Madimi One", sans-serif;
+  font-size: clamp(24px, 3.6vw, 44px);
+  text-decoration: none;
+}
+
+.contact-email:hover {
+  color: var(--color-bg);
+}
+
+/* Rolling text: a second copy waits below and slides up on hover */
+.contact-email-roll {
+  display: inline-block;
+  height: 1.25em;
+  overflow: hidden;
+  line-height: 1.25;
+  border-bottom: 2px solid var(--color-lime);
+}
+
+.contact-email-roll > span {
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.contact-email:hover .contact-email-roll > span,
+.contact-email:focus-visible .contact-email-roll > span {
+  transform: translateY(-100%);
+}
+
+.contact-email-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 50%;
+  background: var(--color-lime);
+  color: var(--color-black);
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 0.7em;
+  transform: rotate(0deg);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.contact-email:hover .contact-email-arrow,
+.contact-email:focus-visible .contact-email-arrow {
+  transform: rotate(-45deg) scale(1.1);
+}
+
+.contact-copy {
+  min-height: 48px;
+  padding: 0 22px;
+  border: 1.5px solid var(--color-bg);
   border-radius: 999px;
-  background: var(--color-black);
-  color: var(--color-white);
+  background: transparent;
+  color: var(--color-bg);
+  font-family: "Rethink Sans", sans-serif;
+  font-size: 16px;
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.contact-copy:hover {
+  background: var(--color-bg);
+  color: var(--color-black);
+}
+
+.contact-copy.is-copied {
+  border-color: var(--color-lime);
+  background: var(--color-lime);
+  color: var(--color-black);
+}
+
+.contact-top {
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  color: var(--color-bg);
   font-family: "Rethink Sans", sans-serif;
   font-weight: var(--fw-semibold);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.contact-top:hover {
+  color: var(--color-lime);
+}
+
+.work-contact :is(a, button):focus-visible {
+  outline-color: var(--color-lime);
 }
 
 /* ---- Focus ---- */
@@ -417,11 +610,57 @@
     filter: none;
   }
 
+  .contact-word,
+  .contact-actions {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .contact-blob {
+    animation: none;
+  }
+
+  .contact-email-roll > span,
+  .contact-email-arrow,
+  .contact-copy {
+    transition: none;
+  }
+
   .stack-card-media img,
-  .stack-card-cta,
+  .stack-card-cta-arrow,
   .lens-btn,
   .stack-switch-btn {
     transition: none;
+  }
+}
+
+/* ---- Tablet portrait and phone ----
+   Single-column card: image on top, lens switch on the right of the top row,
+   case study button on the right (full width on phones). Landscape tablets keep the desktop layout,
+   because a single-column card would be taller than the screen there. */
+@media (max-width: 1024px) and (orientation: portrait), (max-width: 767px) {
+  .stack-card-face {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    min-height: 0;
+  }
+
+  .stack-card-media {
+    order: -1;
+    aspect-ratio: 16 / 10;
+  }
+
+  .stack-switch {
+    margin-left: auto;
+  }
+
+  .stack-card-pitch {
+    max-width: none;
+  }
+
+  .stack-card-cta {
+    align-self: flex-end;
   }
 }
 
@@ -429,7 +668,7 @@
 @media (max-width: 767px) {
   .work-intro,
   .stack,
-  .work-outro {
+  .work-contact {
     padding-left: 16px;
     padding-right: 16px;
   }
@@ -465,15 +704,13 @@
   }
 
   .stack-card-face {
-    grid-template-columns: 1fr;
     gap: 16px;
-    min-height: 0;
     padding: 16px 16px 20px;
     border-radius: 28px;
   }
 
   .stack-card-media {
-    order: -1;
+    aspect-ratio: 4 / 3;
     border-radius: 18px;
   }
 
@@ -504,7 +741,40 @@
   }
 
   .stack-card-cta {
-    min-height: 44px;
+    align-self: stretch;
+    justify-content: center;
+    min-height: 48px;
     padding: 0 20px;
+  }
+
+  .work-contact {
+    padding-bottom: 64px;
+  }
+
+  .contact-card {
+    gap: 24px;
+    padding: 48px 20px 24px;
+    border-radius: 28px;
+  }
+
+  .contact-blob--lime {
+    width: 260px;
+    height: 260px;
+    top: -130px;
+    right: -110px;
+  }
+
+  .contact-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .contact-email {
+    justify-content: space-between;
+    font-size: clamp(20px, 6vw, 26px);
+  }
+
+  .contact-top {
+    align-self: center;
   }
 }

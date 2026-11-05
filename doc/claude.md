@@ -54,7 +54,10 @@ Mook's personal portfolio site, live at https://mooksportfolio.netlify.app/.
 
 - **Colours:** use the tokens in `index.css` (`--color-bg`, `--color-green`, `--color-lime`, `--color-pink`, `--color-red`, `--color-greenLight`, `--color-black`, `--color-white`). Don't add new hex values without a reason. Project-specific brand colours (for example LocalEdition's dark and gold) are the exception.
 - **Fonts:** Madimi One for headings, Rethink Sans for body. Both are loaded in `index.html`.
-- **Breakpoint:** mobile is `max-width: 767px`.
+- **Breakpoints:**
+  - Phone: `max-width: 767px`.
+  - Tablet portrait: `(max-width: 1024px) and (orientation: portrait)`. Combine it with the phone query when a rule applies to both, for example `@media (max-width: 1024px) and (orientation: portrait), (max-width: 767px)`.
+  - Landscape tablets use the desktop layout. On the projects page, a single-column card would be taller than a 768px screen, so the next sticky card would cover the "Read case study" button before it could be seen.
 - **CSS class prefixes:** each page CSS file uses its own prefix so styles don't leak.
 
   | Prefix | File |

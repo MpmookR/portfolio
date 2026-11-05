@@ -202,7 +202,7 @@ function StackCard({ project, index, lens, onLensChange, cardRef }) {
 
           <Link to={project.link} className="stack-card-cta">
             Read case study<span className="visually-hidden">: {project.title}</span>
-            <span aria-hidden="true">→</span>
+            <span className="stack-card-cta-arrow" aria-hidden="true">→</span>
           </Link>
         </div>
 
@@ -218,6 +218,101 @@ function StackCard({ project, index, lens, onLensChange, cardRef }) {
         </div>
       </div>
     </article>
+  );
+}
+
+const EMAIL = "mpmookr@gmail.com";
+const CONTACT_LINES = ["Have a project in mind?", "Let's bring it to life together."];
+
+function ContactSection() {
+  const sectionRef = useRef(null);
+  const [visible, setVisible] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  // Reveal the headline word by word the first time the section scrolls into view.
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!copied) return;
+    const timer = setTimeout(() => setCopied(false), 2000);
+    return () => clearTimeout(timer);
+  }, [copied]);
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(EMAIL);
+      setCopied(true);
+    } catch {
+      window.location.href = `mailto:${EMAIL}`;
+    }
+  };
+
+  let wordIndex = 0;
+
+  return (
+    <section
+      id="contact"
+      ref={sectionRef}
+      className={`work-contact ${visible ? "is-visible" : ""}`}
+      aria-labelledby="contact-title"
+    >
+      <div className="contact-card">
+        <span className="contact-blob contact-blob--lime" aria-hidden="true" />
+        <span className="contact-blob contact-blob--pink" aria-hidden="true" />
+
+        <p className="contact-eyebrow">Contact</p>
+        <h2 id="contact-title" className="contact-title">
+          {CONTACT_LINES.map((line, lineIndex) => (
+            <span key={line} className="contact-line">
+              {lineIndex > 0 ? " " : ""}
+              {line.split(" ").map((word, i, words) => {
+                const index = wordIndex++;
+                return (
+                  <span key={`${word}-${index}`}>
+                    <span className="contact-word" style={{ "--w": index }}>{word}</span>
+                    {i < words.length - 1 ? " " : ""}
+                  </span>
+                );
+              })}
+            </span>
+          ))}
+        </h2>
+
+        <div className="contact-actions">
+          <a href={`mailto:${EMAIL}`} className="contact-email">
+            <span className="contact-email-roll">
+              <span>{EMAIL}</span>
+              <span aria-hidden="true">{EMAIL}</span>
+            </span>
+            <span className="contact-email-arrow" aria-hidden="true">→</span>
+          </a>
+          <button type="button" className={`contact-copy ${copied ? "is-copied" : ""}`} onClick={copyEmail}>
+            {copied ? "Copied" : "Copy email"}
+          </button>
+          <span className="visually-hidden" aria-live="polite">
+            {copied ? "Email address copied" : ""}
+          </span>
+        </div>
+
+        <a href="#work-top" className="contact-top">
+          Back to top <span aria-hidden="true">↑</span>
+        </a>
+      </div>
+    </section>
   );
 }
 
@@ -289,12 +384,7 @@ function Portfolio() {
         ))}
       </section>
 
-      <section className="work-outro">
-        <p className="work-outro-text">Every case study has a design view and an engineering view.</p>
-        <a href="#work-top" className="work-outro-link">
-          Back to top <span aria-hidden="true">↑</span>
-        </a>
-      </section>
+      <ContactSection />
 
       <Footer />
     </main>
