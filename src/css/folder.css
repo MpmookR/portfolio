@@ -26,6 +26,29 @@
   transition: filter 0.3s ease;
 }
 
+/* Closed and open images sit in the same spot; only one is visible */
+.folder-image-stack {
+  display: grid;
+}
+
+.folder-image-stack > .folder-image {
+  grid-area: 1 / 1;
+}
+
+.folder-image--open {
+  visibility: hidden;
+}
+
+.folder-link:hover .folder-image--open,
+.folder-link:focus-visible .folder-image--open {
+  visibility: visible;
+}
+
+.folder-link:hover .folder-image--closed,
+.folder-link:focus-visible .folder-image--closed {
+  visibility: hidden;
+}
+
 .folder-label {
   font-size: clamp(10px, 2vw, 16px);
   font-family: "Madimi One", sans-serif;
