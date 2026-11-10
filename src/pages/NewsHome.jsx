@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import Footer from "../components/footer";
+import Badge from "../components/Badge";
 import "../css/newspaper.css";
 
 import portrait from "../assets/images/home/mook.jpg";
@@ -47,29 +48,6 @@ function Signature({ className }) {
         strokeWidth="26"
         strokeLinecap="round"
         strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function Badge() {
-  return (
-    <svg className="np-badge" role="img" aria-label="Design, engineer, ship" viewBox="0 0 200 200" fill="none">
-      <defs>
-        <path id="np-ring" d="M100 100 m-74 0 a74 74 0 1 1 148 0 a74 74 0 1 1 -148 0" />
-      </defs>
-      <g className="np-ring">
-        <text fontWeight="700" fontSize="17" letterSpacing="3" fill="currentColor">
-          <textPath href="#np-ring" textLength="458">DESIGN → ENGINEER → SHIP →</textPath>
-        </text>
-      </g>
-      <path
-        d="M68 132 C 80 110, 92 78, 102 74 C 108 72, 103 104, 100 114 C 106 102, 118 86, 126 88 C 134 90, 126 110, 130 116 C 134 122, 146 116, 154 108"
-        stroke="currentColor"
-        strokeWidth="4.5"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        transform="translate(-12 -2)"
       />
     </svg>
   );
@@ -325,7 +303,7 @@ function NewsHome() {
 
         {/* ===== ABOUT ===== */}
         <section id="about" className="np-section np-section--paper" aria-labelledby="about-h" tabIndex={-1}>
-          <span className="np-section-label">Section A · People</span>
+          <span className="np-section-label">Section A · About me</span>
           <h2 id="about-h" className="np-section-title np-section-title--about">FROM 0 TO 1: SHE DESIGNS IT, THEN SHIPS IT</h2>
 
           <div className="np-about">
@@ -340,6 +318,8 @@ function NewsHome() {
                   Mook brings product design and engineering together, taking ideas from user research to working
                   products.
                 </p>
+
+                <p>Her name is Puangpaka Rattana, but she goes by Mook.</p>
                 <p>
                   Her interest in design began in customer operations, where she saw how confusing digital journeys
                   affected real people. Wanting to understand how her designs could become working products, she
@@ -479,7 +459,7 @@ function NewsHome() {
 
               <div className="np-postcard-address">
                 <div className="np-postcard-top">
-                  <Badge />
+                  <Badge className="np-badge" />
                   <div className="np-stamp">
                     <div className="np-stamp-inner">
                       {Icon.code}

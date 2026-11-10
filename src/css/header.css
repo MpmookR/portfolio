@@ -1,163 +1,76 @@
-/* ---- Header ---- */
+/* ---- Case study header (components/header.jsx) ---- */
 .site-header {
-  background-color: var(--color-bg);
-  padding: 20px 60px;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background: var(--color-bg);
+  border-bottom: 2px solid var(--color-black);
 }
 
 .header-container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 0 auto;
-  width: 100%;
+  gap: 16px;
 }
 
-.logo {
-  display: flex;
+.header-back {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 4px;
+  font-family: "Rethink Sans", system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-black);
   text-decoration: none;
-  flex-shrink: 0;
 }
 
-.logo img {
-  width: clamp(40px, 8vw, 70px);
-  height: clamp(40px, 8vw, 70px);
-  transition: transform 0.3s ease;
+.header-back:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
-.logo:hover img {
-  transform: scale(1.05);
+.header-badge {
+  display: block;
+  width: 72px;
+  height: 72px;
+  color: var(--color-black);
+  border-radius: 50%;
+  transition: transform 0.2s ease;
 }
 
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  background: var(--color-green);
-  padding: 12px 36px;
-  border-radius: 99px;
-  box-shadow: 0 4px 12px rgba(24, 124, 38, 0.2);
+.header-badge:hover {
+  transform: scale(1.06);
 }
 
-.nav-link {
-  font-family: "Madimi One", sans-serif;
-  font-size: clamp(13px, 2vw, 16px);
-  font-weight: var(--fw-semibold);
-  color: var(--color-lime);
-  text-decoration: none;
-  transition: all 0.3s ease;
-  position: relative;
-  padding: 4px 0;
+.header-back:focus-visible,
+.header-badge:focus-visible {
+  outline: 3px solid var(--color-black);
+  outline-offset: 4px;
 }
 
-.nav-link::after {
-  content: "";
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--color-lime);
-  transition: width 0.3s ease;
+@media (prefers-reduced-motion: reduce) {
+  .header-badge {
+    transition: none;
+  }
+  .header-badge:hover {
+    transform: none;
+  }
 }
 
-.nav-link:hover::after,
-.nav-link.active::after {
-  width: 100%;
-}
-
-.nav-link:hover,
-.nav-link.active {
-  color: var(--color-white);
-}
-
-/* ---- Hamburger Menu Button ---- */
-.hamburger-menu {
-  display: none;
-  flex-direction: column;
-  background: none;
-  border: none;
-  cursor: pointer;
-  gap: 6px;
-  padding: 8px;
-}
-
-.hamburger-line {
-  width: 24px;
-  height: 3px;
-  background-color: var(--color-green);
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
-
-/* ---- Responsive Header ---- */
 @media (max-width: 767px) {
-  .site-header {
-    padding: 16px 16px;
-  }
-
   .header-container {
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 32px 0 16px 0;
+    padding: 6px 16px;
   }
-
-  .hamburger-menu {
-    display: flex;
-    z-index: 101;
-  }
-
-  .hamburger-menu.open .hamburger-line:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-  }
-
-  .hamburger-menu.open .hamburger-line:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger-menu.open .hamburger-line:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-  }
-
-  .nav-menu {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    gap: 0;
-    padding: 0;
-    background: var(--color-green);
-    border-radius: 0;
-    box-shadow: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-  }
-
-  .nav-menu.open {
-    max-height: 200px;
-    padding: 20px;
-    box-shadow: 0 4px 12px rgba(24, 124, 38, 0.2);
-  }
-
-  .nav-link {
-    font-size: 14px;
-    padding: 12px 0;
-    width: 100%;
-    text-align: center;
-  }
-
-  .logo img {
-    width: clamp(32px, 6vw, 50px);
-    height: clamp(32px, 6vw, 50px);
+  .header-badge {
+    width: 56px;
+    height: 56px;
   }
 }

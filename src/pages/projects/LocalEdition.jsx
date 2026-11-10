@@ -7,7 +7,6 @@ import CaseStudyReflection from "../../components/caseStudy/CaseStudyReflection"
 import Lightbox from "../../components/caseStudy/Lightbox";
 import "../../css/localedition.css";
 import localMenuWireframe from "../../assets/images/projects/Local/figmaWireframe/wireframe_filter.png";
-import localMenu from "../../assets/images/projects/Local/filter.png";
 import localHomeEN from "../../assets/images/projects/Local/eng.png";
 import localRefontBefore from "../../assets/images/projects/Local/font_before.png";
 import localRefontAfter from "../../assets/images/projects/Local/font_after.png";
