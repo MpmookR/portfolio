@@ -950,7 +950,7 @@ return catalogue
           { label: "🟢 Live Site", href: LIVE_URL, variant: "solid", external: true },
           { label: "🎨 Design system", href: STORYBOOK_URL, variant: "outline-light", external: true },
           { label: "GitHub →", href: GITHUB_URL, variant: "outline-light", external: true },
-          { label: "← All Projects", href: "/portfolio", variant: "ghost" },
+          { label: "← All Projects", href: "/#projects", variant: "ghost" },
         ]}
       />
 

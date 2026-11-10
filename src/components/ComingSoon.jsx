@@ -28,7 +28,7 @@ function ComingSoon({ badge, title, teaser }) {
 
         {teaser && <p className="coming-soon-teaser">{teaser}</p>}
 
-        <a href="/portfolio" className="coming-soon-back">
+        <a href="/#projects" className="coming-soon-back">
           ← All Projects
         </a>
       </div>

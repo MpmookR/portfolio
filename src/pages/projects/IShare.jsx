@@ -333,7 +333,7 @@ function IShare() {
           { label: "Live App →", href: "https://zippy-cranachan-12b890.netlify.app", variant: "solid", external: true },
           { label: "Frontend Repo", href: "https://github.com/MpmookR/ishare", variant: "outline-light", external: true },
           { label: "Backend Repo", href: "https://github.com/MpmookR/homeCookAPI", variant: "outline-light", external: true },
-          { label: "← All Projects", href: "/portfolio", variant: "ghost" },
+          { label: "← All Projects", href: "/#projects", variant: "ghost" },
         ]}
       />
 

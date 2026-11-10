@@ -410,7 +410,7 @@ function SoWell() {
         subtitle="Read the code or see more work."
         buttons={[
           { label: "GitHub →", href: "https://github.com/MpmookR/SoWell/tree/main", variant: "outline-light", external: true },
-          { label: "← All Projects", href: "/portfolio", variant: "ghost" },
+          { label: "← All Projects", href: "/#projects", variant: "ghost" },
         ]}
       />
 

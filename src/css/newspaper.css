@@ -1,0 +1,1188 @@
+/* ==========================================================
+   The Daily Mook: newspaper homepage
+   Uses the brand tokens from index.css. Display type is Anton
+   (headlines) and Caveat (handwriting); body is Rethink Sans.
+   ========================================================== */
+
+.np-page {
+  --np-ink: var(--color-black);
+  --np-muted: #3a3030;
+  --np-paper: var(--color-bg);
+  --np-table: var(--color-green);
+  --np-headline: "Anton", Impact, sans-serif;
+  --np-hand: "Caveat", cursive;
+  --np-body: "Rethink Sans", system-ui, sans-serif;
+  --np-serif: "Newsreader", Georgia, "Times New Roman", serif;
+
+  background: var(--np-table);
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.np {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  font-family: var(--np-body);
+  color: var(--np-ink);
+  outline: none;
+}
+
+.np a {
+  color: inherit;
+}
+
+.np p {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.np h1,
+.np h2,
+.np h3 {
+  margin: 0;
+  font-weight: 400;
+}
+
+.np-hand {
+  font-family: var(--np-hand);
+  font-weight: 700;
+}
+
+/* ---------- Shared story/link behaviour ---------- */
+.np-story {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.np-story:hover {
+  transform: translateY(-3px) rotate(-0.3deg);
+  box-shadow: 5px 7px 0 var(--np-ink);
+}
+
+.np-story:hover .np-tap {
+  text-decoration: underline;
+}
+
+.np a:focus-visible,
+.np [tabindex="-1"]:focus-visible {
+  outline: 3px solid var(--np-ink);
+  outline-offset: 4px;
+}
+
+.np-tap {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.np-more {
+  align-self: flex-start;
+  display: inline-block;
+  padding: 10px 0;
+}
+
+.np-meta {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--np-muted);
+}
+
+.np-back {
+  align-self: flex-start;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+
+/* ---------- Front page ---------- */
+.np-front {
+  position: relative;
+  overflow: hidden;
+  /* Real paper photo; the cream underneath shows while it loads */
+  background: var(--np-paper) url("../assets/images/home/paper.webp") center / cover no-repeat;
+  border-radius: 6px;
+  padding: clamp(20px, 4vw, 48px);
+  box-shadow: 0 28px 60px rgba(0, 40, 10, 0.45);
+  transform: rotate(-0.6deg);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.np-masthead {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 3px solid var(--np-ink);
+  padding-bottom: 14px;
+}
+
+.np-dateline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--np-muted);
+}
+
+.np-title {
+  font-family: var(--np-hand);
+  font-weight: 700 !important;
+  font-size: clamp(52px, 8vw, 96px);
+  line-height: 0.95;
+  text-align: center;
+}
+
+.np-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 28px;
+  border-top: 1px solid var(--np-ink);
+  padding-top: 10px;
+}
+
+.np-nav a {
+  text-decoration: none;
+  padding: 10px 4px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.np-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Three equal columns that end on the same line; see the tablet and
+   phone rules at the bottom for how they regroup. */
+.np-front-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Cards stretch to the row height; their link sits on the bottom edge */
+.np-teaser .np-tap {
+  margin-top: auto;
+}
+
+.np-lead {
+  position: relative;
+  container-type: inline-size; /* lets the headline size to this box */
+  grid-column: 1 / -1;
+  border: 2px solid var(--np-ink);
+  border-radius: 4px;
+  padding: clamp(20px, 3vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.np-kicker--tag {
+  align-self: flex-start;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--color-lime);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+/* "DESIGN × ENGINEER" is about 7em wide in Anton, so 14% of the box
+   width keeps it on one line at every screen size. */
+.np-lead-title {
+  font-family: var(--np-headline);
+  font-size: clamp(24px, 14cqi, 148px);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.np-lead-sub {
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.np-highlight {
+  background: linear-gradient(180deg, transparent 52%, var(--color-lime) 52%, var(--color-lime) 92%, transparent 92%);
+  padding: 0 4px;
+}
+
+/* Slapped on the box's top-right corner, clear of the headline */
+.np-sticker {
+  position: absolute;
+  top: -28px;
+  right: -16px;
+  width: clamp(72px, 8vw, 100px);
+  height: clamp(72px, 8vw, 100px);
+  border-radius: 50%;
+  background: var(--color-red);
+  color: var(--np-paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--np-headline);
+  font-size: clamp(15px, 1.6vw, 20px);
+  line-height: 1;
+  letter-spacing: 0.03em;
+  transform: rotate(12deg);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.np-teaser {
+  border: 2px solid var(--np-ink);
+  border-radius: 4px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--color-white);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.np-panel {
+  background: var(--color-pink);
+  border-radius: 3px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--np-ink);
+}
+
+/* Teaser panel that holds a photo instead of a doodle */
+.np-panel--photo {
+  overflow: hidden;
+  background: var(--np-ink);
+}
+
+.np-panel--photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  display: block;
+}
+
+.np-teaser-title {
+  font-family: var(--np-headline);
+  font-size: 34px;
+  line-height: 1;
+}
+
+.np-classifieds {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* The Approach grows to fill whatever height the column has left */
+.np-classifieds .np-ad--approach {
+  flex: 1;
+}
+
+.np-ad {
+  border: 2px solid var(--np-ink);
+  border-radius: 4px;
+  padding: 16px 18px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.np-ad--hire {
+  background: var(--color-lime);
+  border-style: dashed;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Right-to-work line: plain sans, bold, so recruiters can't miss it */
+.np-rtw {
+  display: block;
+  font-family: var(--np-body);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  border-top: 1px solid var(--np-ink);
+  border-bottom: 1px solid var(--np-ink);
+  padding: 6px 0;
+}
+
+.np .np-rtw--postcard {
+  align-self: flex-start;
+  font-family: var(--np-body);
+  font-size: 14px;
+  padding: 6px 12px;
+  border: 2px solid var(--np-ink);
+  border-radius: 999px;
+  background: var(--color-lime);
+}
+
+.np-ad-title {
+  font-size: 34px;
+  line-height: 1;
+}
+
+.np-ad--approach {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--color-white);
+}
+
+.np-type {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.np-type li {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.np-type-num {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-lime);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--np-body);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.np-type-ghost {
+  visibility: hidden;
+}
+
+.np-type-cursor {
+  display: inline-block;
+  width: 3px;
+  margin-right: -3px; /* takes no space, so lines never re-wrap */
+  height: 1.1em;
+  margin-bottom: -0.2em;
+  background: var(--color-red);
+  animation: np-blink 1s steps(1) infinite;
+}
+
+@keyframes np-blink {
+  50% { opacity: 0; }
+}
+
+.np-ad-shout {
+  font-family: var(--np-headline);
+  font-size: 24px;
+  letter-spacing: 0.04em;
+}
+
+/* Fold creases, on top of the front page */
+.np-fold {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 49.4%, rgba(0, 0, 0, 0.12) 50%, rgba(255, 255, 255, 0.4) 50.5%, transparent 51.2%),
+    linear-gradient(90deg, transparent 49.6%, rgba(0, 0, 0, 0.06) 50%, rgba(255, 255, 255, 0.25) 50.3%, transparent 50.9%);
+}
+
+/* ---------- Inside sections ---------- */
+.np-section {
+  background: var(--np-paper);
+  border-radius: 6px;
+  padding: clamp(24px, 4vw, 56px);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  scroll-margin-top: 24px;
+  outline: none;
+}
+
+.np-section-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--np-muted);
+  border-bottom: 3px solid var(--np-ink);
+  padding-bottom: 10px;
+}
+
+.np-section-title {
+  font-family: var(--np-headline);
+  font-size: clamp(44px, 6vw, 80px);
+  line-height: 0.95;
+}
+
+/* About */
+/* Photo narrower than the story so the two columns finish level */
+.np-about {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 36px;
+  align-items: start;
+}
+
+/* Strip under the story: two ruled newspaper columns, no boxes */
+.np-about-extras {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 3px solid var(--np-ink);
+  padding-top: 18px;
+}
+
+.np-extra {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 28px;
+}
+
+.np-extra + .np-extra {
+  border-left: 1px solid var(--np-ink);
+  padding: 0 0 0 28px;
+}
+
+.np-kicker-label {
+  font-family: var(--np-body);
+  font-size: 12px;
+  font-weight: 800 !important;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.np-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.np-figure img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* square, so it ends level with the story */
+  object-fit: cover;
+  object-position: center 85%; /* keeps face and phone in frame */
+  border: 1px solid var(--np-ink);
+  display: block;
+}
+
+.np-figure figcaption {
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--np-muted);
+  border-top: 1px solid var(--np-ink);
+  padding-top: 6px;
+}
+
+.np-about-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* About reads like an article: serif body, larger opening line */
+.np-section--paper {
+  /* the same paper photo as the front page, washed back so it stays faint */
+  background:
+    linear-gradient(rgba(255, 254, 238, 0.82), rgba(255, 254, 238, 0.82)),
+    var(--np-paper) url("../assets/images/home/paper.webp") center / cover no-repeat;
+}
+
+.np-section-title--about {
+  font-size: clamp(36px, 4.6vw, 60px);
+}
+
+.np-article {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 62ch;
+  font-family: var(--np-serif);
+  font-size: 19px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.np-article p {
+  margin: 0;
+  font-family: var(--np-serif); /* beats the global p { Rethink Sans } in index.css */
+}
+
+.np .np-article-lede {
+  font-size: clamp(22px, 2.2vw, 26px);
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+.np-toolkit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 16px;
+  border-top: 2px solid var(--np-ink);
+  border-bottom: 1px solid var(--np-ink);
+  padding: 12px 0;
+}
+
+.np-toolkit-label {
+  font-family: var(--np-body);
+  font-size: 12px;
+  font-weight: 800 !important;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.np-toolkit-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: var(--np-body);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Dot after each item (not before), so a wrapped line never starts with one */
+.np-toolkit-list li:not(:last-child)::after {
+  content: "·";
+  padding: 0 10px;
+  color: var(--np-muted);
+}
+
+/* Résumé download, in About */
+.np-resume {
+  align-items: flex-start;
+}
+
+.np-resume-text p {
+  margin: 8px 0 0;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.np-resume-btn {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  min-height: 44px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: var(--np-ink);
+  color: var(--np-paper) !important;
+  text-decoration: none;
+  font-family: var(--np-body);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: transform 0.15s ease;
+}
+
+.np-resume-btn:hover {
+  transform: translateY(-2px);
+}
+
+.np-resume-meta {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  opacity: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .np-resume-btn:hover {
+    transform: none;
+  }
+}
+
+.np-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.np-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.np-list svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Projects */
+.np-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.np-proj img {
+  filter: grayscale(1) contrast(1.05);
+  transition: filter 0.35s ease;
+  display: block;
+  width: 100%;
+  background: var(--color-white);
+  border: 1px solid var(--np-ink);
+}
+
+.np-proj:hover img,
+.np-proj:focus-visible img {
+  filter: none;
+}
+
+@media (hover: none) {
+  .np-proj img {
+    filter: none;
+  }
+}
+
+.np-feature {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 28px;
+  background: var(--color-white);
+  border-top: 2px solid var(--np-ink);
+  border-bottom: 2px solid var(--np-ink);
+  padding: 28px 24px;
+}
+
+.np-feature-text {
+  flex: 1 1 280px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.np-feature-title {
+  font-family: var(--np-headline);
+  font-size: clamp(48px, 6vw, 76px);
+  line-height: 0.92;
+}
+
+.np-feature-sub {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.np-feature img.np-feature-img {
+  flex: 2 1 420px;
+  min-width: 0;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+}
+
+.np-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.np-main-col {
+  flex: 2 1 520px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.np-slot {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.np-slot-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--np-ink);
+  padding-bottom: 6px;
+}
+
+.np-brief {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 4px;
+}
+
+.np-brief img {
+  flex: 1 1 240px;
+  min-width: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.np-brief-text {
+  flex: 1 1 220px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.np-brief-title {
+  font-family: var(--np-headline);
+  font-size: 40px;
+  line-height: 1;
+}
+
+.np-sidebar {
+  flex: 1 1 260px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-left: 1px solid var(--np-ink);
+  padding-left: 24px;
+}
+
+.np-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.np-side img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* Lens toggle: read every project as design or engineering */
+.np-lens {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+}
+
+.np-lens-label {
+  font-family: var(--np-hand);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.np-lens-toggle {
+  display: inline-flex;
+  border: 2px solid var(--np-ink);
+  border-radius: 999px;
+  padding: 3px;
+  background: var(--color-white);
+}
+
+.np-lens-btn {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--np-ink);
+  font-family: var(--np-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.np-lens-btn:hover {
+  background: var(--color-greenLight);
+}
+
+.np-lens-btn.is-active {
+  background: var(--np-ink);
+  color: var(--np-paper);
+}
+
+.np-lens-btn:focus-visible {
+  outline: 3px solid var(--np-ink);
+  outline-offset: 3px;
+}
+
+.np-lens-hint {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--np-muted);
+}
+
+.np-chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.np-chips li {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border: 1px solid var(--np-ink);
+  border-radius: 999px;
+  background: var(--color-lime);
+}
+
+.np-byline {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--np-muted);
+}
+
+.np-swap {
+  animation: np-swap-in 0.25s ease;
+}
+
+@keyframes np-swap-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+.np-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- Contact postcard ---------- */
+.np-postcard-wrap {
+  background: repeating-linear-gradient(90deg, var(--color-green) 0 14px, var(--np-paper) 14px 30px);
+  border-radius: 6px;
+  padding: clamp(28px, 6vw, 72px) clamp(16px, 5vw, 64px);
+  scroll-margin-top: 24px;
+  outline: none;
+}
+
+.np-postcard {
+  background: var(--np-paper);
+  border-radius: 8px;
+  box-shadow: 0 18px 40px rgba(0, 40, 10, 0.4);
+  transform: rotate(0.6deg);
+  padding: clamp(20px, 3.5vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.np-postcard-sides {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.np-postcard-message {
+  flex: 1 1 320px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.np-small-caps {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--np-muted);
+}
+
+.np-postcard-title {
+  font-size: clamp(54px, 7vw, 92px);
+  line-height: 0.9;
+  transform: rotate(-3deg);
+  transform-origin: left center;
+}
+
+.np-postcard-line {
+  display: block;
+}
+
+.np-postcard-note {
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 1.25;
+}
+
+.np-signoff {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-top: 6px;
+  font-size: 30px;
+  line-height: 1;
+}
+
+.np-sig {
+  width: 150px;
+  height: 99px;
+  color: var(--np-ink);
+}
+
+.np-sig-path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: np-sig-draw 7s ease-in-out infinite;
+}
+
+.np-postcard-address {
+  flex: 1 1 300px;
+  min-width: 0;
+  border-left: 1px solid var(--np-ink);
+  padding-left: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.np-postcard-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.np-badge {
+  width: 124px;
+  height: 124px;
+  flex-shrink: 0;
+  color: var(--np-ink);
+  font-family: var(--np-body);
+}
+
+.np-ring {
+  transform-box: view-box;
+  transform-origin: 100px 100px;
+  animation: np-spin 20s linear infinite;
+}
+
+.np-stamp {
+  padding: 6px;
+  background: radial-gradient(circle at 5px 5px, transparent 3px, var(--color-white) 3.5px) -5px -5px / 10px 10px;
+  filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
+  flex-shrink: 0;
+}
+
+.np-stamp-inner {
+  width: 66px;
+  height: 80px;
+  background: var(--color-red);
+  color: var(--np-paper);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family: var(--np-headline);
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-align: center;
+  white-space: nowrap;
+}
+
+.np-postcard-head {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.np-postcard-word {
+  font-size: 28px;
+  letter-spacing: 0.08em;
+  color: var(--np-muted);
+}
+
+.np-address {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.np-address li {
+  border-bottom: 1px solid var(--np-ink);
+}
+
+.np-address a {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 12px 0;
+  text-decoration: none;
+  font-size: 28px;
+  line-height: 1.1;
+}
+
+.np-address a:hover .np-address-cta {
+  text-decoration: underline;
+}
+
+.np-address-cta {
+  font-family: var(--np-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---------- Motion ---------- */
+@keyframes np-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes np-sig-draw {
+  0% { stroke-dashoffset: 1; opacity: 1; }
+  35% { stroke-dashoffset: 0; }
+  88% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .np-story,
+  .np-proj img {
+    transition: none;
+  }
+  .np-story:hover {
+    transform: none;
+  }
+  .np-ring,
+  .np-swap {
+    animation: none;
+  }
+  .np-sig-path {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ---------- Tablet: two cards side by side, ads in a row below ---------- */
+@media (max-width: 1023px) {
+  .np-front-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .np-classifieds {
+    grid-column: 1 / -1;
+    flex-direction: row;
+  }
+  .np-classifieds > * {
+    flex: 1 1 0;
+  }
+}
+
+/* ---------- Phone (matches the site's 767px breakpoint) ---------- */
+@media (max-width: 767px) {
+  .np-about,
+  .np-about-extras {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .np-extra {
+    padding-right: 0;
+  }
+  .np-extra + .np-extra {
+    border-left: none;
+    border-top: 1px solid var(--np-ink);
+    padding: 18px 0 0;
+    margin-top: 18px;
+  }
+
+  .np-front-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .np-classifieds {
+    flex-direction: column;
+  }
+
+  .np {
+    padding: 24px 12px 56px;
+    gap: 48px;
+  }
+  .np-front,
+  .np-postcard {
+    transform: none;
+  }
+  .np-sticker {
+    top: -14px;
+    right: -8px;
+    width: 62px;
+    height: 62px;
+    font-size: 12px;
+  }
+
+  .np-sidebar {
+    border-left: none;
+    padding-left: 0;
+  }
+  .np-postcard-address {
+    border-left: none;
+    padding-left: 0;
+    border-top: 1px solid var(--np-ink);
+    padding-top: 20px;
+  }
+}

@@ -361,7 +361,7 @@ function MoodBoard() {
         title="Explore MoodBoard"
         subtitle="See more of my work"
         buttons={[
-          { label: "← All Projects", href: "/portfolio", variant: "ghost" },
+          { label: "← All Projects", href: "/#projects", variant: "ghost" },
         ]}
       />
 

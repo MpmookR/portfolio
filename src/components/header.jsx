@@ -45,19 +45,11 @@ function Header() {
           >
             Home
           </Link>
-          <Link
-            to="/portfolio"
-            className={`nav-link ${isActive("/portfolio") ? "active" : ""}`}
-            onClick={closeMenu}
-          >
-            Portfolio
+          <Link to="/#projects" className="nav-link" onClick={closeMenu}>
+            Projects
           </Link>
-          <Link
-            to="/aboutme"
-            className={`nav-link ${isActive("/aboutme") ? "active" : ""}`}
-            onClick={closeMenu}
-          >
-            About Me
+          <Link to="/#about" className="nav-link" onClick={closeMenu}>
+            About
           </Link>
         </nav>
       </div>
