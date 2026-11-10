@@ -1,0 +1,23 @@
+/* Spinning badge (see components/Badge.jsx) */
+.badge {
+  display: block;
+  font-family: "Rethink Sans", system-ui, sans-serif;
+}
+
+.badge-ring {
+  transform-box: view-box;
+  transform-origin: 100px 100px;
+  animation: badge-spin 20s linear infinite;
+}
+
+@keyframes badge-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .badge-ring {
+    animation: none;
+  }
+}

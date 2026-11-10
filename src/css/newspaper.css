@@ -1013,12 +1013,6 @@
   font-family: var(--np-body);
 }
 
-.np-ring {
-  transform-box: view-box;
-  transform-origin: 100px 100px;
-  animation: np-spin 20s linear infinite;
-}
-
 .np-stamp {
   padding: 6px;
   background: radial-gradient(circle at 5px 5px, transparent 3px, var(--color-white) 3.5px) -5px -5px / 10px 10px;
@@ -1091,12 +1085,6 @@
 }
 
 /* ---------- Motion ---------- */
-@keyframes np-spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 @keyframes np-sig-draw {
   0% { stroke-dashoffset: 1; opacity: 1; }
   35% { stroke-dashoffset: 0; }
@@ -1112,7 +1100,6 @@
   .np-story:hover {
     transform: none;
   }
-  .np-ring,
   .np-swap {
     animation: none;
   }

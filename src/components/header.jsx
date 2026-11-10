@@ -1,57 +1,20 @@
-import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
-import logoOrange from "../assets/images/logo/logo_orange.svg";
+import { Link } from "react-router-dom";
+import Badge from "./Badge";
+import "../css/header.css";
 
+// Header for the case study pages, in the newspaper style:
+// left = back to the Projects section, right = the badge, back to the front page.
 function Header() {
-  const location = useLocation();
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-  const isActive = (path) => location.pathname === path;
-
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
-
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
-
   return (
     <header className="site-header">
       <div className="header-container">
-        <Link to="/" className="logo" aria-label="Mook's Portfolio logo" onClick={closeMenu}>
-          <img
-            src={logoOrange}
-            alt="Mook's Portfolio"
-          />
+        <Link to="/#projects" className="header-back">
+          <span aria-hidden="true">←</span> Projects
         </Link>
 
-        <button
-          className="hamburger-menu"
-          onClick={toggleMenu}
-          aria-label="Toggle menu"
-          aria-expanded={isMenuOpen}
-        >
-          <span className="hamburger-line"></span>
-          <span className="hamburger-line"></span>
-          <span className="hamburger-line"></span>
-        </button>
-
-        <nav className={`nav-menu ${isMenuOpen ? "open" : ""}`}>
-          <Link
-            to="/"
-            className={`nav-link ${isActive("/") ? "active" : ""}`}
-            onClick={closeMenu}
-          >
-            Home
-          </Link>
-          <Link to="/#projects" className="nav-link" onClick={closeMenu}>
-            Projects
-          </Link>
-          <Link to="/#about" className="nav-link" onClick={closeMenu}>
-            About
-          </Link>
-        </nav>
+        <Link to="/" className="header-badge" aria-label="Back to the front page">
+          <Badge label="" />
+        </Link>
       </div>
     </header>
   );
