@@ -6,7 +6,7 @@ import CaseStudyCTA from "../../components/caseStudy/CaseStudyCTA";
 import CaseStudyReflection from "../../components/caseStudy/CaseStudyReflection";
 import Lightbox from "../../components/caseStudy/Lightbox";
 import CaseStudyContents from "../../components/caseStudy/CaseStudyContents";
-import OndoWeekAfter, { PhoneShots } from "./OndoWeekAfter";
+import OndoWeekAfter from "./OndoWeekAfter";
 import uiBoxRail from "../../assets/images/projects/Ondo/mockup/box-rail.png";
 import uiShop from "../../assets/images/projects/Ondo/mockup/shop.png";
 import uiItem from "../../assets/images/projects/Ondo/mockup/item.png";

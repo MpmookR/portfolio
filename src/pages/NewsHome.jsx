@@ -303,7 +303,7 @@ function NewsHome() {
 
         {/* ===== ABOUT ===== */}
         <section id="about" className="np-section np-section--paper" aria-labelledby="about-h" tabIndex={-1}>
-          <span className="np-section-label">Section A · People</span>
+          <span className="np-section-label">Section A · About me</span>
           <h2 id="about-h" className="np-section-title np-section-title--about">FROM 0 TO 1: SHE DESIGNS IT, THEN SHIPS IT</h2>
 
           <div className="np-about">
@@ -318,6 +318,8 @@ function NewsHome() {
                   Mook brings product design and engineering together, taking ideas from user research to working
                   products.
                 </p>
+
+                <p>Her name is Puangpaka Rattana, but she goes by Mook.</p>
                 <p>
                   Her interest in design began in customer operations, where she saw how confusing digital journeys
                   affected real people. Wanting to understand how her designs could become working products, she
