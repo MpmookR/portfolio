@@ -715,7 +715,7 @@ function LocalEdition() {
             variant: "outline-light",
             external: true,
           },
-          { label: "← All Projects", href: "/portfolio", variant: "ghost" },
+          { label: "← All Projects", href: "/#projects", variant: "ghost" },
         ]}
       />
 

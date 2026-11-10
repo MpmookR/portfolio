@@ -945,7 +945,7 @@ function Sopup() {
           { label: "✈ TestFlight", href: "https://testflight.apple.com/join/duM8Wv9Q", variant: "solid", external: true },
           
           { label: "GitHub →", href: "https://github.com/MpmookR/So_Pup/tree/main/So_Pup", variant: "outline-light", external: true },
-          { label: "← All Projects", href: "/portfolio", variant: "ghost" },
+          { label: "← All Projects", href: "/#projects", variant: "ghost" },
         ]}
       />
 
