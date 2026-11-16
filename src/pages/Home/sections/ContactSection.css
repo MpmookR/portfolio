@@ -1,13 +1,36 @@
 /* Contact: the postcard */
 
-.np .np-rtw--postcard {
+/* Right to work as a red rubber stamp, pressed on at a slight angle.
+   Red on the cream card is 5.2:1, so even the small line passes AA. */
+.np .np-rtw-stamp {
   align-self: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 100%;
+  margin: 6px 0 0 4px;
+  padding: 8px 14px;
+  border: 2.5px solid var(--color-red);
+  border-radius: 4px;
+  color: var(--color-red);
+  transform: rotate(-2deg);
+}
+
+.np-rtw-stamp-label {
+  font-family: var(--np-headline);
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.np-rtw-stamp-detail {
   font-family: var(--np-body);
-  font-size: 14px;
-  padding: 6px 12px;
-  border: 2px solid var(--np-ink);
-  border-radius: 999px;
-  background: var(--color-lime);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .np-postcard-wrap {
@@ -62,10 +85,19 @@
   display: block;
 }
 
-.np-postcard-note {
+/* Handwritten note on faint ruled lines, like a real postcard. ".np" is
+   needed to beat ".np p { font-size: inherit }" in Home.css, which was
+   silently shrinking this note. The lines are a background sized to one
+   line-height, so they follow the text at any font size. */
+.np .np-postcard-note {
+  max-width: 30ch;
+  padding-bottom: 2px;
+  color: var(--np-muted); /* softer than the heading; still 11:1 on cream */
   font-weight: 600;
-  font-size: 26px;
-  line-height: 1.25;
+  font-size: 22px;
+  line-height: 1.4;
+  background-image: linear-gradient(transparent calc(100% - 1px), rgba(0, 0, 0, 0.16) 0);
+  background-size: 100% 1.4em;
 }
 
 .np-signoff {
@@ -150,9 +182,12 @@
   color: var(--np-muted);
 }
 
+/* margin-top: auto drops the address lines to the bottom of the card on
+   desktop, level with the sign-off, like a real postcard. When the sides
+   stack on a phone, there's no extra height, so it has no effect. */
 .np-address {
   list-style: none;
-  margin: 0;
+  margin: auto 0 0;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -175,6 +210,44 @@
 
 .np-address a:hover .np-address-cta {
   text-decoration: underline;
+}
+
+/* Email row: the address link takes the space, the copy button sits at the end */
+.np-address-email {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.np-address-email a {
+  flex: 1;
+  min-width: 0;
+}
+
+.np-copy {
+  flex-shrink: 0;
+  min-width: 44px;
+  min-height: 32px;
+  padding: 0 14px;
+  border: 2px solid var(--np-ink);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--np-ink);
+  font-family: var(--np-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.np-copy:hover {
+  background: var(--color-lime);
+}
+
+.np-copy:focus-visible {
+  outline: 3px solid var(--np-ink);
+  outline-offset: 3px;
 }
 
 .np-address-cta {
@@ -209,5 +282,22 @@
     padding-left: 0;
     border-top: 1px solid var(--np-ink);
     padding-top: 20px;
+  }
+  .np-address-email a {
+    font-size: 24px;
+  }
+  /* Smaller badge and stamp, so the contact links come up sooner */
+  .np-badge {
+    width: 76px;
+    height: 76px;
+  }
+  .np-stamp-inner {
+    width: 46px;
+    height: 56px;
+    font-size: 10px;
+  }
+  .np-stamp-inner svg {
+    width: 28px;
+    height: 24px;
   }
 }
