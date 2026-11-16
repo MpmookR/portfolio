@@ -146,7 +146,8 @@
   align-items: baseline;
   gap: 8px;
   min-height: 44px;
-  padding: 12px 20px;
+  padding: 10px 18px; /* 12px 20px minus the 2px border, so the size is unchanged */
+  border: 2px solid var(--np-ink);
   border-radius: 999px;
   background: var(--np-ink);
   color: var(--np-paper) !important;
@@ -156,11 +157,17 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  transition: transform 0.15s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
 }
 
-.np-resume-btn:hover {
-  transform: translateY(-2px);
+/* Same lift as the front-page teasers: turns red, tilts up, and the hard
+   black shadow reads as a thicker outline. Keyboard focus gets it too.
+   Cream text on red is 5.3:1; the red button on paper is 4.8:1. */
+.np-resume-btn:hover,
+.np-resume-btn:focus-visible {
+  background: var(--color-red);
+  transform: translateY(-3px) rotate(-0.3deg);
+  box-shadow: 4px 5px 0 var(--np-ink);
 }
 
 .np-resume-meta {
@@ -171,8 +178,20 @@
   opacity: 0.8;
 }
 
+/* At 80% the small label is only 3.9:1 on red; full opacity brings it to 5.3:1. */
+.np-resume-btn:hover .np-resume-meta,
+.np-resume-btn:focus-visible .np-resume-meta {
+  opacity: 1;
+}
+
+/* Reduced motion: no lift or tilt, but keep the colour and shadow so the
+   hover is still visible. */
 @media (prefers-reduced-motion: reduce) {
-  .np-resume-btn:hover {
+  .np-resume-btn {
+    transition: none;
+  }
+  .np-resume-btn:hover,
+  .np-resume-btn:focus-visible {
     transform: none;
   }
 }

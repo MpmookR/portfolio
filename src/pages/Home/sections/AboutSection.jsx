@@ -14,7 +14,7 @@ export default function AboutSection() {
       <div className="np-about">
         <figure className="np-figure">
           <img src={portrait} alt="Mook smiling in a diner booth, holding her phone" loading="lazy" />
-          <figcaption>Mook, phone in hand, most likely testing a build.</figcaption>
+          <figcaption>Mook, phone in hand, most likely testing a build :) </figcaption>
         </figure>
 
         <div className="np-about-body">
