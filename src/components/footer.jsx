@@ -1,10 +1,12 @@
+import { GITHUB, HEVY, LINKEDIN } from "../data/site";
+
 function Footer() {
   return (
     <footer className="footer">
       <div className="footer-content">
         <div className="social-links">
           <a
-            href="https://github.com/MpmookR"
+            href={GITHUB}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -15,7 +17,7 @@ function Footer() {
             </svg>
           </a>
           <a
-            href="https://www.linkedin.com/in/puangpaka-rattana-4608981b2"
+            href={LINKEDIN}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -26,7 +28,7 @@ function Footer() {
             </svg>
           </a>
           <a
-            href="https://hevy.com/user/mookr"
+            href={HEVY}
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Hevy"

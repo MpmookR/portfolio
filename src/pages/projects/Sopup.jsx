@@ -899,11 +899,11 @@ function Sopup() {
       </section>
 
       {/* ── WALKTHROUGH VIDEO ── */}
-      <section id="demo" className="is-section sp-section--alt">
+      <section id="demo" className="sp-section sp-section--alt">
 
-        <div className="is-section-inner">
-          <p className="is-eyebrow">Demo</p>
-          <h2 className="is-section-title">A full walkthrough of the app</h2>
+        <div className="sp-section-inner">
+          <p className="sp-eyebrow">Demo</p>
+          <h2 className="sp-section-title">A full walkthrough of the app</h2>
           <div className="cs-video-wrap">
             <iframe
               src="https://drive.google.com/file/d/1AAIfEg8c5YseLjsxqNg8goIiYoUv0zjQ/preview"

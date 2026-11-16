@@ -1,0 +1,224 @@
+/* Section A: About me */
+
+/* Photo narrower than the story so the two columns finish level */
+.np-about {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 36px;
+  align-items: start;
+}
+
+/* Strip under the story: two ruled newspaper columns, no boxes */
+.np-about-extras {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 3px solid var(--np-ink);
+  padding-top: 18px;
+}
+
+.np-extra {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 28px;
+}
+
+.np-extra + .np-extra {
+  border-left: 1px solid var(--np-ink);
+  padding: 0 0 0 28px;
+}
+
+.np-kicker-label {
+  font-family: var(--np-body);
+  font-size: 12px;
+  font-weight: 800 !important;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.np-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.np-figure img {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* square, so it ends level with the story */
+  object-fit: cover;
+  object-position: center 85%; /* keeps face and phone in frame */
+  border: 1px solid var(--np-ink);
+  display: block;
+}
+
+.np-figure figcaption {
+  font-size: 13px;
+  font-style: italic;
+  line-height: 1.4;
+  color: var(--np-muted);
+  border-top: 1px solid var(--np-ink);
+  padding-top: 6px;
+}
+
+.np-about-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* About reads like an article: serif body, larger opening line */
+.np-section--paper {
+  /* the same paper photo as the front page, washed back so it stays faint */
+  background:
+    linear-gradient(rgba(255, 254, 238, 0.82), rgba(255, 254, 238, 0.82)),
+    var(--np-paper) url("../../../assets/images/home/paper.webp") center / cover no-repeat;
+}
+
+.np-section-title--about {
+  font-size: clamp(36px, 4.6vw, 60px);
+}
+
+.np-article {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 62ch;
+  font-family: var(--np-serif);
+  font-size: 19px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.np-article p {
+  margin: 0;
+  font-family: var(--np-serif); /* beats the global p { Rethink Sans } in index.css */
+}
+
+.np .np-article-lede {
+  font-size: clamp(22px, 2.2vw, 26px);
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+.np-toolkit {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 16px;
+  border-top: 2px solid var(--np-ink);
+  border-bottom: 1px solid var(--np-ink);
+  padding: 12px 0;
+}
+
+.np-toolkit-label {
+  font-family: var(--np-body);
+  font-size: 12px;
+  font-weight: 800 !important;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.np-toolkit-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: var(--np-body);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Dot after each item (not before), so a wrapped line never starts with one */
+.np-toolkit-list li:not(:last-child)::after {
+  content: "·";
+  padding: 0 10px;
+  color: var(--np-muted);
+}
+
+/* Résumé download, in About */
+.np-resume {
+  align-items: flex-start;
+}
+
+.np-resume-text p {
+  margin: 8px 0 0;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.np-resume-btn {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 8px;
+  min-height: 44px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: var(--np-ink);
+  color: var(--np-paper) !important;
+  text-decoration: none;
+  font-family: var(--np-body);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: transform 0.15s ease;
+}
+
+.np-resume-btn:hover {
+  transform: translateY(-2px);
+}
+
+.np-resume-meta {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  opacity: 0.8;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .np-resume-btn:hover {
+    transform: none;
+  }
+}
+
+.np-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.np-list li {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.np-list svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Phone (matches the site's 767px breakpoint) */
+@media (max-width: 767px) {
+  .np-about,
+  .np-about-extras {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .np-extra {
+    padding-right: 0;
+  }
+  .np-extra + .np-extra {
+    border-left: none;
+    border-top: 1px solid var(--np-ink);
+    padding: 18px 0 0;
+    margin-top: 18px;
+  }
+}

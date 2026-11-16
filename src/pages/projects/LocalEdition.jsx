@@ -5,6 +5,7 @@ import CaseStudyHero from "../../components/caseStudy/CaseStudyHero";
 import CaseStudyCTA from "../../components/caseStudy/CaseStudyCTA";
 import CaseStudyReflection from "../../components/caseStudy/CaseStudyReflection";
 import Lightbox from "../../components/caseStudy/Lightbox";
+import CaseStudyContents from "../../components/caseStudy/CaseStudyContents";
 import "../../css/localedition.css";
 import localMenuWireframe from "../../assets/images/projects/Local/figmaWireframe/wireframe_filter.png";
 import localHomeEN from "../../assets/images/projects/Local/eng.png";
@@ -91,6 +92,23 @@ const WCAG_CONTRAST_ROWS = [
   },
 ];
 
+// Floating "Contents" panel: one entry per section, in page order.
+// Each id must match a section id below.
+const CONTENTS = [
+  {
+    items: [
+      { id: "overview", label: "Overview" },
+      { id: "problem", label: "The problem" },
+      { id: "scope", label: "Scope" },
+      { id: "data-modeling", label: "Data modeling" },
+      { id: "bilingual", label: "Bilingual" },
+      { id: "design-to-build", label: "Design to build" },
+      { id: "outcome", label: "Outcome" },
+      { id: "reflection", label: "Reflection" },
+    ],
+  },
+];
+
 function LocalEdition() {
   const [lightbox, setLightbox] = useState(null);
 
@@ -104,10 +122,12 @@ function LocalEdition() {
         onClose={() => setLightbox(null)}
       />
 
+      <CaseStudyContents groups={CONTENTS} />
+
       <CaseStudyHero {...LOCALEDITION_HERO} />
 
       {/* ── OVERVIEW ── */}
-      <section className="le-section le-section--alt">
+      <section id="overview" className="le-section le-section--alt">
         <div className="le-section-inner">
           <p className="le-eyebrow">Overview</p>
           <h2 className="le-section-title">
@@ -125,7 +145,7 @@ function LocalEdition() {
       </section>
 
       {/* ── PROBLEM ── */}
-      <section className="le-section">
+      <section id="problem" className="le-section">
         <div className="le-section-inner le-two-col">
           <div>
             <p className="le-eyebrow">The Problem</p>
@@ -174,7 +194,7 @@ function LocalEdition() {
       </section>
 
       {/* ── SCOPE DECISIONS (PD LENS) ── */}
-      <section className="le-section le-section--alt">
+      <section id="scope" className="le-section le-section--alt">
         <div className="le-section-inner">
           <p className="le-eyebrow">Scope</p>
           <h2 className="le-section-title">
@@ -259,7 +279,7 @@ function LocalEdition() {
       </section>
 
       {/* ── DATA MODELING (ENGINEER LENS) ── */}
-      <section className="le-section">
+      <section id="data-modeling" className="le-section">
         <div className="le-section-inner">
           <p className="le-eyebrow">Data Modeling</p>
           <h2 className="le-section-title">
@@ -376,7 +396,7 @@ function LocalEdition() {
       </section>
 
       {/* ── BILINGUAL UX (SHARED) ── */}
-      <section className="le-section le-section--alt">
+      <section id="bilingual" className="le-section le-section--alt">
         <div className="le-section-inner">
           <p className="le-eyebrow">Bilingual</p>
           <h2 className="le-section-title">
@@ -439,7 +459,7 @@ function LocalEdition() {
       </section>
 
       {/* ── FIGMA TO BUILD ── */}
-      <section className="le-section ">
+      <section id="design-to-build" className="le-section ">
         <div className="le-section-inner">
           <p className="le-eyebrow">Design → Build</p>
           <h2 className="le-section-title">
@@ -635,7 +655,7 @@ function LocalEdition() {
       </section>
 
       {/* ── OUTCOME (SHARED) ── */}
-      <section className="le-section le-section--alt">
+      <section id="outcome" className="le-section le-section--alt">
         <div className="le-section-inner">
           <p className="le-eyebrow">Outcome</p>
           <h2 className="le-section-title">
@@ -669,6 +689,7 @@ function LocalEdition() {
       </section>
 
       <CaseStudyReflection
+        id="reflection"
         skills={[
           "Client discovery → product scoping (solo)",
           "Content modeling (Sanity CMS, typed GROQ + TypeGen)",

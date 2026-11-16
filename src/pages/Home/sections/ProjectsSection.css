@@ -1,0 +1,261 @@
+/* Section B: Projects, with the design / engineering lens toggle */
+
+.np-projects {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.np-proj img {
+  filter: grayscale(1) contrast(1.05);
+  transition: filter 0.35s ease;
+  display: block;
+  width: 100%;
+  background: var(--color-white);
+  border: 1px solid var(--np-ink);
+}
+
+.np-proj:hover img,
+.np-proj:focus-visible img {
+  filter: none;
+}
+
+@media (hover: none) {
+  .np-proj img {
+    filter: none;
+  }
+}
+
+.np-feature {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 28px;
+  background: var(--color-white);
+  border-top: 2px solid var(--np-ink);
+  border-bottom: 2px solid var(--np-ink);
+  padding: 28px 24px;
+}
+
+.np-feature-text {
+  flex: 1 1 280px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.np-feature-title {
+  font-family: var(--np-headline);
+  font-size: clamp(48px, 6vw, 76px);
+  line-height: 0.92;
+}
+
+.np-feature-sub {
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.np-feature img.np-feature-img {
+  flex: 2 1 420px;
+  min-width: 0;
+  aspect-ratio: 16 / 10;
+  object-fit: contain;
+}
+
+.np-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+
+.np-main-col {
+  flex: 2 1 520px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.np-slot {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.np-slot-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--np-ink);
+  padding-bottom: 6px;
+}
+
+.np-brief {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 4px;
+}
+
+.np-brief img {
+  flex: 1 1 240px;
+  min-width: 0;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.np-brief-text {
+  flex: 1 1 220px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.np-brief-title {
+  font-family: var(--np-headline);
+  font-size: 40px;
+  line-height: 1;
+}
+
+.np-sidebar {
+  flex: 1 1 260px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-left: 1px solid var(--np-ink);
+  padding-left: 24px;
+}
+
+.np-side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 4px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.np-side img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+/* Lens toggle: read every project as design or engineering */
+.np-lens {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 16px;
+}
+
+.np-lens-label {
+  font-family: var(--np-hand);
+  font-weight: 700;
+  font-size: 26px;
+  line-height: 1;
+}
+
+.np-lens-toggle {
+  display: inline-flex;
+  border: 2px solid var(--np-ink);
+  border-radius: 999px;
+  padding: 3px;
+  background: var(--color-white);
+}
+
+.np-lens-btn {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--np-ink);
+  font-family: var(--np-body);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.np-lens-btn:hover {
+  background: var(--color-greenLight);
+}
+
+.np-lens-btn.is-active {
+  background: var(--np-ink);
+  color: var(--np-paper);
+}
+
+.np-lens-btn:focus-visible {
+  outline: 3px solid var(--np-ink);
+  outline-offset: 3px;
+}
+
+.np-lens-hint {
+  font-size: 14px;
+  font-style: italic;
+  color: var(--np-muted);
+}
+
+.np-chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.np-chips li {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  padding: 4px 10px;
+  border: 1px solid var(--np-ink);
+  border-radius: 999px;
+  background: var(--color-lime);
+}
+
+.np-byline {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--np-muted);
+}
+
+.np-swap {
+  animation: np-swap-in 0.25s ease;
+}
+
+@keyframes np-swap-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .np-proj img {
+    transition: none;
+  }
+  .np-swap {
+    animation: none;
+  }
+}
+
+/* Phone (matches the site's 767px breakpoint) */
+@media (max-width: 767px) {
+  .np-sidebar {
+    border-left: none;
+    padding-left: 0;
+  }
+}
