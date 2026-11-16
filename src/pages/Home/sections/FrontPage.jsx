@@ -5,7 +5,7 @@ import teaserPortrait from "../../../assets/images/home/mook-censored.jpg";
 import teaserProject from "../../../assets/images/home/teaser-project.png";
 import "./FrontPage.css";
 
-const APPROACH = ["Understand the problem.", "Design the experience.", "Build it. Test it. Improve it."];
+const APPROACH = ["Understand the problem", "Design the experience", "Build it. Test it. Improve it"];
 
 // The paper texture is a background image (see .np-front in FrontPage.css);
 // this only adds the two fold creases on top.
@@ -55,7 +55,7 @@ export default function FrontPage() {
             <img src={teaserPortrait} alt="Mook in a diner booth, eyes hidden behind a black bar that says Censored" />
           </div>
           <h3 className="np-teaser-title">FROM 0 TO 1: SHE DESIGNS IT, THEN SHIPS IT</h3>
-          <p>Meet Mook, a designer and developer who takes products from user research to the App Store.</p>
+          <p>Meet Mook, a designer and developer who takes products from user research to the App Store</p>
           <span className="np-tap">About me →</span>
         </Jump>
 
@@ -64,14 +64,14 @@ export default function FrontPage() {
             <img src={teaserProject} alt="Mook in a diner booth, eyes hidden behind a black bar that says Censored" />
           </div>              
           <h3 className="np-teaser-title">FOUR PROJECTS SHIP, NOBODY PANICS</h3>
-          <p>SoPup, Ondo, Local Edition and MoodBoard: case studies with the research, the decisions and the code.</p>
+          <p>SoPup, Ondo, Local Edition and MoodBoard: case studies with the research, the decisions and the code</p>
           <span className="np-tap">See projects →</span>
         </Jump>
 
         <div className="np-classifieds">
           <Jump to="contact" className="np-story np-ad np-ad--hire">
             <span className="np-hand np-ad-title">Hiring?</span>
-            <span>Product engineer, frontend or product designer roles. Inquire within.</span>
+            <span>Product designer, Product engineer, or frontend developer roles. Inquire within</span>
             <span className="np-rtw">{RIGHT_TO_WORK}</span>
             <span className="np-tap">Contact →</span>
           </Jump>
