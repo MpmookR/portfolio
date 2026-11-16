@@ -10,7 +10,7 @@ export default function ProjectsSection() {
   const [lens, setLens] = useState("design");
 
   return (
-    <section id="projects" className="np-section" aria-labelledby="projects-h" tabIndex={-1}>
+    <section id="projects" className="np-section np-section--paper" aria-labelledby="projects-h" tabIndex={-1}>
       <span className="np-section-label">Section B · Projects</span>
       <h2 id="projects-h" className="np-section-title">FOUR PROJECTS SHIP, NOBODY PANICS</h2>
 

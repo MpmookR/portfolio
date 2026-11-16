@@ -68,13 +68,6 @@
 }
 
 /* About reads like an article: serif body, larger opening line */
-.np-section--paper {
-  /* the same paper photo as the front page, washed back so it stays faint */
-  background:
-    linear-gradient(rgba(255, 254, 238, 0.82), rgba(255, 254, 238, 0.82)),
-    var(--np-paper) url("../../../assets/images/home/paper.webp") center / cover no-repeat;
-}
-
 .np-section-title--about {
   font-size: clamp(36px, 4.6vw, 60px);
 }

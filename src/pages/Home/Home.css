@@ -147,6 +147,15 @@
   line-height: 0.95;
 }
 
+/* Paper texture for a section (About, Projects), matching the front page.
+   It repeats at the photo's own size instead of "cover", so tall sections
+   keep a fine grain rather than stretching it 2-3x on phones.
+   Contrast on the darkest grain: black text above 17:1, muted above 10:1.
+   Small green text drops to about 4.4:1, so keep it off this background. */
+.np-section--paper {
+  background: var(--np-paper) url("../../assets/images/home/paper.webp") top center / 1536px auto repeat;
+}
+
 .np-visually-hidden {
   position: absolute;
   width: 1px;

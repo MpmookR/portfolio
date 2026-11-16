@@ -26,12 +26,23 @@
   }
 }
 
+/* Cards sit straight on the paper. Hovering or tabbing to one lifts it off
+   as a white clipping, so keyboard users get the same cue as mouse users.
+   At rest (and on touch screens, which have no hover) the text is black on
+   paper, well above 4.5:1. */
+.np-proj:hover,
+.np-proj:focus-visible {
+  background: var(--color-white);
+}
+
 .np-feature {
   display: flex;
-  flex-wrap: wrap;
+  /* Side by side when there's room (text left, image right). When it no
+     longer fits, wrap-reverse stacks the image on top, matching the other
+     project cards on small screens, without a breakpoint or JSX change. */
+  flex-wrap: wrap-reverse;
   align-items: center;
   gap: 28px;
-  background: var(--color-white);
   border-top: 2px solid var(--np-ink);
   border-bottom: 2px solid var(--np-ink);
   padding: 28px 24px;
