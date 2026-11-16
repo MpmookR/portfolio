@@ -1,0 +1,174 @@
+/* ==========================================================
+   The Daily Mook: newspaper homepage, shared styles
+   Tokens and rules every section uses (page, story links, section
+   frame, right-to-work line). Each section's own styles sit next to
+   it in ./sections. Uses the brand tokens from index.css. Display
+   type is Anton (headlines) and Caveat (handwriting); body is
+   Rethink Sans.
+   ========================================================== */
+
+.np-page {
+  --np-ink: var(--color-black);
+  --np-muted: #3a3030;
+  --np-paper: var(--color-bg);
+  --np-table: var(--color-green);
+  --np-headline: "Anton", Impact, sans-serif;
+  --np-hand: "Caveat", cursive;
+  --np-body: "Rethink Sans", system-ui, sans-serif;
+  --np-serif: "Newsreader", Georgia, "Times New Roman", serif;
+
+  background: var(--np-table);
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.np {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 48px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 72px;
+  font-family: var(--np-body);
+  color: var(--np-ink);
+  outline: none;
+}
+
+.np a {
+  color: inherit;
+}
+
+.np p {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.np h1,
+.np h2,
+.np h3 {
+  margin: 0;
+  font-weight: 400;
+}
+
+.np-hand {
+  font-family: var(--np-hand);
+  font-weight: 700;
+}
+
+.np-story {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.np-story:hover {
+  transform: translateY(-3px) rotate(-0.3deg);
+  box-shadow: 5px 7px 0 var(--np-ink);
+}
+
+.np-story:hover .np-tap {
+  text-decoration: underline;
+}
+
+.np a:focus-visible,
+.np [tabindex="-1"]:focus-visible {
+  outline: 3px solid var(--np-ink);
+  outline-offset: 4px;
+}
+
+.np-tap {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.np-more {
+  align-self: flex-start;
+  display: inline-block;
+  padding: 10px 0;
+}
+
+.np-meta {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--np-muted);
+}
+
+.np-back {
+  align-self: flex-start;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 10px 0;
+}
+
+/* Right-to-work line: plain sans, bold, so recruiters can't miss it */
+.np-rtw {
+  display: block;
+  font-family: var(--np-body);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+  border-top: 1px solid var(--np-ink);
+  border-bottom: 1px solid var(--np-ink);
+  padding: 6px 0;
+}
+
+.np-section {
+  background: var(--np-paper);
+  border-radius: 6px;
+  padding: clamp(24px, 4vw, 56px);
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  scroll-margin-top: 24px;
+  outline: none;
+}
+
+.np-section-label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--np-muted);
+  border-bottom: 3px solid var(--np-ink);
+  padding-bottom: 10px;
+}
+
+.np-section-title {
+  font-family: var(--np-headline);
+  font-size: clamp(44px, 6vw, 80px);
+  line-height: 0.95;
+}
+
+.np-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .np-story {
+    transition: none;
+  }
+  .np-story:hover {
+    transform: none;
+  }
+}
+
+/* Phone (matches the site's 767px breakpoint) */
+@media (max-width: 767px) {
+  .np {
+    padding: 24px 12px 56px;
+    gap: 48px;
+  }
+}

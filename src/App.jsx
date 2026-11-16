@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate, useLocation } from "react-router-dom";
-import NewsHome from "./pages/NewsHome";
+import Home from "./pages/Home/Home";
 import Sopup from "./pages/projects/Sopup";
 import MoodBoard from "./pages/projects/MoodBoard";
 import LocalEdition from "./pages/projects/LocalEdition";
@@ -20,7 +20,7 @@ function AppRoutes() {
   return (
     <div key={location.key} className="page-transition">
       <Routes>
-        <Route path="/" element={<NewsHome />} />
+        <Route path="/" element={<Home />} />
         {/* Projects now live on the homepage; keep old links working. */}
         <Route path="/portfolio" element={<Navigate to="/#projects" replace />} />
         {/* The old About page and résumé now live in the homepage About section. */}

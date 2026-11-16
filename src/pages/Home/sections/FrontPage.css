@@ -1,0 +1,326 @@
+/* Front page: masthead, lead story, teasers and classifieds */
+
+.np-front {
+  position: relative;
+  overflow: hidden;
+  /* Real paper photo; the cream underneath shows while it loads */
+  background: var(--np-paper) url("../../../assets/images/home/paper.webp") center / cover no-repeat;
+  border-radius: 6px;
+  padding: clamp(20px, 4vw, 48px);
+  box-shadow: 0 28px 60px rgba(0, 40, 10, 0.45);
+  transform: rotate(-0.6deg);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.np-masthead {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-bottom: 3px solid var(--np-ink);
+  padding-bottom: 14px;
+}
+
+.np-dateline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--np-muted);
+}
+
+.np-title {
+  font-family: var(--np-hand);
+  font-weight: 700 !important;
+  font-size: clamp(52px, 8vw, 96px);
+  line-height: 0.95;
+  text-align: center;
+}
+
+.np-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 28px;
+  border-top: 1px solid var(--np-ink);
+  padding-top: 10px;
+}
+
+.np-nav a {
+  text-decoration: none;
+  padding: 10px 4px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.np-nav a:hover {
+  text-decoration: underline;
+}
+
+/* Three equal columns that end on the same line; see the tablet and
+   phone rules at the bottom for how they regroup. */
+.np-front-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+/* Cards stretch to the row height; their link sits on the bottom edge */
+.np-teaser .np-tap {
+  margin-top: auto;
+}
+
+.np-lead {
+  position: relative;
+  container-type: inline-size; /* lets the headline size to this box */
+  grid-column: 1 / -1;
+  border: 2px solid var(--np-ink);
+  border-radius: 4px;
+  padding: clamp(20px, 3vw, 36px);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.np-kicker--tag {
+  align-self: flex-start;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: var(--color-lime);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+/* "DESIGN × ENGINEER" is about 7em wide in Anton, so 14% of the box
+   width keeps it on one line at every screen size. */
+.np-lead-title {
+  font-family: var(--np-headline);
+  font-size: clamp(24px, 14cqi, 148px);
+  line-height: 0.9;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.np-lead-sub {
+  font-size: clamp(26px, 3vw, 36px);
+  font-weight: 600;
+  line-height: 1.1;
+}
+
+.np-highlight {
+  background: linear-gradient(180deg, transparent 52%, var(--color-lime) 52%, var(--color-lime) 92%, transparent 92%);
+  padding: 0 4px;
+}
+
+/* Slapped on the box's top-right corner, clear of the headline */
+.np-sticker {
+  position: absolute;
+  top: -28px;
+  right: -16px;
+  width: clamp(72px, 8vw, 100px);
+  height: clamp(72px, 8vw, 100px);
+  border-radius: 50%;
+  background: var(--color-red);
+  color: var(--np-paper);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: var(--np-headline);
+  font-size: clamp(15px, 1.6vw, 20px);
+  line-height: 1;
+  letter-spacing: 0.03em;
+  transform: rotate(12deg);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.np-teaser {
+  border: 2px solid var(--np-ink);
+  border-radius: 4px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--color-white);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.np-panel {
+  background: var(--color-pink);
+  border-radius: 3px;
+  height: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--np-ink);
+}
+
+/* Teaser panel that holds a photo instead of a doodle */
+.np-panel--photo {
+  overflow: hidden;
+  background: var(--np-ink);
+}
+
+.np-panel--photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 42%;
+  display: block;
+}
+
+.np-teaser-title {
+  font-family: var(--np-headline);
+  font-size: 34px;
+  line-height: 1;
+}
+
+.np-classifieds {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* The Approach grows to fill whatever height the column has left */
+.np-classifieds .np-ad--approach {
+  flex: 1;
+}
+
+.np-ad {
+  border: 2px solid var(--np-ink);
+  border-radius: 4px;
+  padding: 16px 18px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.np-ad--hire {
+  background: var(--color-lime);
+  border-style: dashed;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.np-ad-title {
+  font-size: 34px;
+  line-height: 1;
+}
+
+.np-ad--approach {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--color-white);
+}
+
+.np-type {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.np-type li {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.np-type-num {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-lime);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--np-body);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.np-type-ghost {
+  visibility: hidden;
+}
+
+.np-type-cursor {
+  display: inline-block;
+  width: 3px;
+  margin-right: -3px; /* takes no space, so lines never re-wrap */
+  height: 1.1em;
+  margin-bottom: -0.2em;
+  background: var(--color-red);
+  animation: np-blink 1s steps(1) infinite;
+}
+
+@keyframes np-blink {
+  50% { opacity: 0; }
+}
+
+.np-ad-shout {
+  font-family: var(--np-headline);
+  font-size: 24px;
+  letter-spacing: 0.04em;
+}
+
+/* Fold creases, on top of the front page */
+.np-fold {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, transparent 49.4%, rgba(0, 0, 0, 0.12) 50%, rgba(255, 255, 255, 0.4) 50.5%, transparent 51.2%),
+    linear-gradient(90deg, transparent 49.6%, rgba(0, 0, 0, 0.06) 50%, rgba(255, 255, 255, 0.25) 50.3%, transparent 50.9%);
+}
+
+/* Tablet: two cards side by side, ads in a row below */
+@media (max-width: 1023px) {
+  .np-front-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .np-classifieds {
+    grid-column: 1 / -1;
+    flex-direction: row;
+  }
+  .np-classifieds > * {
+    flex: 1 1 0;
+  }
+}
+
+/* Phone (matches the site's 767px breakpoint) */
+@media (max-width: 767px) {
+  .np-front-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .np-classifieds {
+    flex-direction: column;
+  }
+  .np-front {
+    transform: none;
+  }
+  .np-sticker {
+    top: -14px;
+    right: -8px;
+    width: 62px;
+    height: 62px;
+    font-size: 12px;
+  }
+}
