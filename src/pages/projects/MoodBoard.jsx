@@ -5,6 +5,7 @@ import CaseStudyHero from "../../components/caseStudy/CaseStudyHero";
 import CaseStudyCTA from "../../components/caseStudy/CaseStudyCTA";
 import CaseStudyReflection from "../../components/caseStudy/CaseStudyReflection";
 import Lightbox from "../../components/caseStudy/Lightbox";
+import CaseStudyContents from "../../components/caseStudy/CaseStudyContents";
 import "../../css/moodboard.css";
 import moodboardIntro from "../../assets/images/projects/MoodBoard/intro.png";
 import moodboardOnboardingBefore from "../../assets/images/projects/MoodBoard/onboarding_before.png";
@@ -27,6 +28,20 @@ const MOODBOARD_HERO = {
   ],
 };
 
+// Floating "Contents" panel: one entry per section, in page order.
+// Each id must match a section id below.
+const CONTENTS = [
+  {
+    items: [
+      { id: "overview", label: "Overview" },
+      { id: "problem", label: "The problem" },
+      { id: "research", label: "Research" },
+      { id: "redesign", label: "Redesign" },
+      { id: "reflection", label: "Reflection" },
+    ],
+  },
+];
+
 function MoodBoard() {
   
   const [lightbox, setLightbox] = useState(null);
@@ -42,10 +57,12 @@ function MoodBoard() {
       />
 
 
+      <CaseStudyContents groups={CONTENTS} />
+
       <CaseStudyHero {...MOODBOARD_HERO} />
 
       {/* ── OVERVIEW ── */}
-      <section className="mb-section mb-section--alt">
+      <section id="overview" className="mb-section mb-section--alt">
         <div className="mb-section-inner">
           <p className="mb-eyebrow">Overview</p>
           <h2 className="mb-section-title">Two phases · One cleaner product</h2>
@@ -56,7 +73,7 @@ function MoodBoard() {
       </section>
 
       {/* ── PROBLEM ── */}
-      <section className="mb-section">
+      <section id="problem" className="mb-section">
         <div className="mb-section-inner">
           <p className="mb-eyebrow">The Problem</p>
           <h2 className="mb-section-title">Friction in the two most critical flows</h2>
@@ -90,7 +107,7 @@ function MoodBoard() {
       </section>
 
       {/* ── RESEARCH ── */}
-      <section className="mb-section mb-section--alt">
+      <section id="research" className="mb-section mb-section--alt">
         <div className="mb-section-inner">
           <p className="mb-eyebrow">Research</p>
           <h2 className="mb-section-title">Validating pain points before redesigning</h2>
@@ -140,7 +157,7 @@ function MoodBoard() {
       </section>
 
       {/* ── UX IMPROVEMENTS ── */}
-      <section className="mb-section">
+      <section id="redesign" className="mb-section">
         <div className="mb-section-inner">
           <p className="mb-eyebrow">Redesign</p>
           <h2 className="mb-section-title">Three improvements, one better journey</h2>
@@ -338,6 +355,7 @@ function MoodBoard() {
       </section>
 
       <CaseStudyReflection
+        id="reflection"
         alt
         skills={[
           "Freelance client collaboration",
